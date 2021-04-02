@@ -52,9 +52,11 @@ class TableauTiled extends Tableau{
         this.calquesTest.setCollisionByProperty({ collides: true });
 
 
+        //TEST MATTER
+        //this.matter.add.image(spawnPoint.x, spawnPoint.y - 100, 'star', null, { isStatic: true });
 
-        //Permet d'utiliser l'éditeur de collision de Tiled...mais ne semble pas marcher pas avec le moteur de physique ARCADE, donc oubliez cette option :(
-        //this.map.setCollisionFromCollisionGroup(true,true,this.plateformesSimples);
+
+
 
         //----------les étoiles (objets) ---------------------
 

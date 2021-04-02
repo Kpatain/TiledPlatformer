@@ -9,6 +9,7 @@ class Tableau extends Phaser.Scene{
      */
     constructor(key) {
         super(key);
+
     }
 
     /**

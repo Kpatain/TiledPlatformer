@@ -164,13 +164,9 @@ class Player2 extends Phaser.Physics.Arcade.Sprite{
         }
          */
 
-
-        //this.emitter.setRotation(180 - 180/Math.PI * Phaser.Math.Angle.Between(ui.pad.circleDrag.x,ui.pad.circleDrag.y,1,1));
-        //this.forcePrtc = 1.9 * Math.sqrt(Math.pow(ui.pad.circleDrag.x,2) + Math.pow(ui.pad.circleDrag.y,2));
         this.emmiter.speedX.propertyValue = ui.pad.circleDrag.x*-3.5 ;
         this.emmiter.speedY.propertyValue = ui.pad.circleDrag.y*-4.5 ;
 
-        //Phaser.Physics.Arcade.collider(this.emitter);
 
 
     }
