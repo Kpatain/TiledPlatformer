@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="28" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="23">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="28" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="35">
  <editorsettings>
   <export target="tableauTiled.json" format="json"/>
  </editorsettings>
  <tileset firstgid="1" name="tableauTiledTileset" tilewidth="32" tileheight="32" tilecount="98" columns="14">
-  <image source="tableauTiledTileset.png" width="448" height="224"/>
+  <image source="../../../platformer/assets/tilemaps/tableauTiledTileset.png" width="448" height="224"/>
   <tile id="0">
    <properties>
     <property name="collides" type="bool" value="true"/>
@@ -173,6 +173,61 @@
  </layer>
  <objectgroup id="2" name="point">
   <object id="1" name="Player" x="463.774" y="916.744">
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup id="4" name="checkPoint">
+  <properties>
+   <property name="numb" type="int" value="0"/>
+  </properties>
+  <object id="24" x="700.415" y="1238.24">
+   <properties>
+    <property name="numb" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup id="5" name="checkPoint1">
+  <properties>
+   <property name="numb" type="int" value="1"/>
+  </properties>
+  <object id="28" x="202.415" y="1014.24">
+   <properties>
+    <property name="numb" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup id="6" name="checkPoint2">
+  <properties>
+   <property name="numb" type="int" value="2"/>
+  </properties>
+  <object id="30" x="676.415" y="956.24">
+   <properties>
+    <property name="numb" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup id="7" name="checkPoint3">
+  <properties>
+   <property name="numb" type="int" value="3"/>
+  </properties>
+  <object id="32" x="596.415" y="603.24">
+   <properties>
+    <property name="numb" type="int" value="0"/>
+   </properties>
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup id="8" name="checkPoint4">
+  <properties>
+   <property name="numb" type="int" value="4"/>
+  </properties>
+  <object id="34" x="206.415" y="309.24">
+   <properties>
+    <property name="numb" type="int" value="0"/>
+   </properties>
    <point/>
   </object>
  </objectgroup>

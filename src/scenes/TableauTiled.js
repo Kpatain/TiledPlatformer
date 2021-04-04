@@ -18,6 +18,7 @@ class TableauTiled extends Tableau{
 
     create() {
         super.create();
+        let ici =this;
 
         //notre map
         this.map = this.make.tilemap({ key: 'map' });
@@ -76,6 +77,38 @@ class TableauTiled extends Tableau{
         });
         **/
 
+        // CHEQUE POINT
+        this.checkPoint = this.physics.add.group({
+            allowGravity: false,
+            immovable:false
+        });
+
+        this.checkPointsObjects = this.map.getObjectLayer('checkPoint')['objects'];
+        this.checkPointsObjects.forEach(checkPointsObject => {
+            console.log(checkPointsObject.properties[0].value);
+            let cP = new checkPoint(
+                this,
+                checkPointsObject.x,
+                checkPointsObject.y,
+                'star',
+                checkPointsObject.properties[0].value
+            );
+            this.physics.add.overlap(this.player, cP, function()
+            {
+                cP.savePos();
+            });
+
+            let playerPos = cP.loadPos();
+
+            if(playerPos)
+            {
+                ici.player.setPosition(playerPos.x, playerPos.y - 64);
+            }
+            console.log(playerPos);
+
+        })
+
+
 
         //----------débug---------------------
 
@@ -103,6 +136,7 @@ class TableauTiled extends Tableau{
         //on définit les z à la fin
         this.sky.setDepth(5);
         this.calquesTest.setDepth(10);
+        this.checkPoint.setDepth(11);
         //this.player.scene.starsFxContainer.setDepth(19);
         this.player.setDepth(20)
         this.stars.setDepth(22);
