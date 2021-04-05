@@ -20,8 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd5a153c-ac13-4bff-add4-ca49dca9723d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/objects/checkPoint.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/objects/checkPoint" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/checkPoint.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +73,7 @@
       <workItem from="1617350129905" duration="5844000" />
       <workItem from="1617466027509" duration="1860000" />
       <workItem from="1617467912411" duration="2899000" />
-      <workItem from="1617626233594" duration="662000" />
+      <workItem from="1617626233594" duration="933000" />
     </task>
     <servers />
   </component>
@@ -92,9 +93,9 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="684" y="342" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1617466088909">
+    <state x="684" y="342" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1617627153415">
       <screen x="0" y="0" width="1858" height="1080" />
     </state>
-    <state x="684" y="342" key="#com.intellij.fileTypes.FileTypeChooser/-1920.0.1858.1080/1920.184.1920.1040/0.0.1858.1080@0.0.1858.1080" timestamp="1617466088909" />
+    <state x="684" y="342" key="#com.intellij.fileTypes.FileTypeChooser/-1920.0.1858.1080/1920.184.1920.1040/0.0.1858.1080@0.0.1858.1080" timestamp="1617627153415" />
   </component>
 </project>
