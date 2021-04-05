@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="28" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="35">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="28" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="11" nextobjectid="38">
  <editorsettings>
   <export target="tableauTiled.json" format="json"/>
  </editorsettings>
@@ -182,51 +182,25 @@
   </properties>
   <object id="24" x="700.415" y="1238.24">
    <properties>
-    <property name="numb" type="int" value="0"/>
+    <property name="numb" type="int" value="1"/>
    </properties>
    <point/>
   </object>
- </objectgroup>
- <objectgroup id="5" name="checkPoint1">
-  <properties>
-   <property name="numb" type="int" value="1"/>
-  </properties>
-  <object id="28" x="202.415" y="1014.24">
+  <object id="35" x="242.64" y="1002.68">
+   <properties>
+    <property name="num 2" type="int" value="2"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="36" x="244.425" y="1359.5">
    <properties>
     <property name="numb" type="int" value="0"/>
    </properties>
    <point/>
   </object>
- </objectgroup>
- <objectgroup id="6" name="checkPoint2">
-  <properties>
-   <property name="numb" type="int" value="2"/>
-  </properties>
-  <object id="30" x="676.415" y="956.24">
+  <object id="37" x="699.376" y="943.8">
    <properties>
-    <property name="numb" type="int" value="0"/>
-   </properties>
-   <point/>
-  </object>
- </objectgroup>
- <objectgroup id="7" name="checkPoint3">
-  <properties>
-   <property name="numb" type="int" value="3"/>
-  </properties>
-  <object id="32" x="596.415" y="603.24">
-   <properties>
-    <property name="numb" type="int" value="0"/>
-   </properties>
-   <point/>
-  </object>
- </objectgroup>
- <objectgroup id="8" name="checkPoint4">
-  <properties>
-   <property name="numb" type="int" value="4"/>
-  </properties>
-  <object id="34" x="206.415" y="309.24">
-   <properties>
-    <property name="numb" type="int" value="0"/>
+    <property name="numb" type="int" value="3"/>
    </properties>
    <point/>
   </object>

@@ -61,14 +61,68 @@
                         {
                          "name":"numb",
                          "type":"int",
+                         "value":1
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":700.415,
+                 "y":1238.24
+                }, 
+                {
+                 "height":0,
+                 "id":35,
+                 "name":"",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"num 2",
+                         "type":"int",
+                         "value":2
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":242.64049955397,
+                 "y":1002.67618198037
+                }, 
+                {
+                 "height":0,
+                 "id":36,
+                 "name":"",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"numb",
+                         "type":"int",
                          "value":0
                         }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":700.414808206958,
-                 "y":1238.23996431757
+                 "x":244.424620874219,
+                 "y":1359.50044603033
+                }, 
+                {
+                 "height":0,
+                 "id":37,
+                 "name":"",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"numb",
+                         "type":"int",
+                         "value":3
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":699.375557537913,
+                 "y":943.800178412132
                 }],
          "opacity":1,
          "properties":[
@@ -81,149 +135,9 @@
          "visible":true,
          "x":0,
          "y":0
-        }, 
-        {
-         "draworder":"topdown",
-         "id":5,
-         "name":"checkPoint1",
-         "objects":[
-                {
-                 "height":0,
-                 "id":28,
-                 "name":"",
-                 "point":true,
-                 "properties":[
-                        {
-                         "name":"numb",
-                         "type":"int",
-                         "value":0
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":202.414808206958,
-                 "y":1014.23996431757
-                }],
-         "opacity":1,
-         "properties":[
-                {
-                 "name":"numb",
-                 "type":"int",
-                 "value":1
-                }],
-         "type":"objectgroup",
-         "visible":true,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "draworder":"topdown",
-         "id":6,
-         "name":"checkPoint2",
-         "objects":[
-                {
-                 "height":0,
-                 "id":30,
-                 "name":"",
-                 "point":true,
-                 "properties":[
-                        {
-                         "name":"numb",
-                         "type":"int",
-                         "value":0
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":676.414808206958,
-                 "y":956.239964317574
-                }],
-         "opacity":1,
-         "properties":[
-                {
-                 "name":"numb",
-                 "type":"int",
-                 "value":2
-                }],
-         "type":"objectgroup",
-         "visible":true,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "draworder":"topdown",
-         "id":7,
-         "name":"checkPoint3",
-         "objects":[
-                {
-                 "height":0,
-                 "id":32,
-                 "name":"",
-                 "point":true,
-                 "properties":[
-                        {
-                         "name":"numb",
-                         "type":"int",
-                         "value":0
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":596.414808206958,
-                 "y":603.239964317574
-                }],
-         "opacity":1,
-         "properties":[
-                {
-                 "name":"numb",
-                 "type":"int",
-                 "value":3
-                }],
-         "type":"objectgroup",
-         "visible":true,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "draworder":"topdown",
-         "id":8,
-         "name":"checkPoint4",
-         "objects":[
-                {
-                 "height":0,
-                 "id":34,
-                 "name":"",
-                 "point":true,
-                 "properties":[
-                        {
-                         "name":"numb",
-                         "type":"int",
-                         "value":0
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":0,
-                 "x":206.414808206958,
-                 "y":309.239964317574
-                }],
-         "opacity":1,
-         "properties":[
-                {
-                 "name":"numb",
-                 "type":"int",
-                 "value":4
-                }],
-         "type":"objectgroup",
-         "visible":true,
-         "x":0,
-         "y":0
         }],
- "nextlayerid":9,
- "nextobjectid":35,
+ "nextlayerid":11,
+ "nextobjectid":38,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.4.3",

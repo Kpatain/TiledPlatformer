@@ -86,7 +86,7 @@ class TableauTiled extends Tableau{
         this.checkPointsObjects = this.map.getObjectLayer('checkPoint')['objects'];
         this.checkPointsObjects.forEach(checkPointsObject => {
             console.log(checkPointsObject.properties[0].value);
-            let cP = new checkPoint(
+            let cP = new checkPoints(
                 this,
                 checkPointsObject.x,
                 checkPointsObject.y,
@@ -136,7 +136,6 @@ class TableauTiled extends Tableau{
         //on définit les z à la fin
         this.sky.setDepth(5);
         this.calquesTest.setDepth(10);
-        this.checkPoint.setDepth(11);
         //this.player.scene.starsFxContainer.setDepth(19);
         this.player.setDepth(20)
         this.stars.setDepth(22);
