@@ -5,7 +5,7 @@ let height=7*64; //448;
 let config = {
     type: Phaser.AUTO,
 
-
+    default :'arcade',
     physics: {
         default: 'arcade',
         arcade: {

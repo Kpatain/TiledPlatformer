@@ -21,6 +21,7 @@ class checkPoints extends Phaser.Physics.Arcade.Sprite
             }
         }else{
             localStorage.setItem('cP', this.valuePos);
+
         }
     }
 

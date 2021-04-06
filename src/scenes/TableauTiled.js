@@ -19,6 +19,7 @@ class TableauTiled extends Tableau{
     create() {
         super.create();
         let ici =this;
+        console.log(Phaser);
 
         //notre map
         this.map = this.make.tilemap({ key: 'map' });
@@ -41,27 +42,15 @@ class TableauTiled extends Tableau{
         this.player.y = spawnPoint.y;
 
 
-        //on définit les collisions, plusieurs méthodes existent:
-
-        //manière la plus simple (là où il y a des tiles ça collide et sinon non)
-        //this.calquesTest.setCollisionByExclusion(-1, true);
-        //this.lave.setCollisionByExclusion(-1, true);
-
-        //manière alternative (il faut définir une propriété dans tiled pour que ça marche)
-        //permet de travailler sur un seul layer dans tiled et des définir les collisions en fonction des graphiques
-        //exemple ici https://medium.com/@michaelwesthadley/modular-game-worlds-in-phaser-3-tilemaps-1-958fc7e6bbd6
         this.calquesTest.setCollisionByProperty({ collides: true });
 
 
         //TEST MATTER
-        //this.matter.add.image(spawnPoint.x, spawnPoint.y - 100, 'star', null, { isStatic: true });
-
+        //Phaser.Physics.Matter.add.image(spawnPoint.x, spawnPoint.y + 300, 'star', null, { isStatic: true });
 
 
 
         //----------les étoiles (objets) ---------------------
-
-        // c'est un peu plus compliqué, mais ça permet de maîtriser plus de choses...
         this.stars = this.physics.add.group({
             allowGravity: true,
             immovable: false,
