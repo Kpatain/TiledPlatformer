@@ -5,7 +5,6 @@ let height=7*64; //448;
 let config = {
     type: Phaser.AUTO,
 
-    default :'arcade',
     physics: {
         default: 'arcade',
         arcade: {
@@ -18,6 +17,7 @@ let config = {
             gravity: { y: 0.5 }
         }
     },
+    /*
     scene: [
         new Ui(),
         
@@ -25,6 +25,25 @@ let config = {
         new TableauTiled("Tiled test"),
 
 
+    ],*/
+    scene: [
+        new Ui(),
+        new TableauTiled({
+            key: 'Tiled test',
+            physics: {
+                arcade: {
+                    debug: true,
+                    gravity: { y: 100 * 3 }
+                },
+                matter: {
+                    debug: true,
+                    gravity: { y: 0.5 },
+                    plugins: {
+                        attractors: true
+                    }
+                }
+            }
+        })
     ],
     width: width,
     height: height,

@@ -46,7 +46,23 @@ class TableauTiled extends Tableau{
 
 
         //TEST MATTER
-        //Phaser.Physics.Matter.add.image(spawnPoint.x, spawnPoint.y + 300, 'star', null, { isStatic: true });
+        //this.add.image(spawnPoint.x, spawnPoint.y + 300, 'star').setDepth(15);
+        let sun = this.add.image(spawnPoint.x, spawnPoint.y + 300, 'star', {
+            shape: {
+                type: 'circle',
+                radius: 32
+            },
+            plugin: {
+                attractors: [
+                    function (bodyA, bodyB) {
+                        return {
+                            x: (bodyA.position.x - bodyB.position.x) * 0.001,
+                            y: (bodyA.position.y - bodyB.position.y) * 0.001
+                        };
+                    }
+                ]
+            }
+        }).setDepth(15);
 
 
 
@@ -130,7 +146,7 @@ class TableauTiled extends Tableau{
         this.stars.setDepth(22);
 
 
-
+        console.log(this);
     }
 
 
