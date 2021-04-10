@@ -51,6 +51,7 @@ class Tableau extends Phaser.Scene{
         this.blood.visible=false;
 
         this.oldDist = 0;
+        this.canSnap= 1;
 
     }
     update(){
@@ -88,28 +89,40 @@ class Tableau extends Phaser.Scene{
         })
     }
 
-    followPlayer (bodyA, bodyB){
-        let distMax = 50;
-        let xx = bodyA.x - bodyB.x;
-        let yy = bodyA.y - bodyB.y;
-        /*
-        if (this.oldDist> Math.sqrt( xx*xx + yy*yy) && Math.sqrt( xx*xx + yy*yy) < 100 )
-        {
-            bodyA.x = bodyB.x;
-            bodyA.y = bodyB.y;
-        }
-        */
+    followPlayer (bodyA, bodyB, bodyC){
 
+        let distMax = 200;
+        let xx = bodyB.x - bodyC.x;
+        let yy = bodyB.y - bodyC.y;
+
+        //conditions de snap
         if (Math.sqrt( xx*xx + yy*yy ) < distMax)
         {
-            bodyB.x = bodyA.x;
-            bodyB.y = bodyA.y;
-        }
+            console.log("inthe zone");
+            if (this.canSnap){
+                //ON RECUPERE LA VELOCITY DE PLAYER POUR PLAYERMATTER
+
+                bodyA.x = bodyC.x;
+                bodyA.y = bodyC.y;
+                console.log("tp of playermatter");
+                this.canSnap = 0;
+            }
+            else {
+                bodyC.x = bodyA.x;
+                bodyC.y = bodyA.y;
+                console.log("tp of player");
+            }
+
+
+
+        }else(this.canSnap = 1)
 
         this.oldDist = Math.sqrt( xx*xx + yy*yy );
+        /*
+        this.range.x = bodyB.x;
+        this.range.y = bodyB.y;
 
-        this.range.x = bodyA.x;
-        this.range.y = bodyA.y;
+         */
     }
 
 

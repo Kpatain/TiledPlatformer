@@ -9,13 +9,13 @@ let config = {
     physics: {
         default: 'arcade',
         arcade: {
-            gravity: { y: 100*3 },
+            gravity: { y: 100*3},
             debug: 0,
 
         },
         matter: {
-            debug: true,
-            gravity: { y: 0.1 },
+            debug: 0,
+            gravity: { y: 0 },
             plugins: {
                 attractors: true
             }
@@ -28,12 +28,12 @@ let config = {
             key: 'Tiled test',
             physics: {
                 arcade: {
-                    debug: true,
-                    gravity: { y: 100 * 3 }
+                    debug: 0,
+                    gravity: { y: 300 }
                 },
                 matter: {
-                    debug: true,
-                    gravity: { y: 0.5 },
+                    debug: 0,
+                    gravity: { y: 0 },
                     plugins: {
                         attractors: true
                     }
@@ -46,7 +46,6 @@ let config = {
     scale: {
         mode: Phaser.Scale.FIT,
         orientation:Phaser.Scale.LANDSCAPE,
-        //parent: 'game',
         width: width,
         height: height,
         min: {

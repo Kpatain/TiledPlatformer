@@ -13,6 +13,7 @@ class TableauTiled extends Tableau{
 
 
         this.load.image('traj', 'assets/traj.png');
+        this.load.image('trou', 'assets/trou.png');
 
     }
 
@@ -50,20 +51,20 @@ class TableauTiled extends Tableau{
         this.matter.enableAttractorPlugin();
 
         //LES ASTRES
-        this.astre = this.matter.add.image(spawnPoint.x, spawnPoint.y - 500, 'star',null, {
+        this.astre = this.matter.add.image(spawnPoint.x, spawnPoint.y - 500, 'trou',null, {
             shape: {
                 type: 'circle',
-                radius: 32
+                radius: 20
             },
 
-            isStatic: 0,
+            isStatic: 1,
 
             plugin: {
                 attractors: [
                     function (bodyA, bodyB) {
                         return {
-                            x: (bodyA.position.x - bodyB.position.x) * 0.000005,
-                            y: (bodyA.position.y - bodyB.position.y) * 0.000005
+                            x: (bodyA.position.x - bodyB.position.x) * 0.0000005,
+                            y: (bodyA.position.y - bodyB.position.y) * 0.0000005
                         };
                     }
                 ]
@@ -71,20 +72,23 @@ class TableauTiled extends Tableau{
         }).setDepth(15);
 
         //LE PLAYER
-        this.playerMatter = this.matter.add.image(spawnPoint.x, spawnPoint.y - 300, 'star', null, {
+        this.playerMatter = this.matter.add.image(spawnPoint.x, spawnPoint.y - 300, null , null, {
             shape: {
                 type: 'circle',
-                radius: 32
+                radius: 10
             },
 
             mass: 1,
             ignorePointer: true
-        }).setDepth(15);
+        }).setDepth(15).setVisible(0);
 
+        //RANGE DE SNAP
+        /*
         this.range = this.add.circle(this.playerMatter.x, this.playerMatter.y, 200).setDepth(15);
         this.range.setStrokeStyle(2, 0x1a65ac);
-
+        */
         this.matter.add.mouseSpring();
+
 
 
 
@@ -105,7 +109,7 @@ class TableauTiled extends Tableau{
         **/
 
         // CHEQUE POINT
-        /*
+
         this.checkPoint = this.physics.add.group({
             allowGravity: false,
             immovable:false
@@ -137,7 +141,7 @@ class TableauTiled extends Tableau{
             console.log(playerPos);
 
         })
-        */
+
 
 
 
@@ -182,7 +186,7 @@ class TableauTiled extends Tableau{
         this.sky.tilePositionX=this.cameras.main.scrollX*0.6;
         this.sky.tilePositionY=this.cameras.main.scrollY*0.6;
 
-        this.followPlayer(this.playerMatter, this.player);
+        this.followPlayer(this.playerMatter, this.astre, this.player);
         //Phaser.Physics.Arcade.Collider(this.player.emmiter);
         //this.player.particles.setCollideWorldBounds(true);
 

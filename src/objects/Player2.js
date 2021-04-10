@@ -7,7 +7,6 @@ class Player2 extends Phaser.Physics.Arcade.Sprite{
         this.setCollideWorldBounds(true);
         this.setBounce(0.3);
 
-        //this.body.setAllowGravity(false)
         this.setFriction(1,1);
 
 
