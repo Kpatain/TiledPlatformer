@@ -6,7 +6,8 @@ class Player2 extends Phaser.Physics.Arcade.Sprite{
 
         this.setCollideWorldBounds(true);
         this.setBounce(0.3);
-        this.setGravityY(700)
+
+        //this.body.setAllowGravity(false)
         this.setFriction(1,1);
 
 
@@ -53,6 +54,7 @@ class Player2 extends Phaser.Physics.Arcade.Sprite{
 
         this.particles = scene.add.particles('traj');
 
+
         this.emmiter = this.particles.createEmitter({
             frequency: 200,
             //delay: 200,
@@ -71,6 +73,7 @@ class Player2 extends Phaser.Physics.Arcade.Sprite{
             speedX : 5,
             speedY : 4,
             angle: 0,
+
         });
 
         this.emmiter.startFollow(this);
@@ -87,6 +90,7 @@ class Player2 extends Phaser.Physics.Arcade.Sprite{
     set directionY(value){
         this._directionY=value;
     }
+
 
 
 

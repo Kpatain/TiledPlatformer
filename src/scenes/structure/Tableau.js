@@ -42,12 +42,15 @@ class Tableau extends Phaser.Scene{
          * @type {Player2}
          */
         this.player=new Player2(this,0,0);
-
         this.player.setMaxVelocity(800,800);
+
+
         this.blood=this.add.sprite(this.sys.canvas.width/2,this.sys.canvas.height/2,"blood")
         this.blood.displayWidth=64;
         this.blood.displayHeight=64;
         this.blood.visible=false;
+
+        this.oldDist = 0;
 
     }
     update(){
@@ -84,6 +87,31 @@ class Tableau extends Phaser.Scene{
             }
         })
     }
+
+    followPlayer (bodyA, bodyB){
+        let distMax = 50;
+        let xx = bodyA.x - bodyB.x;
+        let yy = bodyA.y - bodyB.y;
+        /*
+        if (this.oldDist> Math.sqrt( xx*xx + yy*yy) && Math.sqrt( xx*xx + yy*yy) < 100 )
+        {
+            bodyA.x = bodyB.x;
+            bodyA.y = bodyB.y;
+        }
+        */
+
+        if (Math.sqrt( xx*xx + yy*yy ) < distMax)
+        {
+            bodyB.x = bodyA.x;
+            bodyB.y = bodyA.y;
+        }
+
+        this.oldDist = Math.sqrt( xx*xx + yy*yy );
+
+        this.range.x = bodyA.x;
+        this.range.y = bodyA.y;
+    }
+
 
     /**
      * 

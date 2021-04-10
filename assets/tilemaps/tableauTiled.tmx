@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="28" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="11" nextobjectid="38">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="28" height="50" tilewidth="32" tileheight="32" infinite="0" nextlayerid="11" nextobjectid="43">
  <editorsettings>
   <export target="tableauTiled.json" format="json"/>
  </editorsettings>
@@ -172,7 +172,7 @@
   </data>
  </layer>
  <objectgroup id="2" name="point">
-  <object id="1" name="Player" x="463.774" y="916.744">
+  <object id="1" name="Player" x="479.831" y="1485.88">
    <point/>
   </object>
  </objectgroup>
@@ -201,6 +201,36 @@
   <object id="37" x="699.376" y="943.8">
    <properties>
     <property name="numb" type="int" value="3"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="38" x="153.434" y="779.661">
+   <properties>
+    <property name="num" type="int" value="4"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="39" x="490.633" y="588.76">
+   <properties>
+    <property name="numb" type="int" value="5"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="40" x="581.624" y="367.529">
+   <properties>
+    <property name="numb" type="int" value="6"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="41" x="149.866" y="297.948">
+   <properties>
+    <property name="numb" type="int" value="7"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="42" x="108.831" y="51.7395">
+   <properties>
+    <property name="numb" type="int" value="8"/>
    </properties>
    <point/>
   </object>

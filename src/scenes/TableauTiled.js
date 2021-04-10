@@ -42,27 +42,49 @@ class TableauTiled extends Tableau{
         this.player.y = spawnPoint.y;
 
 
+
         this.calquesTest.setCollisionByProperty({ collides: true });
 
 
         //TEST MATTER
-        //this.add.image(spawnPoint.x, spawnPoint.y + 300, 'star').setDepth(15);
-        let sun = this.add.image(spawnPoint.x, spawnPoint.y + 300, 'star', {
+        this.matter.enableAttractorPlugin();
+
+        //LES ASTRES
+        this.astre = this.matter.add.image(spawnPoint.x, spawnPoint.y - 500, 'star',null, {
             shape: {
                 type: 'circle',
                 radius: 32
             },
+
+            isStatic: 0,
+
             plugin: {
                 attractors: [
                     function (bodyA, bodyB) {
                         return {
-                            x: (bodyA.position.x - bodyB.position.x) * 0.001,
-                            y: (bodyA.position.y - bodyB.position.y) * 0.001
+                            x: (bodyA.position.x - bodyB.position.x) * 0.000005,
+                            y: (bodyA.position.y - bodyB.position.y) * 0.000005
                         };
                     }
                 ]
             }
         }).setDepth(15);
+
+        //LE PLAYER
+        this.playerMatter = this.matter.add.image(spawnPoint.x, spawnPoint.y - 300, 'star', null, {
+            shape: {
+                type: 'circle',
+                radius: 32
+            },
+
+            mass: 1,
+            ignorePointer: true
+        }).setDepth(15);
+
+        this.range = this.add.circle(this.playerMatter.x, this.playerMatter.y, 200).setDepth(15);
+        this.range.setStrokeStyle(2, 0x1a65ac);
+
+        this.matter.add.mouseSpring();
 
 
 
@@ -83,10 +105,13 @@ class TableauTiled extends Tableau{
         **/
 
         // CHEQUE POINT
+        /*
         this.checkPoint = this.physics.add.group({
             allowGravity: false,
             immovable:false
         });
+
+
 
         this.checkPointsObjects = this.map.getObjectLayer('checkPoint')['objects'];
         this.checkPointsObjects.forEach(checkPointsObject => {
@@ -112,6 +137,7 @@ class TableauTiled extends Tableau{
             console.log(playerPos);
 
         })
+        */
 
 
 
@@ -156,6 +182,7 @@ class TableauTiled extends Tableau{
         this.sky.tilePositionX=this.cameras.main.scrollX*0.6;
         this.sky.tilePositionY=this.cameras.main.scrollY*0.6;
 
+        this.followPlayer(this.playerMatter, this.player);
         //Phaser.Physics.Arcade.Collider(this.player.emmiter);
         //this.player.particles.setCollideWorldBounds(true);
 

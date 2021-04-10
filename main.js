@@ -4,6 +4,7 @@ let height=7*64; //448;
 
 let config = {
     type: Phaser.AUTO,
+    parent: 'phaser-example',
 
     physics: {
         default: 'arcade',
@@ -14,18 +15,13 @@ let config = {
         },
         matter: {
             debug: true,
-            gravity: { y: 0.5 }
+            gravity: { y: 0.1 },
+            plugins: {
+                attractors: true
+            }
         }
     },
-    /*
-    scene: [
-        new Ui(),
-        
 
-        new TableauTiled("Tiled test"),
-
-
-    ],*/
     scene: [
         new Ui(),
         new TableauTiled({
@@ -50,7 +46,7 @@ let config = {
     scale: {
         mode: Phaser.Scale.FIT,
         orientation:Phaser.Scale.LANDSCAPE,
-        parent: 'game',
+        //parent: 'game',
         width: width,
         height: height,
         min: {
@@ -66,9 +62,8 @@ let config = {
     },
     autoRound: false
 };
+
 let game;
-//TABLEAU PLAYER SELEC
-let tab = 0;
 function resize() {
     /*
     var canvas = document.querySelector("canvas");
