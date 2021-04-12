@@ -46,7 +46,7 @@ class TableauTiled extends Tableau{
 
         this.calquesTest.setCollisionByProperty({ collides: true });
 
-
+        /*
         //TEST MATTER
         this.matter.enableAttractorPlugin();
 
@@ -86,9 +86,9 @@ class TableauTiled extends Tableau{
         /*
         this.range = this.add.circle(this.playerMatter.x, this.playerMatter.y, 200).setDepth(15);
         this.range.setStrokeStyle(2, 0x1a65ac);
-        */
-        this.matter.add.mouseSpring();
 
+        this.matter.add.mouseSpring();
+        */
 
 
 
@@ -124,7 +124,7 @@ class TableauTiled extends Tableau{
                 this,
                 checkPointsObject.x,
                 checkPointsObject.y,
-                'star',
+                'trou',
                 checkPointsObject.properties[0].value
             );
             this.physics.add.overlap(this.player, cP, function()
@@ -186,7 +186,8 @@ class TableauTiled extends Tableau{
         this.sky.tilePositionX=this.cameras.main.scrollX*0.6;
         this.sky.tilePositionY=this.cameras.main.scrollY*0.6;
 
-        this.followPlayer(this.playerMatter, this.astre, this.player);
+        //this.followPlayer(this.playerMatter, this.astre, this.player);
+
         //Phaser.Physics.Arcade.Collider(this.player.emmiter);
         //this.player.particles.setCollideWorldBounds(true);
 

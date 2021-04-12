@@ -1,8 +1,10 @@
-class Player2 extends Phaser.Physics.Arcade.Sprite{
+class Player3 extends Phaser.Physics.Arcade.Sprite{
     constructor(scene, x, y) {
         super(scene, x, y, "player")
         scene.add.existing(this)
         scene.physics.add.existing(this)
+
+        console.log("C'est le player 3");
 
         this.setCollideWorldBounds(true);
         this.setBounce(0.3);

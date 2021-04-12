@@ -41,7 +41,7 @@ class Tableau extends Phaser.Scene{
          *
          * @type {Player2}
          */
-        this.player=new Player2(this,0,0);
+        this.player=new Player3(this,0,0);
         this.player.setMaxVelocity(800,800);
 
 
@@ -54,6 +54,7 @@ class Tableau extends Phaser.Scene{
         this.canSnap= 1;
 
     }
+
     update(){
         super.update();
         this.player.move();
@@ -101,6 +102,7 @@ class Tableau extends Phaser.Scene{
             console.log("inthe zone");
             if (this.canSnap){
                 //ON RECUPERE LA VELOCITY DE PLAYER POUR PLAYERMATTER
+
 
                 bodyA.x = bodyC.x;
                 bodyA.y = bodyC.y;

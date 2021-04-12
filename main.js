@@ -28,8 +28,8 @@ let config = {
             key: 'Tiled test',
             physics: {
                 arcade: {
-                    debug: 0,
-                    gravity: { y: 300 }
+                    debug: 1,
+                    gravity: { y: 3000 }
                 },
                 matter: {
                     debug: 0,

@@ -10,6 +10,8 @@ class checkPoints extends Phaser.Physics.Arcade.Sprite
         this.body.allowGravity=false;
         this.setDepth(11);
         console.log(this.valuePos);
+        this.body.setCircle(20,20);
+        this.setOffset(-this.body.radius/2 + 10, -this.body.radius/2 + 10);
     }
 
     savePos()
