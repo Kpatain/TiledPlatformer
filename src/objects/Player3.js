@@ -58,19 +58,16 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
 
         this.emmiter = this.particles.createEmitter({
             frequency: 200,
-            //delay: 200,
             lifespan: 2000,
             quantity: 1,
             gravityX: 0,
             gravityY: 100,
             x: { min: -32, max: 32 },
             y: { min: -32, max: 32 },
-            //tint: [  0xB85901, 0x753901, 0xF57802, 0x361A01, 0xDB6B02 ],
             rotate: { min:0, max:360 },
             radial: true,
             scale: { start: 0.1, end: 0.1 },
             alpha: { start: 1, end: 0 },
-            //blendMode: Phaser.BlendModes.,
             speedX : 5,
             speedY : 4,
             angle: 0,
@@ -100,14 +97,6 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
      */
     move()
     {
-        /**
-        this.oldPos();
-
-        if (this.oldY - this.y == 0){
-
-            this.x = this.oldX;
-        }
-         */
 
         this.forceX = ui.pad.circleDrag.x;
         this.forceY = ui.pad.circleDrag.y;
@@ -197,5 +186,7 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
         this.randomCond2 = Math.abs(this.randomCond2 - 5);
 
     }
+
+
 
 }

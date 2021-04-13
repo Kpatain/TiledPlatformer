@@ -20,18 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd5a153c-ac13-4bff-add4-ca49dca9723d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/objects/Astre.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/objects/Player3.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/tilemaps/tableauTiled.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tilemaps/tableauTiled.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled.tmx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objects/MonsterFly.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objects/Player2.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/Player2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/Player3.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/Player3.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/objects/checkPoints.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/checkPoints.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/TableauTiled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/TableauTiled.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/structure/Tableau.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/structure/Tableau.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +80,9 @@
       <workItem from="1617911926219" duration="571000" />
       <workItem from="1617987143193" duration="1309000" />
       <workItem from="1618043972099" duration="27609000" />
-      <workItem from="1618219315914" duration="5020000" />
+      <workItem from="1618219315914" duration="5272000" />
+      <workItem from="1618248941281" duration="403000" />
+      <workItem from="1618332022722" duration="3439000" />
     </task>
     <servers />
   </component>
@@ -111,6 +106,10 @@
       <screen x="0" y="0" width="1858" height="1080" />
     </state>
     <state x="684" y="342" key="#com.intellij.fileTypes.FileTypeChooser/-1920.0.1858.1080/1920.184.1920.1040/0.0.1858.1080@0.0.1858.1080" timestamp="1617627153415" />
+    <state x="585" y="250" key="run.anything.popup" timestamp="1618332564111">
+      <screen x="0" y="0" width="1858" height="1080" />
+    </state>
+    <state x="585" y="250" key="run.anything.popup/-1920.0.1858.1080/1920.184.1920.1040/0.0.1858.1080@0.0.1858.1080" timestamp="1618332564111" />
     <state x="592" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1618072627519">
       <screen x="0" y="0" width="1858" height="1080" />
     </state>

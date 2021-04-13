@@ -38,4 +38,19 @@ class checkPoints extends Phaser.Physics.Arcade.Sprite
         }
         return false;
     }
+
+    checkAttract()
+    {
+        //console.log(Math.sqrt(Phaser.Math.Distance.BetweenPoints(Tableau.current.player, this)));
+
+        let speed = 2*Math.abs(Math.sqrt(Phaser.Math.Distance.BetweenPoints(Tableau.current.player, this)) - 50);
+        console.log(speed);
+
+        if (Math.sqrt(Phaser.Math.Distance.BetweenPoints(Tableau.current.player, this)) < 40)
+        {
+            Tableau.current.physics.accelerateToObject(Tableau.current.player, this, 100, 300, 300);
+        }
+
+    }
+
 }

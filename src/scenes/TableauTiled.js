@@ -120,19 +120,19 @@ class TableauTiled extends Tableau{
         this.checkPointsObjects = this.map.getObjectLayer('checkPoint')['objects'];
         this.checkPointsObjects.forEach(checkPointsObject => {
             console.log(checkPointsObject.properties[0].value);
-            let cP = new checkPoints(
+            this.cP = new checkPoints(
                 this,
                 checkPointsObject.x,
                 checkPointsObject.y,
                 'trou',
                 checkPointsObject.properties[0].value
             );
-            this.physics.add.overlap(this.player, cP, function()
+            this.physics.add.overlap(this.player, this.cP, function()
             {
-                cP.savePos();
+                this.cP.savePos();
             });
 
-            let playerPos = cP.loadPos();
+            let playerPos = this.cP.loadPos();
 
             if(playerPos)
             {
@@ -177,11 +177,13 @@ class TableauTiled extends Tableau{
 
 
         console.log(this);
+
     }
 
 
     update(){
         super.update();
+        this.cP.checkAttract();
         //le ciel se déplace moins vite que la caméra pour donner un effet paralax
         this.sky.tilePositionX=this.cameras.main.scrollX*0.6;
         this.sky.tilePositionY=this.cameras.main.scrollY*0.6;
