@@ -29,7 +29,7 @@ let config = {
             physics: {
                 arcade: {
                     debug: 1,
-                    gravity: { y: 3000 }
+                    gravity: { y: 300 }
                 },
                 matter: {
                     debug: 0,

@@ -22,7 +22,8 @@
     <list default="true" id="dd5a153c-ac13-4bff-add4-ca49dca9723d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/tilemaps/tableauTiled.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objects/Player3.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/Player3.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tilemaps/tableauTiled.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled.tmx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/objects/checkPoints.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/checkPoints.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/TableauTiled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/TableauTiled.js" afterDir="false" />
     </list>
@@ -82,7 +83,7 @@
       <workItem from="1618043972099" duration="27609000" />
       <workItem from="1618219315914" duration="5272000" />
       <workItem from="1618248941281" duration="403000" />
-      <workItem from="1618332022722" duration="3439000" />
+      <workItem from="1618332022722" duration="11518000" />
     </task>
     <servers />
   </component>
@@ -106,6 +107,10 @@
       <screen x="0" y="0" width="1858" height="1080" />
     </state>
     <state x="684" y="342" key="#com.intellij.fileTypes.FileTypeChooser/-1920.0.1858.1080/1920.184.1920.1040/0.0.1858.1080@0.0.1858.1080" timestamp="1617627153415" />
+    <state width="600" height="428" key="javadoc.popup" timestamp="1618406163638">
+      <screen x="0" y="0" width="1858" height="1080" />
+    </state>
+    <state width="600" height="428" key="javadoc.popup/-1920.0.1858.1080/1920.184.1920.1040/0.0.1858.1080@0.0.1858.1080" timestamp="1618406163638" />
     <state x="585" y="250" key="run.anything.popup" timestamp="1618332564111">
       <screen x="0" y="0" width="1858" height="1080" />
     </state>

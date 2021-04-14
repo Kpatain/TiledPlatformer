@@ -12,6 +12,10 @@ class checkPoints extends Phaser.Physics.Arcade.Sprite
         console.log(this.valuePos);
         this.body.setCircle(20,20);
         this.setOffset(-this.body.radius/2 + 10, -this.body.radius/2 + 10);
+
+        //range circle
+        let circle = Tableau.current.add.circle(this.x, this.y, 100).setDepth(15);
+        circle.setStrokeStyle(2, 0x1a65ac);
     }
 
     savePos()
@@ -39,16 +43,21 @@ class checkPoints extends Phaser.Physics.Arcade.Sprite
         return false;
     }
 
+
     checkAttract()
     {
         //console.log(Math.sqrt(Phaser.Math.Distance.BetweenPoints(Tableau.current.player, this)));
 
+        //speed evolutive vers le centre
         let speed = 2*Math.abs(Math.sqrt(Phaser.Math.Distance.BetweenPoints(Tableau.current.player, this)) - 50);
-        console.log(speed);
 
-        if (Math.sqrt(Phaser.Math.Distance.BetweenPoints(Tableau.current.player, this)) < 40)
+        console.log(Phaser.Math.Distance.BetweenPoints(Tableau.current.player, this));
+
+        if (Phaser.Math.Distance.BetweenPoints(Tableau.current.player, this) < 40)
         {
-            Tableau.current.physics.accelerateToObject(Tableau.current.player, this, 100, 300, 300);
+            console.log("in", this.valuePos);
+            Tableau.current.physics.moveToObject(Tableau.current.player, this, speed, 300);
+            this.tint = 0x00ff00;
         }
 
     }
