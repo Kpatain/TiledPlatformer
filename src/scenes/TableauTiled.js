@@ -109,11 +109,12 @@ class TableauTiled extends Tableau{
 
 
 
-        this.checkPointsObjects = this.map.getObjectLayer('checkPoint')['objects'];
+        this.cPlist = [];
 
+        this.checkPointsObjects = this.map.getObjectLayer('checkPoint')['objects'];
         this.checkPointsObjects.forEach(checkPointsObject => {
             console.log(checkPointsObject.properties[0].value);
-            let cP = new checkPoints(
+            var cP = new checkPoints(
                 this,
                 checkPointsObject.x,
                 checkPointsObject.y,
@@ -134,10 +135,18 @@ class TableauTiled extends Tableau{
             }
             console.log(playerPos);
 
+            this.cPlist.push(cP);
+
         })
 
 
-
+        this.astreTest = new checkPoints(
+            this,
+            spawnPoint.x + 500,
+            spawnPoint.y - 100,
+            'jade',
+            5
+        );
 
 
         //----------débug---------------------
@@ -171,22 +180,26 @@ class TableauTiled extends Tableau{
         this.stars.setDepth(22);
 
 
-        console.log(this);
+        console.log(this.cPlist[0]);
 
     }
 
 
     update(){
         super.update();
+        
+        for (var i=0; i < this.cPlist.size; i++)
+        {
+            this.cPlist[i].checkAttract();
+        }
+
+        this.cPlist[0].checkAttract();
+
+        this.astreTest.checkAttract();
 
         //le ciel se déplace moins vite que la caméra pour donner un effet paralax
         this.sky.tilePositionX=this.cameras.main.scrollX*0.6;
         this.sky.tilePositionY=this.cameras.main.scrollY*0.6;
-
-        //this.followPlayer(this.playerMatter, this.astre, this.player);
-
-        //Phaser.Physics.Arcade.Collider(this.player.emmiter);
-        //this.player.particles.setCollideWorldBounds(true);
 
     }
 

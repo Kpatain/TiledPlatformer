@@ -102,7 +102,7 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
         this.forceY = ui.pad.circleDrag.y;
 
         //si le pad bouge et le joueur est par terre
-        if(ui.pad.circleDrag.x + ui.pad.circleDrag.y !== 0 && this.body.deltaY() > 0 && this.body.onFloor())
+        if(ui.pad.circleDrag.x + ui.pad.circleDrag.y !== 0 && this.body.deltaY() > 0 && this.body.onFloor() || this.canJump)
         {
             //console.log("le pad bouge")
             //this.particles.;
@@ -142,24 +142,10 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
 
         }
 
-        /**
-        if (this.forceY==0){
-            console.log("rmet force X à 0")
-            this.forceX = 0;
-        }
-
-
-        if(this.body.deltaY() > 0 && this.body.onFloor())
-        {
-            console.log(this.body.deltaY());
-            this.setVelocityX(0);
-
-
-        }
-         */
 
         this.emmiter.speedX.propertyValue = ui.pad.circleDrag.x*-3.5 ;
         this.emmiter.speedY.propertyValue = ui.pad.circleDrag.y*-4.5 ;
+
 
 
 
