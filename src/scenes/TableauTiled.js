@@ -100,14 +100,6 @@ class TableauTiled extends Tableau{
         });
 
 
-        //this.starsObjects = this.map.getObjectLayer('stars')['objects'];
-        /* On crée des étoiles pour chaque objet rencontré
-        this.starsObjects.forEach(starObject => {
-            // Pour chaque étoile on la positionne pour que ça colle bien car les étoiles ne font pas 64x64
-            let star = this.stars.create(starObject.x+20, starObject.y+20 , 'star').setOrigin(0, 0);
-        });
-        **/
-
         // CHEQUE POINT
 
         this.checkPoint = this.physics.add.group({
@@ -118,6 +110,7 @@ class TableauTiled extends Tableau{
 
 
         this.checkPointsObjects = this.map.getObjectLayer('checkPoint')['objects'];
+
         this.checkPointsObjects.forEach(checkPointsObject => {
             console.log(checkPointsObject.properties[0].value);
             let cP = new checkPoints(
@@ -142,6 +135,7 @@ class TableauTiled extends Tableau{
             console.log(playerPos);
 
         })
+
 
 
 
