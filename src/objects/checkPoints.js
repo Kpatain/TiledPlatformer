@@ -14,12 +14,17 @@ class checkPoints extends Phaser.Physics.Arcade.Sprite
         this.setOffset(-this.body.radius/2 + 10, -this.body.radius/2 + 10);
 
         this.gravXY = [0,0];
+        this.xlerp = 0;
+
+        //range circle
+        let circle = Tableau.current.add.circle(this.x, this.y, 200).setDepth(15);
+        circle.setStrokeStyle(2, 0x1a65ac);
 
     }
 
     savePos()
     {
-        console.log(this.valuePos);
+        //console.log(this.valuePos);
         if(localStorage.getItem('cP') > 0) {
             if (localStorage.getItem('cP') < this.valuePos) {
                 localStorage.setItem('cP', this.valuePos);
@@ -44,24 +49,38 @@ class checkPoints extends Phaser.Physics.Arcade.Sprite
 
     checkAttract()
     {
-        //speed evolutive vers le centre
-        let speed = Math.abs(Phaser.Math.Distance.BetweenPoints(Tableau.current.player, this) - 200);
 
-        //console.log(Phaser.Math.Distance.BetweenPoints(Tableau.current.player, this));
-
-        if (Phaser.Math.Distance.BetweenPoints(Tableau.current.player, this) < 200 && !Tableau.current.player.canJump)
+        //RANGE 200
+        if (Phaser.Math.Distance.BetweenPoints(Tableau.current.player, this) < 200)
         {
-            Tableau.current.player.setGravity(0,-2000);
+            //RANGE 20 (for locking) /////  NOT WORKING
+            if(Phaser.Math.Distance.BetweenPoints(this, Tableau.current.player) < 20 && 0)
+            {
+                Tableau.current.player.lockPos(this);
+            }
 
-            this.gravXY[0] = (this.x - Tableau.current.player.x) / Phaser.Math.Distance.BetweenPoints(Tableau.current.player, this);
-            this.gravXY[1] = (this.y - Tableau.current.player.y) / Phaser.Math.Distance.BetweenPoints(Tableau.current.player, this);
+            else
+            {
+                Tableau.current.player.setGravity(0, -2000);
+                this.xlerp = Math.pow(Phaser.Math.Distance.BetweenPoints(Tableau.current.player, this), 2)
 
-            console.log(this.gravXY[0],this.gravXY[1]);
+                this.gravXY[0] = (this.x - Tableau.current.player.x) / Phaser.Math.Distance.BetweenPoints(Tableau.current.player, this);
+                this.gravXY[1] = (this.y - Tableau.current.player.y) / Phaser.Math.Distance.BetweenPoints(Tableau.current.player, this);
 
-            Tableau.current.player.setAccelerationX(this.gravXY[0] * 1300);
-            Tableau.current.player.setAccelerationY(this.gravXY[1] * 1300);
+                //LERPING //////  y = y1 + ((x – x1) / (x2 – x1)) * (y2 – y1)
+                console.log
+                (
+                    "disatance = ", Phaser.Math.Distance.BetweenPoints(Tableau.current.player, this),
+                    "modif = ", (this.xlerp / 40000) * 200
+                );
+
+                //ADDING VELOCITY
+                Tableau.current.player.setAccelerationX(this.gravXY[0] * 1300);
+                Tableau.current.player.setAccelerationY(this.gravXY[1] * 1300);
+            }
 
         }
+
 
 
     }

@@ -147,8 +147,6 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
         this.emmiter.speedY.propertyValue = ui.pad.circleDrag.y*-4.5 ;
 
 
-
-
     }
 
 
@@ -170,6 +168,16 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
         }
 
         this.randomCond2 = Math.abs(this.randomCond2 - 5);
+
+    }
+
+    //NOT WORKING
+    lockPos(bodyA)
+    {
+        console.log("lock");
+        this.x = bodyA.x;
+        this.y = bodyA.y;
+
 
     }
 

@@ -122,9 +122,10 @@ class TableauTiled extends Tableau{
                 checkPointsObject.properties[0].value
 
             );
+
             this.physics.add.overlap(this.player, cP, function()
             {
-                cP.savePos();
+                //cP.savePos();
             });
 
             let playerPos = cP.loadPos();
@@ -135,18 +136,10 @@ class TableauTiled extends Tableau{
             }
             console.log(playerPos);
 
+
             this.cPlist.push(cP);
 
         })
-
-
-        this.astreTest = new checkPoints(
-            this,
-            spawnPoint.x + 500,
-            spawnPoint.y - 100,
-            'jade',
-            5
-        );
 
 
         //----------débug---------------------
@@ -188,14 +181,10 @@ class TableauTiled extends Tableau{
     update(){
         super.update();
         
-        for (var i=0; i < this.cPlist.size; i++)
+        for (var i=0; i < this.cPlist.length; i++)
         {
             this.cPlist[i].checkAttract();
         }
-
-        this.cPlist[0].checkAttract();
-
-        this.astreTest.checkAttract();
 
         //le ciel se déplace moins vite que la caméra pour donner un effet paralax
         this.sky.tilePositionX=this.cameras.main.scrollX*0.6;
