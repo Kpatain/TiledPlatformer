@@ -15,6 +15,7 @@ class checkPoints extends Phaser.Physics.Arcade.Sprite
 
         this.gravXY = [0,0];
         this.xlerp = 0;
+        this.angleVel = 0;
 
         //range circle
         let circle = Tableau.current.add.circle(this.x, this.y, 200).setDepth(15);
@@ -47,6 +48,13 @@ class checkPoints extends Phaser.Physics.Arcade.Sprite
         return false;
     }
 
+    changeSprite()
+    {
+        console.log('vert!');
+        this.disableBody(true, true);
+        this.scene.add.sprite(this.x, this.y, 'plan_verte').setDepth(16);
+    }
+
     checkAttract()
     {
 
@@ -77,6 +85,8 @@ class checkPoints extends Phaser.Physics.Arcade.Sprite
                 //ADDING VELOCITY
                 Tableau.current.player.setAccelerationX(this.gravXY[0] * 1300);
                 Tableau.current.player.setAccelerationY(this.gravXY[1] * 1300);
+
+                Tableau.current.player.orient(this);
             }
 
         }
@@ -84,5 +94,8 @@ class checkPoints extends Phaser.Physics.Arcade.Sprite
 
 
     }
+
+
+
 
 }

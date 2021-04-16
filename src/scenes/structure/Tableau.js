@@ -19,8 +19,8 @@ class Tableau extends Phaser.Scene{
         this.load.image('sky', 'assets/sky.png');
         this.load.image('spike', 'assets/spike.png');
         this.load.image('blood', 'assets/elec.png');
-        this.load.spritesheet('player',
-            'assets/player.png',
+        this.load.spritesheet('beam',
+            'assets/beam.png',
             { frameWidth: 32, frameHeight: 32  }
         );
     }
@@ -34,7 +34,7 @@ class Tableau extends Phaser.Scene{
          * @type {Phaser.GameObjects.Image}
          */
         this.sky=this.add.image(0, 0, 'sky').setOrigin(0,0);
-        this.sky.displayWidth=14*64;
+        //this.sky.displayWidth=14*64;
         this.sky.setScrollFactor(0,0);
 
         /**

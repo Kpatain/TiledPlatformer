@@ -21,11 +21,13 @@
   <component name="ChangeListManager">
     <list default="true" id="dd5a153c-ac13-4bff-add4-ca49dca9723d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tilemaps/tableauTiled.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tilemaps/tableauTiled.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled.tmx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sky.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sky.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/trou.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/objects/Player3.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/Player3.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/objects/checkPoints.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/checkPoints.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/TableauTiled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/TableauTiled.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/structure/Tableau.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/structure/Tableau.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +67,16 @@
       <recent name="C:\xampp\htdocs\TiledPlatformer\src\objects" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/TiledPlatformer/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.index.html" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -85,7 +97,13 @@
       <workItem from="1618248941281" duration="403000" />
       <workItem from="1618332022722" duration="17522000" />
       <workItem from="1618418797037" duration="10229000" />
-      <workItem from="1618474169563" duration="5439000" />
+      <workItem from="1618474169563" duration="6034000" />
+      <workItem from="1618487828132" duration="1013000" />
+      <workItem from="1618489460584" duration="1853000" />
+      <workItem from="1618493174703" duration="24000" />
+      <workItem from="1618493209186" duration="110000" />
+      <workItem from="1618493356406" duration="133000" />
+      <workItem from="1618493683702" duration="6728000" />
     </task>
     <servers />
   </component>
@@ -103,23 +121,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="684" y="342" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1617627153415">
-      <screen x="0" y="0" width="1858" height="1080" />
-    </state>
-    <state x="684" y="342" key="#com.intellij.fileTypes.FileTypeChooser/-1920.0.1858.1080/1920.184.1920.1040/0.0.1858.1080@0.0.1858.1080" timestamp="1617627153415" />
-    <state width="600" height="428" key="javadoc.popup" timestamp="1618406163638">
-      <screen x="0" y="0" width="1858" height="1080" />
-    </state>
-    <state width="600" height="428" key="javadoc.popup/-1920.0.1858.1080/1920.184.1920.1040/0.0.1858.1080@0.0.1858.1080" timestamp="1618406163638" />
-    <state x="585" y="250" key="run.anything.popup" timestamp="1618332564111">
-      <screen x="0" y="0" width="1858" height="1080" />
-    </state>
-    <state x="585" y="250" key="run.anything.popup/-1920.0.1858.1080/1920.184.1920.1040/0.0.1858.1080@0.0.1858.1080" timestamp="1618332564111" />
-    <state x="592" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1618072627519">
-      <screen x="0" y="0" width="1858" height="1080" />
-    </state>
-    <state x="592" y="235" width="672" height="678" key="search.everywhere.popup/-1920.0.1858.1080/1920.184.1920.1040/0.0.1858.1080@0.0.1858.1080" timestamp="1618072627519" />
   </component>
 </project>

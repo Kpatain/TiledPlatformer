@@ -1,6 +1,6 @@
 class Player3 extends Phaser.Physics.Arcade.Sprite{
     constructor(scene, x, y) {
-        super(scene, x, y, "player")
+        super(scene, x, y, "beam")
         scene.add.existing(this)
         scene.physics.add.existing(this)
 
@@ -17,8 +17,9 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
 
         //this.setSize(32, 32);
         this.body.setCircle(15,15);
-        this.setOffset(-this.body.radius/2 + 10, -this.body.radius/2 + 10);
+        this.setOffset(-this.body.radius/2 +8, -this.body.radius/2 + 8);
 
+        /MOVE/
         this.forceX = 0;
         this.forceY = 0;
         this.oldforceX = 1;
@@ -28,25 +29,16 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
         this.oldX = 0;
         this.oldY = 1;
 
-        this.anglePrtc=0;
-        this.forcePrtc =0;
+        //VARIABLE GET VEL
+        this.oldCoor = [0,0];
+        this.velo =[];
+        this.boolean = 0;
 
 
 
         this._directionX=0;
         this._directionY=0;
 
-        this.anims.create({
-            key: 'right',
-            frames: [ { key: 'player', frame: 0 } ],
-            frameRate: 20
-        });
-
-        this.anims.create({
-            key: 'left',
-            frames: [ { key: 'player', frame: 7 } ],
-            frameRate: 20
-        });
 
         //PARTICLES
         scene.starsFxContainer = scene.add.container();
@@ -79,7 +71,7 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
         this.scene.starsFxContainer.setDepth(19);
 
 
-        console.log("Player2");
+        console.log("Player3");
     }
 
     set directionX(value){
@@ -150,6 +142,7 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
     }
 
 
+
     /**
      * arrête le joueur
      */
@@ -178,9 +171,19 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
         this.x = bodyA.x;
         this.y = bodyA.y;
 
-
     }
 
+    orient(body)
+    {
+        this.angleVel = Phaser.Math.Angle.Between(this.x, this.y, this.x + body.gravXY[0],this.y + body.gravXY[1]);
+        this.setRotation(this.angleVel);
+    }
 
+    //NOT using
+    getVel(){
+        this.velo = [this.oldCoor[0] - this.x, this.oldCoor[1] - this.y];
+        this.oldCoor = [this.x, this.y];
+        return this.velo;
+    }
 
 }

@@ -13,7 +13,8 @@ class TableauTiled extends Tableau{
 
 
         this.load.image('traj', 'assets/traj.png');
-        this.load.image('trou', 'assets/trou.png');
+        this.load.image('plan_brune', 'assets/plan_brune.png');
+        this.load.image('plan_verte', 'assets/plan_verte.png');
 
     }
 
@@ -102,23 +103,16 @@ class TableauTiled extends Tableau{
 
         // CHEQUE POINT
 
-        this.checkPoint = this.physics.add.group({
-            allowGravity: false,
-            immovable:false
-        });
-
-
-
         this.cPlist = [];
 
         this.checkPointsObjects = this.map.getObjectLayer('checkPoint')['objects'];
         this.checkPointsObjects.forEach(checkPointsObject => {
             console.log(checkPointsObject.properties[0].value);
-            var cP = new checkPoints(
+            let cP = new checkPoints(
                 this,
                 checkPointsObject.x,
                 checkPointsObject.y,
-                'trou',
+                'plan_brune',
                 checkPointsObject.properties[0].value
 
             );
@@ -126,6 +120,7 @@ class TableauTiled extends Tableau{
             this.physics.add.overlap(this.player, cP, function()
             {
                 //cP.savePos();
+                cP.changeSprite()
             });
 
             let playerPos = cP.loadPos();
