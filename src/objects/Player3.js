@@ -123,10 +123,10 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
                     && Math.abs(this.forceY - this.oldforceY) == Math.abs(this.oldforceY)
                     && this.randomCond == 1 && this.canJump ))
             {
-                //console.log("je viens de lacher")
+                console.log("je viens de lacher")
                 this.randomCond = 0;
-                this.setVelocityX(-this.oldforceX * 8.4);
-                this.setVelocityY(-this.oldforceY * 15);
+                this.setVelocityX(-this.oldforceX * 15);
+                this.setVelocityY(-this.oldforceY * 25);
             }
 
         }
@@ -165,6 +165,7 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
     lockPos(bodyA)
     {
         this.canJump = 1;
+
         if (this.canJump && !this.preCanJump)
         {
             this.x = bodyA.x;

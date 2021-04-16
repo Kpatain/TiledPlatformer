@@ -69,6 +69,7 @@ class checkPoints extends Phaser.Physics.Arcade.Sprite
         //RANGE 200
         else if (Phaser.Math.Distance.BetweenPoints(Tableau.current.player, this) < 200)
         {
+            Tableau.current.player.preCanJump = 0;
             Tableau.current.player.canJump = 0;
             console.log("setVelocity of ", this.valuePos);
             //Tableau.current.player.setGravity(0, -2000);
