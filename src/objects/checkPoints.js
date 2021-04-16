@@ -87,8 +87,8 @@ class checkPoints extends Phaser.Physics.Arcade.Sprite
 
 
             //ADDING VELOCITY
-            Tableau.current.player.setAccelerationX(this.gravXY[0] * 100);
-            Tableau.current.player.setAccelerationY(this.gravXY[1] * 100);
+            Tableau.current.player.setAccelerationX(this.gravXY[0] * 300);
+            Tableau.current.player.setAccelerationY(this.gravXY[1] * 300);
 
             Tableau.current.player.orient(this);
         }
