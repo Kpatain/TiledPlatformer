@@ -119,15 +119,14 @@ class TableauTiled extends Tableau{
 
             this.physics.add.overlap(this.player, cP, function()
             {
-                //cP.savePos();
-                cP.changeSprite()
+                cP.savePos();
             });
 
             let playerPos = cP.loadPos();
 
             if(playerPos)
             {
-                ici.player.setPosition(playerPos.x, playerPos.y - 64);
+                ici.player.setPosition(playerPos.x, playerPos.y - 100);
             }
             console.log(playerPos);
 
@@ -177,6 +176,7 @@ class TableauTiled extends Tableau{
         for (var i=0; i < this.cPlist.length; i++)
         {
             this.cPlist[i].checkAttract();
+            this.cPlist[i].setDepth(21);
         }
 
         //le ciel se déplace moins vite que la caméra pour donner un effet paralax

@@ -19,7 +19,7 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
         this.body.setCircle(15,15);
         this.setOffset(-this.body.radius/2 +8, -this.body.radius/2 + 8);
 
-        /MOVE/
+        //MOVE
         this.forceX = 0;
         this.forceY = 0;
         this.oldforceX = 1;
@@ -125,8 +125,8 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
             {
                 console.log("je viens de lacher")
                 this.randomCond = 0;
-                this.setVelocityX(-this.oldforceX * 15);
-                this.setVelocityY(-this.oldforceY * 25);
+                this.setVelocityX(-this.oldforceX * 100);
+                this.setVelocityY(-this.oldforceY * 130);
             }
 
         }
