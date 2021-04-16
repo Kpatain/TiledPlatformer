@@ -113,7 +113,7 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
                 this.anims.keyframe = "right";
             }
             else{
-                console.log("gauche");
+                //console.log("gauche");
                 this.anims.keyframe = "left";
             }
 
