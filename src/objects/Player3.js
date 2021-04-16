@@ -9,7 +9,7 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
         this.setCollideWorldBounds(true);
         this.setBounce(0.3);
 
-        this.setFriction(1,1);
+        this.setFriction(50,50);
 
 
 
@@ -33,6 +33,9 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
         this.oldCoor = [0,0];
         this.velo =[];
         this.boolean = 0;
+        console.log(this);
+        this.canJump = 0;
+        this.preCanJump = 0;
 
 
 
@@ -70,8 +73,6 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
         scene.starsFxContainer.add(this.particles);
         this.scene.starsFxContainer.setDepth(19);
 
-
-        console.log("Player3");
     }
 
     set directionX(value){
@@ -89,12 +90,15 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
      */
     move()
     {
-
         this.forceX = ui.pad.circleDrag.x;
         this.forceY = ui.pad.circleDrag.y;
 
         //si le pad bouge et le joueur est par terre
-        if(ui.pad.circleDrag.x + ui.pad.circleDrag.y !== 0 && this.body.deltaY() > 0 && this.body.onFloor() || this.canJump)
+        if
+        (
+            ( ui.pad.circleDrag.x + ui.pad.circleDrag.y !== 0 && this.body.deltaY() > 0
+            && this.body.onFloor() )|| (this.canJump && ui.pad.circleDrag.x + ui.pad.circleDrag.y !== 0)
+        )
         {
             //console.log("le pad bouge")
             //this.particles.;
@@ -107,24 +111,17 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
             this.oldforceY = this.forceY;
             this.randomCond = 1;
 
-
-            if (this.oldforceX > 0){
-                //console.log("droite");
-                this.anims.keyframe = "right";
-            }
-            else{
-                //console.log("gauche");
-                this.anims.keyframe = "left";
-            }
-
         }
         else
         {
             this.particles.visible = 0;
 
-            if(Math.abs(this.forceX - this.oldforceX) == Math.abs(this.oldforceX)
+            if((Math.abs(this.forceX - this.oldforceX) == Math.abs(this.oldforceX)
                 && Math.abs(this.forceY - this.oldforceY) == Math.abs(this.oldforceY)
                 && this.randomCond == 1 && this.body.deltaY() > 0 && this.body.onFloor())
+            ||(Math.abs(this.forceX - this.oldforceX) == Math.abs(this.oldforceX)
+                    && Math.abs(this.forceY - this.oldforceY) == Math.abs(this.oldforceY)
+                    && this.randomCond == 1 && this.canJump ))
             {
                 //console.log("je viens de lacher")
                 this.randomCond = 0;
@@ -167,21 +164,28 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
     //NOT WORKING
     lockPos(bodyA)
     {
-        console.log("lock");
-        this.x = bodyA.x;
-        this.y = bodyA.y;
-
+        this.canJump = 1;
+        if (this.canJump && !this.preCanJump)
+        {
+            this.x = bodyA.x;
+            this.y = bodyA.y;
+            this.setAcceleration(0,0);
+            this.setVelocity(0,0);
+            this.setGravity(0,-2000);
+        }
+        this.preCanJump = this.canJump;
     }
 
     orient(body)
     {
-        this.angleVel = Phaser.Math.Angle.Between(this.x, this.y, this.x + body.gravXY[0],this.y + body.gravXY[1]);
+        this.angleVel = Phaser.Math.Angle.Between(0, 0, this.getVel()[0],this.getVel()[1]);
         this.setRotation(this.angleVel);
     }
 
     //NOT using
     getVel(){
         this.velo = [this.oldCoor[0] - this.x, this.oldCoor[1] - this.y];
+        console.log(this.velo[0], this.velo[1]);
         this.oldCoor = [this.x, this.y];
         return this.velo;
     }

@@ -60,7 +60,7 @@ class checkPoints extends Phaser.Physics.Arcade.Sprite
     {
 
         //RANGE 20 (for locking) /////  NOT WORKING
-        if(Phaser.Math.Distance.BetweenPoints(this, Tableau.current.player) < 20 &&0 )
+        if(Phaser.Math.Distance.BetweenPoints(this, Tableau.current.player) < 20)
         {
             console.log("LOCK POS in", this.valuePos);
             Tableau.current.player.lockPos(this);
@@ -69,38 +69,43 @@ class checkPoints extends Phaser.Physics.Arcade.Sprite
         //RANGE 200
         else if (Phaser.Math.Distance.BetweenPoints(Tableau.current.player, this) < 200)
         {
+            Tableau.current.player.canJump = 0;
             console.log("setVelocity of ", this.valuePos);
-            Tableau.current.player.setGravity(0, -2000);
+            //Tableau.current.player.setGravity(0, -2000);
             this.xlerp = Math.pow(Phaser.Math.Distance.BetweenPoints(Tableau.current.player, this), 2)
 
-            this.gravXY[0] = (this.x - Tableau.current.player.x) / (this.xlerp / 2) * 200;
-            this.gravXY[1] = (this.y - Tableau.current.player.y) / (this.xlerp / 2) * 200;
+            this.gravXY[0] = (this.x - Tableau.current.player.x) / this.xlerp * 400;
+            this.gravXY[1] = (this.y - Tableau.current.player.y) / this.xlerp * 400;
 
             //LERPING //////  y = y1 + ((x – x1) / (x2 – x1)) * (y2 – y1)
 
-
+            /*
             console.log
             (
                 "disatance = ", Phaser.Math.Distance.BetweenPoints(Tableau.current.player, this),
                 "modif = ", (this.xlerp / 40000) * 200
             );
 
+             */
+
 
             //ADDING VELOCITY
             Tableau.current.player.setAccelerationX(this.gravXY[0] * 300);
             Tableau.current.player.setAccelerationY(this.gravXY[1] * 300);
 
-            Tableau.current.player.orient(this);
+
         }
 
         else if (Phaser.Math.Distance.BetweenPoints(this, Tableau.current.player) > 205 && this.oldDist <= 205)
         {
-            console.log("Left ", this.valuePos);
+            //console.log("Left ", this.valuePos);
             Tableau.current.player.setAcceleration(0,0);
             Tableau.current.player.setGravity(0, 0);
         }
 
         this.oldDist = Phaser.Math.Distance.BetweenPoints(this, Tableau.current.player);
+
+        //Tableau.current.player.orient(this);
 
     }
 
