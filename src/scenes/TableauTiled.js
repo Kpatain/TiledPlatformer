@@ -15,6 +15,7 @@ class TableauTiled extends Tableau{
         this.load.image('traj', 'assets/traj.png');
         this.load.image('plan_brune', 'assets/plan_brune.png');
         this.load.image('plan_verte', 'assets/plan_verte.png');
+        this.load.image('sate', 'assets/sate.png');
 
     }
 
@@ -126,7 +127,7 @@ class TableauTiled extends Tableau{
 
             if(playerPos)
             {
-                ici.player.setPosition(playerPos.x, playerPos.y - 100);
+                ici.player.setPosition(playerPos.x, playerPos.y);
             }
             console.log(playerPos);
 
@@ -134,6 +135,14 @@ class TableauTiled extends Tableau{
             this.cPlist.push(cP);
 
         })
+
+
+        //LES SATELLITES
+        this.satList = [];
+        for (var i = 0; i < this.cPlist.length; i ++)
+        {
+            let sat = new Satellite(this, this.cPlist[i].x, this.cPlist[i].y, 'sate', 0).setDepth(25);
+        }
 
 
         //----------débug---------------------
@@ -177,7 +186,9 @@ class TableauTiled extends Tableau{
         {
             this.cPlist[i].checkAttract();
             this.cPlist[i].setDepth(21);
+            //this.satList[i].testMort(Tableau.current);
         }
+
 
         //le ciel se déplace moins vite que la caméra pour donner un effet paralax
         this.sky.tilePositionX=this.cameras.main.scrollX*0.6;

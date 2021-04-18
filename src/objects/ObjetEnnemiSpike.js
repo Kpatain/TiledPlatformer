@@ -11,7 +11,7 @@ class ObjetEnnemiSpike extends ObjetPhysique{
         scene.physics.add.overlap(
             scene.player,
             this,
-            scene.hitSpike,
+            scene.hitSat(),
             null,
             scene
         );

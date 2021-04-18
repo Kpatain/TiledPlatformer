@@ -160,12 +160,14 @@ class Tableau extends Phaser.Scene{
      * @param player
      * @param spike
      */
-    hitSpike (player, spike)
+    hitSat (player, sat, angle)
     {
-        this.physics.pause();
-        player.setTint(0xff0000);
-        player.anims.play('turn');
-        this.scene.restart();
+        if (angle + 90 < Phaser.Math.Angle.Between(1, 0, player.getVel()[0], player.getVel()[1]) < angle + 270)
+        {
+            this.physics.pause();
+            player.setTint(0xff0000);
+            this.scene.restart();
+        }
 
     }
 
