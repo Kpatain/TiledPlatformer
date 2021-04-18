@@ -134,6 +134,7 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
 
         this.emmiter.speedX.propertyValue = ui.pad.circleDrag.x*-3.5 ;
         this.emmiter.speedY.propertyValue = ui.pad.circleDrag.y*-4.5 ;
+        
 
 
     }
