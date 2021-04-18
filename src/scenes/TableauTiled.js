@@ -34,7 +34,7 @@ class TableauTiled extends Tableau{
         let hauteurDuTableau=this.map.heightInPixels;
         this.physics.world.setBounds(0, 0, largeurDuTableau,  hauteurDuTableau);
         this.cameras.main.setBounds(0, 0, largeurDuTableau, hauteurDuTableau);
-        this.cameras.main.startFollow(this.player, true, 1, 1);
+        this.cameras.main.startFollow(this.player, true, 1, 1, 0, 50);
 
         //les plateformes simples
         this.calquesTest = this.map.createLayer('calquesTest', this.tileset, 0, 0);
@@ -142,8 +142,10 @@ class TableauTiled extends Tableau{
         for (var i = 0; i < this.cPlist.length; i ++)
         {
             let sat = new Satellite(this, this.cPlist[i].x, this.cPlist[i].y, 'sate', 0).setDepth(25);
+            this.satList.push(sat);
         }
 
+        console.log(this.satList);
 
         //----------débug---------------------
 
@@ -173,9 +175,6 @@ class TableauTiled extends Tableau{
         this.player.setDepth(20)
         this.stars.setDepth(22);
 
-
-        console.log(this.cPlist[0]);
-
     }
 
 
@@ -186,7 +185,6 @@ class TableauTiled extends Tableau{
         {
             this.cPlist[i].checkAttract();
             this.cPlist[i].setDepth(21);
-            //this.satList[i].testMort(Tableau.current);
         }
 
 

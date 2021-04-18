@@ -156,17 +156,21 @@ class Tableau extends Phaser.Scene{
     }
 
     /**
-     * Aïeee ça fait mal
+     * LE SATELLITE DANS LA FIGURE BAM
      * @param player
-     * @param spike
+     * @param sat
+     * @param angle
      */
     hitSat (player, sat, angle)
     {
-        if (angle + 90 < Phaser.Math.Angle.Between(1, 0, player.getVel()[0], player.getVel()[1]) < angle + 270)
+        if
+        (
+            angle + 90 < Phaser.Math.Angle.Between(1, 0, player.getVel()[0], player.getVel()[1]) < angle + 270
+        )
         {
-            this.physics.pause();
+            //this.physics.pause();
             player.setTint(0xff0000);
-            this.scene.restart();
+            //this.scene.restart();
         }
 
     }
@@ -283,15 +287,12 @@ class Tableau extends Phaser.Scene{
         }
         Tableau.goTableau(nextScene);
     }
-
     static goTableau(tableau){
         if(Tableau.current){
             Tableau.current._destroy();
         }
         game.scene.start(tableau);
     }
-
-
 
 }
 

@@ -50,7 +50,6 @@ class checkPoints extends Phaser.Physics.Arcade.Sprite
 
     changeSprite()
     {
-        console.log('vert!');
         this.disableBody(true, true);
         this.scene.add.sprite(this.x, this.y, 'plan_verte').setDepth(21);
     }
@@ -61,7 +60,7 @@ class checkPoints extends Phaser.Physics.Arcade.Sprite
         //RANGE 20 (for locking) /////  NOT WORKING
         if(Phaser.Math.Distance.BetweenPoints(this, Tableau.current.player) < 40)
         {
-            console.log("LOCK POS in", this.valuePos);
+            //console.log("LOCK POS in", this.valuePos);
             Tableau.current.player.lockPos(this);
             this.changeSprite();
         }
@@ -71,7 +70,7 @@ class checkPoints extends Phaser.Physics.Arcade.Sprite
         {
             Tableau.current.player.preCanJump = 0;
             Tableau.current.player.canJump = 0;
-            console.log("setVelocity of ", this.valuePos);
+            //console.log("setVelocity of ", this.valuePos);
             Tableau.current.player.setGravity(0, -2000);
             this.xlerp = Math.pow(Phaser.Math.Distance.BetweenPoints(Tableau.current.player, this), 2)
 

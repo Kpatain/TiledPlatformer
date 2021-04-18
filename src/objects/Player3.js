@@ -161,25 +161,25 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
 
     }
 
-    //NOT WORKING
+    //!NOT WORKING
     lockPos(bodyA)
     {
         this.canJump = 1;
 
         if (this.canJump && !this.preCanJump)
         {
-            this.x = bodyA.x;
-            this.y = bodyA.y;
             this.setAcceleration(0,0);
             this.setVelocity(0,0);
             this.setGravity(0,-2000);
+            this.x = bodyA.x;
+            this.y = bodyA.y;
         }
         this.preCanJump = this.canJump;
     }
 
     orient(body)
     {
-        this.angleVel = Phaser.Math.Angle.Between(0, 0, this.getVel()[0],this.getVel()[1]);
+        this.angleVel = Phaser.Math.Angle.Between(0, 1, this.getVel()[0],this.getVel()[1]);
         this.setRotation(this.angleVel);
     }
 
