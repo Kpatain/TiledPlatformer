@@ -25,7 +25,7 @@ let config = {
     scene: [
         new Ui(),
         new TableauTiled({
-            key: 'Tiled test',
+            key: 'press space (under design)',
             physics: {
                 arcade: {
                     debug: 1,

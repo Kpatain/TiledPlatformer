@@ -24,6 +24,7 @@ class GamePad extends Phaser.GameObjects.Container{
 
         this.cursors = scene.input.keyboard.createCursorKeys();
 
+
         scene.input.keyboard.on('keydown', function(kevent){
             switch (kevent.key){
                 case "ArrowRight":
@@ -41,6 +42,18 @@ class GamePad extends Phaser.GameObjects.Container{
                 case "ArrowDown":
                     Tableau.current.player.directionY=1;
                     break;
+
+                case " ":
+                    for (var i =0; i< Tableau.current.satList.length; i++)
+                    {
+                        console.log("i ",i);
+                        for (var j =0; j< Tableau.current.satList[i].length; j++){
+                            Tableau.current.satList[i][j].exist();
+                            console.log("j ",j);
+                        }
+                    }
+                    break;
+
             }
         });
         scene.input.keyboard.on('keyup', function(kevent){
@@ -60,6 +73,7 @@ class GamePad extends Phaser.GameObjects.Container{
                 case "ArrowDown":
                     Tableau.current.player.directionY=0;
                     break;
+
             }
         });
 

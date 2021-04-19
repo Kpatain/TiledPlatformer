@@ -102,8 +102,6 @@ class Tableau extends Phaser.Scene{
             console.log("inthe zone");
             if (this.canSnap){
                 //ON RECUPERE LA VELOCITY DE PLAYER POUR PLAYERMATTER
-
-
                 bodyA.x = bodyC.x;
                 bodyA.y = bodyC.y;
                 console.log("tp of playermatter");
@@ -159,19 +157,13 @@ class Tableau extends Phaser.Scene{
      * LE SATELLITE DANS LA FIGURE BAM
      * @param player
      * @param sat
-     * @param angle
      */
-    hitSat (player, sat, angle)
+    hitSat (player, sat)
     {
-        if
-        (
-            angle + 90 < Phaser.Math.Angle.Between(1, 0, player.getVel()[0], player.getVel()[1]) < angle + 270
-        )
-        {
-            //this.physics.pause();
-            player.setTint(0xff0000);
-            //this.scene.restart();
-        }
+        //this.physics.pause();
+        //this.player.setTint(0xff0000);
+        //this.scene.restart();
+        console.log('dead');
 
     }
 
@@ -261,6 +253,12 @@ class Tableau extends Phaser.Scene{
     win(){
         Tableau.suivant();
     }
+
+    /**
+     * SATELLITE OUI NON
+     * @param a
+     */
+
 
     /**
      * Va au tableau suivant

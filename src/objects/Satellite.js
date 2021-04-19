@@ -1,4 +1,4 @@
-class Satellite extends ObjetPhysique{
+class Satellite extends ObjetEnnemiSpike{
     /**
      *
      * @param {Tableau} scene
@@ -13,25 +13,31 @@ class Satellite extends ObjetPhysique{
         let ici = scene;
         this.angleSat = angle;
 
-        this.body.setCircle(28);
+        this.setDisplaySize(38,10);
+        this.setSize(20,20)
+        this.setOffset(20, 0);
+        this.setAngle(this.angleSat);
 
-        //on réduit un peu la zone de hit
-        this.setOffset(0, 0);
-        this.setAngle(angle);
+        this.b = 0; //j'en ai marre
 
     }
 
-    testMort(ici)
-    {
-        Tableau.current.physics.add.overlap(
-            Tableau.current.player,
-            this,
-            Tableau.current.hitSat(ici.player, this, this.angleSat),
-            null,
-            ici
-        );
-    }
+    //FONCTION TEMPORAIRE POUR LES VIRER DU VIEWPORT
+    exist(){
 
+        if (this.b)
+        {
+            this.setDepth(0);
+            console.log("disparitum");
+        }
+
+        else
+        {
+            this.setDepth(25);
+        }
+        this.b = !this.b;
+
+    }
 
 
 }

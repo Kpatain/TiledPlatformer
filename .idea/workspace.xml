@@ -21,7 +21,17 @@
   <component name="ChangeListManager">
     <list default="true" id="dd5a153c-ac13-4bff-add4-ca49dca9723d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objects/Player3.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/Player3.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sate.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sate.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tilemaps/tableauTiled.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tilemaps/tableauTiled.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled.tmx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tilemaps/tableauTiledTileset.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiledTileset.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/ObjetEnnemiSpike.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/ObjetEnnemiSpike.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/Satellite.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/Satellite.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/checkPoints.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/checkPoints.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/ui/GamePad.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/ui/GamePad.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/TableauTiled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/TableauTiled.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/structure/Tableau.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/structure/Tableau.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +47,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1qbZD7ggmg0Rp6TKf9DXFLyfeGy" />
   <component name="ProjectViewState">
@@ -103,6 +121,7 @@
       <workItem from="1618678292943" duration="270000" />
       <workItem from="1618679053618" duration="232000" />
       <workItem from="1618760879993" duration="10439000" />
+      <workItem from="1618833018888" duration="10560000" />
     </task>
     <servers />
   </component>

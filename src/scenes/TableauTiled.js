@@ -108,7 +108,6 @@ class TableauTiled extends Tableau{
 
         this.checkPointsObjects = this.map.getObjectLayer('checkPoint')['objects'];
         this.checkPointsObjects.forEach(checkPointsObject => {
-            console.log(checkPointsObject.properties[0].value);
             let cP = new checkPoints(
                 this,
                 checkPointsObject.x,
@@ -129,7 +128,6 @@ class TableauTiled extends Tableau{
             {
                 ici.player.setPosition(playerPos.x, playerPos.y);
             }
-            console.log(playerPos);
 
 
             this.cPlist.push(cP);
@@ -139,13 +137,29 @@ class TableauTiled extends Tableau{
 
         //LES SATELLITES
         this.satList = [];
+        let posX = 0;
+        let posY = 0;
+        let angle = 0;
+        //PAR CP
         for (var i = 0; i < this.cPlist.length; i ++)
         {
-            let sat = new Satellite(this, this.cPlist[i].x, this.cPlist[i].y, 'sate', 0).setDepth(25);
-            this.satList.push(sat);
+            let satList2 = [];
+            //NOMBRE DE SAT PAS CP
+            for (var j = 0; j < + Phaser.Math.Between(2, 4); j ++)
+            {
+
+                posX = this.cPlist[i].x + Phaser.Math.Between(50, 150);
+                posY = this.cPlist[i].y + Phaser.Math.Between(-120, 120);
+                angle = Math.abs(360 * Phaser.Math.Angle.Between(0, 1, posX - this.cPlist[i].x, posY - this.cPlist[i].y)) -90;
+
+                let sat = new Satellite(this, posX, posY, 'sate', angle).setDepth(0);
+                satList2.push(sat);
+                console.log("sat");
+            }
+
+            this.satList.push(satList2);
         }
 
-        console.log(this.satList);
 
         //----------débug---------------------
 

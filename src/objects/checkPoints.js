@@ -8,7 +8,6 @@ class checkPoints extends Phaser.Physics.Arcade.Sprite
         scene.physics.add.existing(this);
         this.valuePos = value;
         this.body.allowGravity=false;
-        console.log(this.valuePos);
         this.body.setCircle(20,20);
         this.setOffset(-this.body.radius/2 + 10, -this.body.radius/2 + 10);
 
@@ -54,10 +53,12 @@ class checkPoints extends Phaser.Physics.Arcade.Sprite
         this.scene.add.sprite(this.x, this.y, 'plan_verte').setDepth(21);
     }
 
+
+    //MA CHERE ET TENDRE FONCTION D4ATTRACTION
     checkAttract()
     {
 
-        //RANGE 20 (for locking) /////  NOT WORKING
+        //RANGE 20 (for locking)
         if(Phaser.Math.Distance.BetweenPoints(this, Tableau.current.player) < 40)
         {
             //console.log("LOCK POS in", this.valuePos);
@@ -85,6 +86,7 @@ class checkPoints extends Phaser.Physics.Arcade.Sprite
 
         }
 
+        //SI ON SORT
         else if (Phaser.Math.Distance.BetweenPoints(this, Tableau.current.player) > 205 && this.oldDist <= 205)
         {
             //console.log("Left ", this.valuePos);
