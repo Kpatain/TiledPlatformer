@@ -27,6 +27,7 @@ QUE FAIS JE ICI
    - Se mettre en orbit pose problème, et empêche le joueur de continuer.
          - Les satellites seront là pour tuer le player s'il s'ammuse à tourner. J'ai enlevé les hits
            avec les satelittes pour que le jeu soit un minimum jouable. Mais c'est ma tache actuelle.
+   - Il faut appuyer sur espace pour afficher les satellites et reload(f5) pour respawn au dernier checkPoint.
  
  MON PLANNING
    - Finir le code et la totalité des outils qui me serviront plus tard pour la conception d'un gameplay amusant et équilibré.
