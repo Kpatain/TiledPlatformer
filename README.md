@@ -6,13 +6,14 @@ http://localhost/Tiledplatformer/
 
 
 QUE FAIS JE ICI
+
  
- TO DO                                                                                               TEMPS PRÉVU
-   -Les satellites sont en cours de conception                                                       / 5-12h  
-   -Le player n'est pas fini (orientation, particules, enlever le beurre qu'il a sous les pied)      / 10-15h
-   -Revoir le Gamepad, qui empeche un mouvement fluide du joueur                                     / 7h
-   -LD en général                                                                                    / ?
-   -Et implémentation de "rochers", ou asteroides au milieu qui compliquent l'avancé (assez eazy)    / 2h
+ TO DO
+   -Les satellites sont en cours de conception (5-12h)
+   -Le player n'est pas fini (orientation, particules, enlever le beurre qu'il a sous les pied) (10-15h)
+   -Revoir le Gamepad, qui empeche un mouvement fluide du joueur (7h)
+   -LD en général (?)
+   -Et implémentation de "rochers", ou asteroides au milieu qui compliquent l'avancé (assez eazy / 2h max)
    
  A SAVOIR
    - L'avancé du joueur est compliqué j'en suis conscient (après playtests de la mécha de mouvement) 
@@ -25,6 +26,6 @@ QUE FAIS JE ICI
    - Finir le code et la totalité des outils qui me serviront plus tard pour la conception d'un gameplay amusant et équilibré.
      Je suis entrain de finir le squelette du jeu. 
      
-   - LD et mise en place du niveau (d'ici deux semaines max)                                         / 20h ? Cela dépend 
+   - LD et mise en place du niveau (d'ici deux semaines max)                                         
 
    - Graphisme, soundDesign (et réalisation des musiques si possible suivant la date) + équilibrage  / au moins un 20e d'heures également. 
