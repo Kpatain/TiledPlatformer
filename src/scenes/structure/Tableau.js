@@ -23,6 +23,7 @@ class Tableau extends Phaser.Scene{
             'assets/beam.png',
             { frameWidth: 32, frameHeight: 32  }
         );
+        this.load.audio('drip', 'assets/sounds/death.mp3');
     }
     create(){
 
@@ -90,41 +91,6 @@ class Tableau extends Phaser.Scene{
         })
     }
 
-    followPlayer (bodyA, bodyB, bodyC){
-
-        let distMax = 200;
-        let xx = bodyB.x - bodyC.x;
-        let yy = bodyB.y - bodyC.y;
-
-        //conditions de snap
-        if (Math.sqrt( xx*xx + yy*yy ) < distMax)
-        {
-            console.log("inthe zone");
-            if (this.canSnap){
-                //ON RECUPERE LA VELOCITY DE PLAYER POUR PLAYERMATTER
-                bodyA.x = bodyC.x;
-                bodyA.y = bodyC.y;
-                console.log("tp of playermatter");
-                this.canSnap = 0;
-            }
-            else {
-                bodyC.x = bodyA.x;
-                bodyC.y = bodyA.y;
-                console.log("tp of player");
-            }
-
-
-
-        }else(this.canSnap = 1)
-
-        this.oldDist = Math.sqrt( xx*xx + yy*yy );
-        /*
-        this.range.x = bodyB.x;
-        this.range.y = bodyB.y;
-
-         */
-    }
-
 
     /**
      * 
@@ -160,9 +126,11 @@ class Tableau extends Phaser.Scene{
      */
     hitSat (player, sat)
     {
+        this.sound.play('drip');
+        this.cameras.main.fadeOut(2000,0,0,0);
         this.physics.pause();
         this.player.setTint(0xff0000);
-        this.scene.restart();
+        this.scene.restart()
         console.log('dead');
 
     }

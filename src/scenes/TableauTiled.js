@@ -25,6 +25,8 @@ class TableauTiled extends Tableau{
         let ici =this;
         console.log(Phaser);
 
+        this.cameras.main.fadeIn(4000,0,0,0);
+
         //notre map
         this.map = this.make.tilemap({ key: 'map' });
         //nos images qui vont avec la map

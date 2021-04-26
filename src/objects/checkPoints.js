@@ -45,6 +45,7 @@ class checkPoints extends Phaser.Physics.Arcade.Sprite
                 y : this.y
             }
         }
+
         return false;
     }
 

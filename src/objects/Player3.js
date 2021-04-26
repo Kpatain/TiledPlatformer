@@ -53,15 +53,15 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
 
         this.emmiter = this.particles.createEmitter({
             frequency: 5,
-            lifespan: 2000,
+            lifespan: 2500,
             quantity: 1,
             gravityX: 0,
-            gravityY: 0,
+            gravityY: 2,
             x: { min: 0, max: 360 },
             y: { min: 0, max: 360 },
             rotate: { min:0, max:360 },
             radial: true,
-            scale: { start: 0.3, end: 0.1 },
+            scale: { start: 0.2, end: 0.1 },
             alpha: { start: 1, end: 0 },
             speedX : 5,
             speedY : 4,
