@@ -21,28 +21,6 @@ class checkPoints extends Phaser.Physics.Arcade.Sprite
         circle.setStrokeStyle(2, 0x1a65ac);
 
 
-        //PARTICLES
-        this.particles = scene.add.particles('gp');
-        this.emmiter = this.particles.createEmitter({
-            lifespan: 2000,
-            quantity: 100,
-            gravityX: 0,
-            gravityY: 0,
-            x: { min: 0, max: 360 },
-            y: { min: 0, max: 360 },
-            rotate: { min:0, max:360 },
-            radial: true,
-            scale: { start: 0.3, end: 0.1 },
-            alpha: { start: 1, end: 0 },
-            speedX : 5,
-            speedY : 4,
-            angle: 0,
-        });
-
-        this.emmiter.startFollow(this);
-        scene.starsFxContainer.add(this.particles);
-        this.scene.starsFxContainer.setDepth(19);
-
     }
 
     savePos()
