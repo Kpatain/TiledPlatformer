@@ -160,9 +160,9 @@ class Tableau extends Phaser.Scene{
      */
     hitSat (player, sat)
     {
-        //this.physics.pause();
-        //this.player.setTint(0xff0000);
-        //this.scene.restart();
+        this.physics.pause();
+        this.player.setTint(0xff0000);
+        this.scene.restart();
         console.log('dead');
 
     }

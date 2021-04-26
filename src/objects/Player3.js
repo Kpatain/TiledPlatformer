@@ -134,6 +134,8 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
 
         this.emmiter.speedX.propertyValue = ui.pad.circleDrag.x*-3.5 ;
         this.emmiter.speedY.propertyValue = ui.pad.circleDrag.y*-4.5 ;
+
+        this.getVel();
         
 
 
@@ -184,7 +186,7 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
         this.setRotation(this.angleVel);
     }
 
-    //NOT using
+    //VELOCITE
     getVel(){
         this.velo = [this.oldCoor[0] - this.x, this.oldCoor[1] - this.y];
         console.log(this.velo[0], this.velo[1]);

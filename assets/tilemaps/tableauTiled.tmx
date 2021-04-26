@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="35" height="100" tilewidth="32" tileheight="32" infinite="0" nextlayerid="11" nextobjectid="50">
+<map version="1.4" tiledversion="1.4.3" orientation="orthogonal" renderorder="right-down" width="35" height="100" tilewidth="32" tileheight="32" infinite="0" nextlayerid="12" nextobjectid="74">
  <editorsettings>
   <export target="tableauTiled.json" format="json"/>
  </editorsettings>
@@ -180,47 +180,63 @@
   <properties>
    <property name="numb" type="int" value="0"/>
   </properties>
-  <object id="24" x="434.015" y="1862.2">
+  <object id="24" x="434.015" y="2027.53">
    <properties>
     <property name="numb" type="int" value="1"/>
    </properties>
    <point/>
   </object>
-  <object id="35" x="279.298" y="1584.99">
+  <object id="35" x="279.298" y="1750.32">
    <properties>
     <property name="num 2" type="int" value="2"/>
    </properties>
    <point/>
   </object>
-  <object id="36" x="627.78" y="2103.38">
+  <object id="36" x="521.113" y="2274.05">
    <properties>
     <property name="numb" type="int" value="0"/>
    </properties>
    <point/>
   </object>
-  <object id="37" x="608.915" y="1422.67">
+  <object id="37" x="608.915" y="1588">
    <properties>
     <property name="numb" type="int" value="3"/>
    </properties>
    <point/>
   </object>
-  <object id="47" x="845.333" y="1186.97">
+  <object id="47" x="845.333" y="1352.3">
    <properties>
     <property name="num" type="int" value="5"/>
    </properties>
    <point/>
   </object>
-  <object id="48" x="688.242" y="892.24">
+  <object id="48" x="688.242" y="1057.57">
    <properties>
     <property name="6" type="int" value="6"/>
    </properties>
    <point/>
   </object>
-  <object id="49" x="441.333" y="715.64">
+  <object id="49" x="441.333" y="880.973">
    <properties>
     <property name="num7" type="int" value="7"/>
    </properties>
    <point/>
   </object>
+ </objectgroup>
+ <objectgroup id="11" name="sat">
+  <object id="54" gid="36" x="483.667" y="1944" width="32" height="32"/>
+  <object id="61" gid="50" x="208" y="1724" width="32" height="32"/>
+  <object id="62" gid="50" x="174.667" y="1694.67" width="32" height="32"/>
+  <object id="63" gid="50" x="581.333" y="1676" width="32" height="32"/>
+  <object id="64" gid="50" x="541.333" y="1474.67" width="32" height="32"/>
+  <object id="65" gid="50" x="672" y="1602.67" width="32" height="32"/>
+  <object id="66" gid="50" x="706.667" y="1314.67" width="32" height="32"/>
+  <object id="67" gid="50" x="842.667" y="1445.33" width="32" height="32"/>
+  <object id="68" gid="50" x="953.333" y="1466.67" width="32" height="32"/>
+  <object id="69" gid="50" x="924" y="1285.33" width="32" height="32"/>
+  <object id="70" gid="50" x="744" y="1044" width="32" height="32"/>
+  <object id="71" gid="50" x="617.333" y="1088" width="32" height="32"/>
+  <object id="72" gid="50" x="681.333" y="917.333" width="32" height="32"/>
+  <object id="73" gid="50" x="424" y="962.667" width="32" height="32"/>
  </objectgroup>
 </map>

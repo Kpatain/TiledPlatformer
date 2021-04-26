@@ -48,50 +48,6 @@ class TableauTiled extends Tableau{
 
         this.calquesTest.setCollisionByProperty({ collides: true });
 
-        /*
-        //TEST MATTER
-        this.matter.enableAttractorPlugin();
-
-        //LES ASTRES
-        this.astre = this.matter.add.image(spawnPoint.x, spawnPoint.y - 500, 'trou',null, {
-            shape: {
-                type: 'circle',
-                radius: 20
-            },
-
-            isStatic: 1,
-
-            plugin: {
-                attractors: [
-                    function (bodyA, bodyB) {
-                        return {
-                            x: (bodyA.position.x - bodyB.position.x) * 0.0000005,
-                            y: (bodyA.position.y - bodyB.position.y) * 0.0000005
-                        };
-                    }
-                ]
-            }
-        }).setDepth(15);
-
-        //LE PLAYER
-        this.playerMatter = this.matter.add.image(spawnPoint.x, spawnPoint.y - 300, null , null, {
-            shape: {
-                type: 'circle',
-                radius: 10
-            },
-
-            mass: 1,
-            ignorePointer: true
-        }).setDepth(15).setVisible(0);
-
-        //RANGE DE SNAP
-        /*
-        this.range = this.add.circle(this.playerMatter.x, this.playerMatter.y, 200).setDepth(15);
-        this.range.setStrokeStyle(2, 0x1a65ac);
-
-        this.matter.add.mouseSpring();
-        */
-
 
 
         //----------les étoiles (objets) ---------------------
@@ -137,28 +93,40 @@ class TableauTiled extends Tableau{
 
         //LES SATELLITES
         this.satList = [];
-        let posX = 0;
-        let posY = 0;
-        let angle = 0;
+
+        this.satObjects = this.map.getObjectLayer('sat')['objects'];
+        this.satObjects.forEach(satObject => {
+            let sat = new Satellite(
+                this,
+                satObject.x,
+                satObject.y,
+                'sate',
+                Math.random(0, 360)*360
+            );
+
+            this.satList.push(sat);
+
+        })
+
         //PAR CP
-        for (var i = 0; i < this.cPlist.length; i ++)
-        {
-            let satList2 = [];
-            //NOMBRE DE SAT PAS CP
-            for (var j = 0; j < + Phaser.Math.Between(2, 4); j ++)
-            {
-
-                posX = this.cPlist[i].x + Phaser.Math.Between(50, 150);
-                posY = this.cPlist[i].y + Phaser.Math.Between(-120, 120);
-                angle = Math.abs(360 * Phaser.Math.Angle.Between(0, 1, posX - this.cPlist[i].x, posY - this.cPlist[i].y)) -90;
-
-                let sat = new Satellite(this, posX, posY, 'sate', angle).setDepth(0);
-                satList2.push(sat);
-                console.log("sat");
-            }
-
-            this.satList.push(satList2);
-        }
+        // for (var i = 0; i < this.cPlist.length; i ++)
+        // {
+        //     let satList2 = [];
+        //     //NOMBRE DE SAT PAS CP
+        //     for (var j = 0; j < + Phaser.Math.Between(2, 4); j ++)
+        //     {
+        //
+        //         posX = this.cPlist[i].x + Phaser.Math.Between(50, 150);
+        //         posY = this.cPlist[i].y + Phaser.Math.Between(-120, 120);
+        //         angle = Math.abs(360 * Phaser.Math.Angle.Between(0, 1, posX - this.cPlist[i].x, posY - this.cPlist[i].y)) -90;
+        //
+        //         let sat = new Satellite(this, posX, posY, 'sate', angle).setDepth(0);
+        //         satList2.push(sat);
+        //         console.log("sat");
+        //     }
+        //
+        //     this.satList.push(satList2);
+        // }
 
 
         //----------débug---------------------
@@ -200,7 +168,6 @@ class TableauTiled extends Tableau{
             this.cPlist[i].checkAttract();
             this.cPlist[i].setDepth(21);
         }
-
 
         //le ciel se déplace moins vite que la caméra pour donner un effet paralax
         this.sky.tilePositionX=this.cameras.main.scrollX*0.6;

@@ -43,16 +43,6 @@ class GamePad extends Phaser.GameObjects.Container{
                     Tableau.current.player.directionY=1;
                     break;
 
-                case " ":
-                    for (var i =0; i< Tableau.current.satList.length; i++)
-                    {
-                        console.log("i ",i);
-                        for (var j =0; j< Tableau.current.satList[i].length; j++){
-                            Tableau.current.satList[i][j].exist();
-                            console.log("j ",j);
-                        }
-                    }
-                    break;
 
             }
         });

@@ -17,25 +17,9 @@ class Satellite extends ObjetEnnemiSpike{
         this.setSize(20,20)
         this.setOffset(20, 0);
         this.setAngle(this.angleSat);
+        this.setDepth(25);
 
         this.b = 0; //j'en ai marre
-
-    }
-
-    //FONCTION TEMPORAIRE POUR LES VIRER DU VIEWPORT
-    exist(){
-
-        if (this.b)
-        {
-            this.setDepth(0);
-            console.log("disparitum");
-        }
-
-        else
-        {
-            this.setDepth(25);
-        }
-        this.b = !this.b;
 
     }
 
