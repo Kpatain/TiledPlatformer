@@ -48,20 +48,20 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
         scene.starsFxContainer.x = 0;
         scene.starsFxContainer.y = 0;
 
+
         this.particles = scene.add.particles('traj');
 
-
         this.emmiter = this.particles.createEmitter({
-            frequency: 200,
+            frequency: 5,
             lifespan: 2000,
             quantity: 1,
             gravityX: 0,
-            gravityY: 100,
-            x: { min: -32, max: 32 },
-            y: { min: -32, max: 32 },
+            gravityY: 0,
+            x: { min: 0, max: 360 },
+            y: { min: 0, max: 360 },
             rotate: { min:0, max:360 },
             radial: true,
-            scale: { start: 0.1, end: 0.1 },
+            scale: { start: 0.3, end: 0.1 },
             alpha: { start: 1, end: 0 },
             speedX : 5,
             speedY : 4,
@@ -101,11 +101,6 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
         )
         {
             //console.log("le pad bouge")
-            //this.particles.;
-            if (Math.sqrt(Math.pow(ui.pad.circleDrag.x,2) + Math.pow(ui.pad.circleDrag.y,2)) > 10)
-            {
-                this.particles.visible = 1;
-            }
 
             this.oldforceX = this.forceX;
             this.oldforceY = this.forceY;
@@ -114,7 +109,6 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
         }
         else
         {
-            this.particles.visible = 0;
 
             if((Math.abs(this.forceX - this.oldforceX) == Math.abs(this.oldforceX)
                 && Math.abs(this.forceY - this.oldforceY) == Math.abs(this.oldforceY)
@@ -130,10 +124,6 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
             }
 
         }
-
-
-        this.emmiter.speedX.propertyValue = ui.pad.circleDrag.x*-3.5 ;
-        this.emmiter.speedY.propertyValue = ui.pad.circleDrag.y*-4.5 ;
 
         this.getVel();
         
