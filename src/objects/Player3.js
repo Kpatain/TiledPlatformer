@@ -52,8 +52,8 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
         this.particles = scene.add.particles('traj');
 
         this.emmiter = this.particles.createEmitter({
-            frequency: 5,
-            lifespan: 2500,
+            frequency: 1,
+            lifespan: 500,
             quantity: 1,
             gravityX: 0,
             gravityY: 2,
@@ -61,7 +61,7 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
             y: { min: 0, max: 360 },
             rotate: { min:0, max:360 },
             radial: true,
-            scale: { start: 0.2, end: 0.1 },
+            scale: { start: 0.4, end: 0.1 },
             alpha: { start: 1, end: 0 },
             speedX : 5,
             speedY : 4,
@@ -121,11 +121,13 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
                 this.randomCond = 0;
                 this.setVelocityX(-this.oldforceX * 28.3);
                 this.setVelocityY(-this.oldforceY * 50);
+                this._directionX = 0;
+                this._directionY = 0;
             }
 
         }
 
-        this.getVel();
+        //this.getVel();
         
 
 
@@ -179,7 +181,7 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
     //VELOCITE
     getVel(){
         this.velo = [this.oldCoor[0] - this.x, this.oldCoor[1] - this.y];
-        console.log(this.velo[0], this.velo[1]);
+        //console.log(this.velo[0], this.velo[1]);
         this.oldCoor = [this.x, this.y];
         return this.velo;
     }
