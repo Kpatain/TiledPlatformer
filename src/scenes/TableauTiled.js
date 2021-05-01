@@ -17,6 +17,7 @@ class TableauTiled extends Tableau{
         this.load.image('plan_verte', 'assets/plan_verte.png');
         this.load.image('sate', 'assets/sate.png');
         this.load.image('gp', 'assets/greenParticle.png');
+        this.load.image('caillou', 'assets/caillou.png');
 
     }
 
@@ -108,6 +109,23 @@ class TableauTiled extends Tableau{
             );
 
             this.satList.push(sat);
+
+        })
+
+        //LES ASTEROIDES
+        this.caillouList = [];
+
+        this.caillouObjects = this.map.getObjectLayer('caillou')['objects'];
+        this.caillouObjects.forEach(caillouObject => {
+            let Aste = new Caillou(
+                this,
+                caillouObject.x,
+                caillouObject.y,
+                'caillou',
+                Math.random(0, 360)*360
+            );
+
+            this.caillouList.push(Aste);
 
         })
 

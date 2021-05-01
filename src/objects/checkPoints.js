@@ -17,8 +17,8 @@ class checkPoints extends Phaser.Physics.Arcade.Sprite
         this.oldDist =0;
 
         //range circle
-        let circle = Tableau.current.add.circle(this.x, this.y, 200).setDepth(15);
-        circle.setStrokeStyle(2, 0x1a65ac);
+        //let circle = Tableau.current.add.circle(this.x, this.y, 200).setDepth(15);
+        //circle.setStrokeStyle(2, 0x1a65ac);
 
 
     }

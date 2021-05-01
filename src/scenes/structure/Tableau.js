@@ -151,17 +151,16 @@ class Tableau extends Phaser.Scene{
                 && player.getBounds().bottom < monster.getBounds().top+30
 
             ){
-                ui.gagne();
+                //ui.gagne();
                 player.directionY=500;
-                player.setVelocityY(-250);
-                monster.isDead=true; //ok le monstre est mort
-                monster.visible=false;
-                this.saigne(monster,function(){
+                player.setVelocityY(-600);
+                //this.saigne(monster,function(){
                     //à la fin de la petite anim...ben il se passe rien :)
-
-                })
+                //})
                 
-            }else{
+            }
+            /**
+            else{
                 //le joueur est mort
                 if(!me.player.isDead){
                     me.player.isDead=true;
@@ -179,6 +178,7 @@ class Tableau extends Phaser.Scene{
 
                 me.playerDie();
             }
+             */
         }
 
     }

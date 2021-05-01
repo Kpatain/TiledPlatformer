@@ -28,7 +28,7 @@ let config = {
             key: 'press space (under design)',
             physics: {
                 arcade: {
-                    debug: 1,
+                    debug: 0,
                     gravity: { y: 2000 }
                 },
                 matter: {
