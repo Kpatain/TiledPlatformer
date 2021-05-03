@@ -10,16 +10,33 @@ class checkPoints extends Phaser.Physics.Arcade.Sprite
         this.body.allowGravity=false;
         this.body.setCircle(20,20);
         this.setOffset(-this.body.radius/2 + 10, -this.body.radius/2 + 10);
+        this.isChange = 0;
 
         this.gravXY = [0,0];
         this.xlerp = 0;
         this.angleVel = 0;
         this.oldDist =0;
 
-        this.pointLight = scene.add.pointlight(this.x, this.y, (0, 0, 0), 50, 0.1, 0.3).setDepth(20);
-        this.pointLight.color.r = 20;
-        this.pointLight.color.g = 20;
-        this.pointLight.color.b = 70;
+        this.pointLight = scene.add.pointlight(this.x, this.y, (0, 0, 0), 40, 0.1, 0.2).setDepth(20);
+        this.pointLight.color.r = 102;
+        this.pointLight.color.g = 53;
+        this.pointLight.color.b = 0;
+
+        // this.gravityParticle = scene.add.particles('traj')
+        // this.emitter0 = this.gravityParticle.createEmitter({
+        //     x: this.x,
+        //     y: this.y,
+        //     speed: { min: -800, max: 800 },
+        //     angle: { min: 0, max: 360 },
+        //     scale: { start: 0.1, end: 0.1 },
+        //     //blendMode: 'SCREEN',
+        //     //active: false,
+        //     lifespan: 800,
+        //     gravityY: 800
+        // });
+        //
+        // scene.starsFxContainer.add(this.gravityParticle).setDepth(19);
+
 
         //range circle
         //let circle = Tableau.current.add.circle(this.x, this.y, 200).setDepth(15);
@@ -56,8 +73,19 @@ class checkPoints extends Phaser.Physics.Arcade.Sprite
 
     changeSprite()
     {
-        this.disableBody(true, true);
-        this.scene.add.sprite(this.x, this.y, 'plan_verte').setDepth(21);
+        if(!this.isChange) {
+            //this.emitter0.explode();
+            console.log("change cP", localStorage.getItem('cP'));
+            this.isChange = 1;
+            this.disableBody(true, true);
+            this.scene.add.sprite(this.x, this.y, 'plan_verte').setDepth(21);
+            this.pointLight.color.r = 20;
+            this.pointLight.color.g = 20;
+            this.pointLight.color.b = 70;
+            this.pointLight.radius = 50;
+            this.pointLight.intensity = 0.1;
+            this.pointLight.attenuation = 0.3;
+        }
     }
 
 
