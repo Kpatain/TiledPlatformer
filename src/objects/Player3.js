@@ -123,6 +123,13 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
                 this.setVelocityY(-this.oldforceY * 50);
                 this._directionX = 0;
                 this._directionY = 0;
+                this.setAccelerationX(0);
+                this.setAccelerationY(0);
+                this.setBounceY(0);
+                this.directionY = 0;
+                this.directionX = 0;
+                this.directionY = 0;
+                this.directionX = 0;
             }
 
         }

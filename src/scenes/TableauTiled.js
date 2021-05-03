@@ -25,7 +25,7 @@ class TableauTiled extends Tableau{
         super.create();
         let ici =this;
         console.log(Phaser);
-        this.physics.world.setFPS(60)
+        this.physics.world.setFPS(60);
 
         this.cameras.main.fadeIn(2000,0,0,0);
 
@@ -190,9 +190,6 @@ class TableauTiled extends Tableau{
             this.cPlist[i].setDepth(21);
         }
 
-        //le ciel se déplace moins vite que la caméra pour donner un effet paralax
-        this.sky.tilePositionX=this.cameras.main.scrollX*0.6;
-        this.sky.tilePositionY=this.cameras.main.scrollY*0.6;
     }
 
 
