@@ -25,6 +25,7 @@ class TableauTiled extends Tableau{
         super.create();
         let ici =this;
         console.log(Phaser);
+        this.physics.world.setFPS(60)
 
         this.cameras.main.fadeIn(4000,0,0,0);
 
@@ -169,7 +170,6 @@ class TableauTiled extends Tableau{
         //quand on touche la lave, on meurt
         this.physics.add.collider(this.player, this.lave,this.playerDie,null,this);
 
-        //--------- Z order -----------------------
 
         //on définit les z à la fin
         this.sky.setDepth(5);

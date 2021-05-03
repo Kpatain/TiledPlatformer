@@ -9,16 +9,9 @@ let config = {
     physics: {
         default: 'arcade',
         arcade: {
-            gravity: { y: 100*3},
+            gravity: { y: 2000},
             debug: 0,
 
-        },
-        matter: {
-            debug: 0,
-            gravity: { y: 0 },
-            plugins: {
-                attractors: true
-            }
         }
     },
 
@@ -26,19 +19,6 @@ let config = {
         new Ui(),
         new TableauTiled({
             key: 'press space (under design)',
-            physics: {
-                arcade: {
-                    debug: 0,
-                    gravity: { y: 2000 }
-                },
-                matter: {
-                    debug: 0,
-                    gravity: { y: 0 },
-                    plugins: {
-                        attractors: true
-                    }
-                }
-            }
         })
     ],
     width: width,
@@ -59,10 +39,12 @@ let config = {
         autoCenter:Phaser.Scale.Center.CENTER_BOTH
 
     },
+
     autoRound: false
 };
 
 let game;
+
 function resize() {
     /*
     var canvas = document.querySelector("canvas");
