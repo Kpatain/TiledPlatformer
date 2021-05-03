@@ -27,7 +27,7 @@ class TableauTiled extends Tableau{
         console.log(Phaser);
         this.physics.world.setFPS(60)
 
-        this.cameras.main.fadeIn(4000,0,0,0);
+        this.cameras.main.fadeIn(2000,0,0,0);
 
         //notre map
         this.map = this.make.tilemap({ key: 'map' });

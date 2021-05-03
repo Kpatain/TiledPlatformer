@@ -16,6 +16,11 @@ class checkPoints extends Phaser.Physics.Arcade.Sprite
         this.angleVel = 0;
         this.oldDist =0;
 
+        this.pointLight = scene.add.pointlight(this.x, this.y, (0, 0, 0), 50, 0.1, 0.3).setDepth(20);
+        this.pointLight.color.r = 20;
+        this.pointLight.color.g = 20;
+        this.pointLight.color.b = 70;
+
         //range circle
         //let circle = Tableau.current.add.circle(this.x, this.y, 200).setDepth(15);
         //circle.setStrokeStyle(2, 0x1a65ac);
