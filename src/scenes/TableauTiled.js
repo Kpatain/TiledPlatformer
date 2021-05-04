@@ -24,7 +24,7 @@ class TableauTiled extends Tableau{
     create() {
         super.create();
         let ici =this;
-        console.log(Phaser);
+        console.log(this);
         this.physics.world.setFPS(60);
 
         this.cameras.main.fadeIn(2000,0,0,0);
@@ -43,6 +43,7 @@ class TableauTiled extends Tableau{
 
         //les plateformes simples
         this.calquesTest = this.map.createLayer('calquesTest', this.tileset, 0, 0);
+        this.collision = this.map.createLayer('collide', this.tileset, 0, 0);
 
 
         const spawnPoint = this.map.findObject("point", obj => obj.name === "Player");
@@ -130,27 +131,6 @@ class TableauTiled extends Tableau{
 
         })
 
-        //PAR CP
-        // for (var i = 0; i < this.cPlist.length; i ++)
-        // {
-        //     let satList2 = [];
-        //     //NOMBRE DE SAT PAS CP
-        //     for (var j = 0; j < + Phaser.Math.Between(2, 4); j ++)
-        //     {
-        //
-        //         posX = this.cPlist[i].x + Phaser.Math.Between(50, 150);
-        //         posY = this.cPlist[i].y + Phaser.Math.Between(-120, 120);
-        //         angle = Math.abs(360 * Phaser.Math.Angle.Between(0, 1, posX - this.cPlist[i].x, posY - this.cPlist[i].y)) -90;
-        //
-        //         let sat = new Satellite(this, posX, posY, 'sate', angle).setDepth(0);
-        //         satList2.push(sat);
-        //         console.log("sat");
-        //     }
-        //
-        //     this.satList.push(satList2);
-        // }
-
-
         //----------débug---------------------
 
         //pour débugger les collisions sur chaque layer
@@ -165,10 +145,14 @@ class TableauTiled extends Tableau{
         //quoi collide avec quoi?
         this.physics.add.collider(this.player, this.calquesTest);
         this.physics.add.collider(this.stars, this.calquesTest);
-        //si le joueur touche une étoile dans le groupe...
-        this.physics.add.overlap(this.player, this.stars, this.ramasserEtoile, null, this);
-        //quand on touche la lave, on meurt
-        this.physics.add.collider(this.player, this.lave,this.playerDie,null,this);
+
+        this.physics.add.overlap(this.player, this.collision, function()
+        {
+            console.log("tap");
+        });
+
+        this.physic
+
 
 
         //on définit les z à la fin

@@ -110,26 +110,17 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
         else
         {
 
-            if((Math.abs(this.forceX - this.oldforceX) == Math.abs(this.oldforceX)
-                && Math.abs(this.forceY - this.oldforceY) == Math.abs(this.oldforceY)
+            if((Math.abs(this.forceX - this.oldforceX) === Math.abs(this.oldforceX)
+                && Math.abs(this.forceY - this.oldforceY) === Math.abs(this.oldforceY)
                 && this.randomCond == 1 && this.body.deltaY() > 0 && this.body.onFloor())
-            ||(Math.abs(this.forceX - this.oldforceX) == Math.abs(this.oldforceX)
-                    && Math.abs(this.forceY - this.oldforceY) == Math.abs(this.oldforceY)
+            ||(Math.abs(this.forceX - this.oldforceX) === Math.abs(this.oldforceX)
+                    && Math.abs(this.forceY - this.oldforceY) === Math.abs(this.oldforceY)
                     && this.randomCond == 1 && this.canJump ))
             {
                 console.log("je viens de lacher")
                 this.randomCond = 0;
                 this.setVelocityX(-this.oldforceX * 28.3);
                 this.setVelocityY(-this.oldforceY * 50);
-                this._directionX = 0;
-                this._directionY = 0;
-                this.setAccelerationX(0);
-                this.setAccelerationY(0);
-                this.setBounceY(0);
-                this.directionY = 0;
-                this.directionX = 0;
-                this.directionY = 0;
-                this.directionX = 0;
             }
 
         }

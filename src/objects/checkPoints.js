@@ -22,25 +22,35 @@ class checkPoints extends Phaser.Physics.Arcade.Sprite
         this.pointLight.color.g = 53;
         this.pointLight.color.b = 0;
 
-        // this.gravityParticle = scene.add.particles('traj')
-        // this.emitter0 = this.gravityParticle.createEmitter({
-        //     x: this.x,
-        //     y: this.y,
-        //     speed: { min: -800, max: 800 },
-        //     angle: { min: 0, max: 360 },
-        //     scale: { start: 0.1, end: 0.1 },
-        //     //blendMode: 'SCREEN',
-        //     //active: false,
-        //     lifespan: 800,
-        //     gravityY: 800
-        // });
-        //
-        // scene.starsFxContainer.add(this.gravityParticle).setDepth(19);
+        // //range circle
+        // let circle = Tableau.current.add.circle(this.x, this.y, 200).setDepth(15);
+        // circle.setStrokeStyle(2, 0x1a65ac);
+
+        let shape1 = new Phaser.Geom.Circle(0, 0, 200);
+
+        this.gravityParticle = scene.add.particles('traj')
+        this.emitter0 = this.gravityParticle.createEmitter({
+            frequency: 0.1,
+            x: this.x,
+            y: this.y,
+            angle: { min: 0, max: 360 },
+            scale: { start: 0.1, end: 0.1 },
+            lifespan: 800,
+            emitZone: { type: 'random', source: shape1},
+            alpha: 0.2,
+            moveToX: this.x,
+            moveToY:this.y,
+
+        });
+
+        this.emitter0.setAlpha(function (p, k, t) {
+            return 1 - 2 * Math.abs(t - 0.5) *2 - 0.5;
+        });
+
+        scene.starsFxContainer.add(this.gravityParticle).setDepth(19);
 
 
-        //range circle
-        //let circle = Tableau.current.add.circle(this.x, this.y, 200).setDepth(15);
-        //circle.setStrokeStyle(2, 0x1a65ac);
+
 
 
     }

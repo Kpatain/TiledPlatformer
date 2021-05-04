@@ -21,7 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="dd5a153c-ac13-4bff-add4-ca49dca9723d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/objects/Player3.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/Player3.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/checkPoints.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/checkPoints.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/TableauTiled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/TableauTiled.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -116,7 +118,8 @@
       <workItem from="1619438669581" duration="11541000" />
       <workItem from="1619784189426" duration="3415000" />
       <workItem from="1619895353582" duration="2328000" />
-      <workItem from="1620041646211" duration="7627000" />
+      <workItem from="1620041646211" duration="8301000" />
+      <workItem from="1620143824331" duration="5987000" />
     </task>
     <servers />
   </component>
