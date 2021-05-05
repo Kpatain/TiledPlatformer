@@ -11,8 +11,6 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
 
         this.setFriction(50,50);
 
-
-
         this.setBodySize(this.body.width-6,this.body.height-10);
 
         //this.setSize(32, 32);
@@ -119,16 +117,20 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
             {
                 console.log("je viens de lacher")
                 this.randomCond = 0;
-                this.setVelocityX(-this.oldforceX * 28.3);
+                this.setVelocityX(-this.oldforceX * 50);
                 this.setVelocityY(-this.oldforceY * 50);
             }
-
         }
 
-        //this.getVel();
-        
-
-
+        if(Math.abs(this.body.velocity.x) < 1 && this.body.velocity.x !==0)
+        {
+            this.setVelocityX(0);
+        }
+        else if(Math.abs(this.body.velocity.x) < 400 && this.body.velocity.x !==0 && this.body.velocity.x < 1)
+        {
+            this.setVelocityX(this.body.velocity.x*0.992);
+        }
+        //console.log(Math.abs(this.body.velocity.x));
     }
 
 
@@ -183,5 +185,7 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
         this.oldCoor = [this.x, this.y];
         return this.velo;
     }
+
+
 
 }

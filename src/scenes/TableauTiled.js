@@ -43,14 +43,11 @@ class TableauTiled extends Tableau{
 
         //les plateformes simples
         this.calquesTest = this.map.createLayer('calquesTest', this.tileset, 0, 0);
-        this.collision = this.map.createLayer('collide', this.tileset, 0, 0);
 
 
         const spawnPoint = this.map.findObject("point", obj => obj.name === "Player");
         this.player.x = spawnPoint.x;
         this.player.y = spawnPoint.y;
-
-
 
         this.calquesTest.setCollisionByProperty({ collides: true });
 
