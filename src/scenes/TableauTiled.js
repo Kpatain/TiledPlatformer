@@ -24,8 +24,9 @@ class TableauTiled extends Tableau{
     create() {
         super.create();
         let ici =this;
-        console.log(this);
-        this.physics.world.setFPS(60);
+        console.log(myGame);
+
+        this.physics.world.setFPS(40);
 
         this.cameras.main.fadeIn(2000,0,0,0);
 
@@ -159,6 +160,7 @@ class TableauTiled extends Tableau{
         this.player.setDepth(20)
         this.stars.setDepth(22);
 
+
     }
 
 
@@ -176,4 +178,7 @@ class TableauTiled extends Tableau{
 
 
 
+
+
 }
+

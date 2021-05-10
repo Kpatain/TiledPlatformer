@@ -2,9 +2,19 @@
 let width=14*64; //896;
 let height=7*64; //448;
 
+function render() {
+    myGame.debug.text(myGame.time.fps, 50, 50, '#00ff00');
+    console.log("pouet");
+}
+
+const gameFunctions = {
+    render
+};
+
 let config = {
     type: Phaser.WEBGL,
     parent: 'phaser-example',
+    gameFunctions,
 
     physics: {
         default: 'arcade',
@@ -39,11 +49,10 @@ let config = {
         autoCenter:Phaser.Scale.Center.CENTER_BOTH
 
     },
-
-    autoRound: false
+    autoRound: false,
 };
 
-let game;
+let myGame;
 
 function resize() {
     /*
@@ -69,8 +78,10 @@ function resize() {
      */
 
 }
+
+
 window.onload = function() {
-    game=new Phaser.Game(config);
+    myGame=new Phaser.Game(config);
     window.addEventListener("resize", resize, false);
     window.addEventListener("scroll", resize, false);
 }
