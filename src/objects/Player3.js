@@ -46,6 +46,10 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
         scene.starsFxContainer.x = 0;
         scene.starsFxContainer.y = 0;
 
+        scene.starsFxContainer2 = scene.add.container();
+        scene.starsFxContainer2.x = 0;
+        scene.starsFxContainer2.y = 0;
+
 
         this.particles = scene.add.particles('traj');
 
@@ -146,6 +150,7 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
     }
 
 
+
     oldPos(){
         if(this.randomCond2%2 == 1) {
             this.oldX = this.x;
@@ -156,18 +161,21 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
 
     }
 
-    //!NOT WORKING
     lockPos(bodyA)
     {
         this.canJump = 1;
 
         if (this.canJump && !this.preCanJump)
         {
+            //pop
+            bodyA.emit(MyEvents.POP);
+
+            this.x = bodyA.x;
+            this.y = bodyA.y;
+            //this.visible = false;
             this.setAcceleration(0,0);
             this.setVelocity(0,0);
             this.setGravity(0,-2000);
-            this.x = bodyA.x;
-            this.y = bodyA.y;
         }
         this.preCanJump = this.canJump;
     }

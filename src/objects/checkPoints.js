@@ -1,5 +1,6 @@
-class checkPoints extends Phaser.Physics.Arcade.Sprite
+class CheckPoints extends Phaser.Physics.Arcade.Sprite
 {
+
     constructor(scene, x, y, image, value)
     {
         super(scene, x, y, image);
@@ -47,11 +48,31 @@ class checkPoints extends Phaser.Physics.Arcade.Sprite
             return 1 - 2 * Math.abs(t - 0.5) *2 - 0.5;
         });
 
+
+        this.greenParticles = scene.add.particles('caillou')
+        this.emitter1 = this.greenParticles.createEmitter({
+            frequency: 10,
+            quantity : 5,
+            x: this.x,
+            y: this.y,
+            angle: { min: 0, max: 360 },
+            scale: { start: 0.3, end: 0 },
+            lifespan: 1000,
+            alpha: 0.2,
+            speed: 100
+
+        });
+
+        let me = this;
+        this.once(MyEvents.POP, function(){
+            //scene.starsFxContainer2.add(me.greenParticles).setDepth(19);
+            me.emitter1.startFollow(me);
+            setTimeout(function(){me.emitter1.stopFollow();},300);
+            console.log("in");
+        });
+
+
         scene.starsFxContainer.add(this.gravityParticle).setDepth(19);
-
-
-
-
 
     }
 
@@ -102,7 +123,6 @@ class checkPoints extends Phaser.Physics.Arcade.Sprite
     //MA CHERE ET TENDRE FONCTION D4ATTRACTION
     checkAttract()
     {
-
         //RANGE 20 (for locking)
         if(Phaser.Math.Distance.BetweenPoints(this, Tableau.current.player) < 40)
         {
@@ -140,7 +160,6 @@ class checkPoints extends Phaser.Physics.Arcade.Sprite
             Tableau.current.player.setAcceleration(0,0);
             Tableau.current.player.setGravity(0, 0);
         }
-
         this.oldDist = Phaser.Math.Distance.BetweenPoints(this, Tableau.current.player);
 
         //Tableau.current.player.orient(this);

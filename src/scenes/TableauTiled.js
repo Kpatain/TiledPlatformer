@@ -9,9 +9,6 @@ class TableauTiled extends Tableau{
         this.load.tilemapTiledJSON('map', 'assets/tilemaps/tableauTiled.json');
 
         // -----et puis aussi-------------
-        this.load.image('star', 'assets/jade.png');
-
-
         this.load.image('traj', 'assets/traj.png');
         this.load.image('plan_brune', 'assets/plan_brune.png');
         this.load.image('plan_verte', 'assets/plan_verte.png');
@@ -25,7 +22,6 @@ class TableauTiled extends Tableau{
         super.create();
         let ici =this;
         console.log(myGame);
-
         this.physics.world.setFPS(40);
 
         this.cameras.main.fadeIn(2000,0,0,0);
@@ -53,7 +49,6 @@ class TableauTiled extends Tableau{
         this.calquesTest.setCollisionByProperty({ collides: true });
 
 
-
         //----------les étoiles (objets) ---------------------
         this.stars = this.physics.add.group({
             allowGravity: true,
@@ -68,7 +63,7 @@ class TableauTiled extends Tableau{
 
         this.checkPointsObjects = this.map.getObjectLayer('checkPoint')['objects'];
         this.checkPointsObjects.forEach(checkPointsObject => {
-            let cP = new checkPoints(
+            let cP = new CheckPoints(
                 this,
                 checkPointsObject.x,
                 checkPointsObject.y,
