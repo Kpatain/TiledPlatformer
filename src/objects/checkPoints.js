@@ -66,7 +66,7 @@ class CheckPoints extends Phaser.Physics.Arcade.Sprite
         let me = this;
         this.once(MyEvents.POP, function(){
             //scene.starsFxContainer2.add(me.greenParticles).setDepth(19);
-            me.emitter1.startFollow(me);
+            //me.emitter1.startFollow(me);
             setTimeout(function(){me.emitter1.stopFollow();},300);
             console.log("in");
         });
