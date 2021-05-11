@@ -22,7 +22,7 @@ class TableauTiled extends Tableau{
         super.create();
         let ici =this;
         console.log(myGame);
-        this.physics.world.setFPS(40);
+        this.physics.world.setFPS(50);
 
         this.cameras.main.fadeIn(2000,0,0,0);
 

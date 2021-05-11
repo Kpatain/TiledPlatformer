@@ -8,6 +8,7 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
 
         this.setCollideWorldBounds(true);
         this.setBounce(0.3);
+        this.setMaxVelocity(10);
 
         this.setFriction(50,50);
 
@@ -121,8 +122,8 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
             {
                 console.log("je viens de lacher")
                 this.randomCond = 0;
-                this.setVelocityX(-this.oldforceX * 100);
-                this.setVelocityY(-this.oldforceY * 100);
+                this.setVelocityX(-this.oldforceX * 25);
+                this.setVelocityY(-this.oldforceY * 50);
             }
         }
 
