@@ -16,7 +16,7 @@ class Ui extends Phaser.Scene{
          * @type {Phaser.GameObjects.Text}
          * @private
          */
-        this._scoreText = this.add.text(16, 16, '...', {
+        this._scoreText = this.add.text(16, 16, ' ', {
             font:'32px "Arial Black"',
             fill: '#7edfc1'
         });
@@ -26,7 +26,7 @@ class Ui extends Phaser.Scene{
          * @type {Phaser.GameObjects.Text}
          * @private
          */
-        this._tableauText = this.add.text(this.sys.canvas.width-16, 16, '...', {
+        this._tableauText = this.add.text(this.sys.canvas.width-16, 16, ' ', {
             font:'32px "Arial Black"',
             align: 'right',
             fill: '#7edfc1'
@@ -37,7 +37,7 @@ class Ui extends Phaser.Scene{
          * @type {Phaser.GameObjects.Text}
          * @private
          */
-        this._tableauTextClass = this.add.text(this.sys.canvas.width-16, 16+32, '...', {
+        this._tableauTextClass = this.add.text(this.sys.canvas.width-16, 16+32, ' ', {
             font:'24px "Arial Black"',
             align: 'right',
             fill: '#317a65',
@@ -60,7 +60,7 @@ class Ui extends Phaser.Scene{
         let me=this;
         setTimeout(function(){
             me.tableau="Hello World";
-            me.gagne(0)
+            //me.gagne(0)
         },100)
 
 
@@ -89,11 +89,13 @@ class Ui extends Phaser.Scene{
 
     }
 
+    /**
     gagne(points=10)
     {
         this.score+=points;
         this._scoreText.setText('Score: ' + this.score);
     }
+     */
 
     update(){
         if(Tableau.current){

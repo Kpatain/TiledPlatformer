@@ -22,7 +22,7 @@ let config = {
     scene: [
         new Ui(),
         new TableauTiled({
-            key: 'press space (under design)',
+            key: ' ',
         })
     ],
     width: width,
