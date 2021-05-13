@@ -133,11 +133,11 @@ class CheckPoints extends Phaser.Physics.Arcade.Sprite
         }
 
         //RANGE 200
-        else if (Phaser.Math.Distance.BetweenPoints(Tableau.current.player, this) < 200)
+        else if (Phaser.Math.Distance.BetweenPoints(Tableau.current.player, this) < 150)
         {
             Tableau.current.player.preCanJump = 0;
             Tableau.current.player.canJump = 0;
-            //console.log("setVelocity of ", this.valuePos);
+            console.log("dedans");
             Tableau.current.player.setGravity(0, -2000);
             this.xlerp = Math.pow(Phaser.Math.Distance.BetweenPoints(Tableau.current.player, this), 2)
 
@@ -146,8 +146,8 @@ class CheckPoints extends Phaser.Physics.Arcade.Sprite
 
 
             //ADDING VELOCITY
-            Tableau.current.player.setAccelerationX(this.gravXY[0] * 400);
-            Tableau.current.player.setAccelerationY(this.gravXY[1] * 400);
+            Tableau.current.player.setAccelerationX(this.gravXY[0] * 300);
+            Tableau.current.player.setAccelerationY(this.gravXY[1] * 300);
 
 
 

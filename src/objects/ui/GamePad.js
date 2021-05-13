@@ -77,12 +77,10 @@ class GamePad extends Phaser.GameObjects.Container{
             {
                 this.xDrag = this.circleDrag.x;
                 this.yDrag = this.circleDrag.y;
-                console.log("dedans");
             }
             else if (Phaser.Math.Distance.BetweenPoints(this.circleBase, this.circleDrag) > dragW){
                 this.circleDrag.x = this.xDrag;
                 this.circleDrag.y = this.yDrag;
-                console.log("dehors");
             }
 
 

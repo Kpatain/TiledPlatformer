@@ -122,9 +122,12 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
             {
                 console.log("je viens de lacher")
                 this.randomCond = 0;
-                this.setVelocityX(-this.oldforceX * 25);
-                this.setVelocityY(-this.oldforceY * 50);
+                this.setVelocityX(-this.oldforceX*50);
+                this.setVelocityY(-this.oldforceY*50);
+
+                console.log(Math.abs(50*(1/(this.oldforceX/this.oldforceY))));
             }
+
         }
 
         if(Math.abs(this.body.velocity.x) < 1 && this.body.velocity.x !==0)
