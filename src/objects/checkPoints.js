@@ -18,10 +18,10 @@ class CheckPoints extends Phaser.Physics.Arcade.Sprite
         this.angleVel = 0;
         this.oldDist =0;
 
-        this.pointLight = scene.add.pointlight(this.x, this.y, (0, 0, 0), 40, 0.1, 0.2).setDepth(20);
-        this.pointLight.color.r = 102;
-        this.pointLight.color.g = 53;
-        this.pointLight.color.b = 0;
+        this.pointLight = scene.add.pointlight(this.x, this.y, (0, 0, 0), 40, 0.1, 0.5).setDepth(20);
+        this.pointLight.color.r = 30;
+        this.pointLight.color.g = 5;
+        this.pointLight.color.b = 42;
 
         // //range circle
         // let circle = Tableau.current.add.circle(this.x, this.y, 200).setDepth(15);
@@ -49,28 +49,33 @@ class CheckPoints extends Phaser.Physics.Arcade.Sprite
         });
 
 
-        this.greenParticles = scene.add.particles('caillou')
+        this.greenParticles = scene.add.particles('pxlgr')
         this.emitter1 = this.greenParticles.createEmitter({
-            frequency: 10,
-            quantity : 5,
+            frequency: 2,
+            quantity : 10,
             x: this.x,
             y: this.y,
-            angle: { min: 0, max: 360 },
-            scale: { start: 0.3, end: 0 },
+            angle: {
+                min: 0,
+                max: 360
+            },
+            scale: { start: 0.6, end: 0 },
             lifespan: 1000,
             alpha: 0.2,
             speed: 100
 
         });
 
+        this.emitter1.on = false;
+
         let me = this;
         this.once(MyEvents.POP, function(){
-            //scene.starsFxContainer2.add(me.greenParticles).setDepth(19);
-            //me.emitter1.startFollow(me);
-            setTimeout(function(){me.emitter1.stopFollow();},300);
+            me.emitter1.on = true;
+            scene.starsFxContainer2.add(me.greenParticles).setDepth(19);
+            me.emitter1.startFollow(me);
+            setTimeout(function(){me.emitter1.on = false;}, 100);
             console.log("in");
         });
-
 
         scene.starsFxContainer.add(this.gravityParticle).setDepth(19);
 

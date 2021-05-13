@@ -12,11 +12,13 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
 
         this.setFriction(50,50);
 
-        this.setBodySize(this.body.width-6,this.body.height-10);
+        this.setBodySize(this.body.width-10,this.body.height-10);
+        this.displayWidth = 26;
+        this.displayHeight = 21;
 
         //this.setSize(32, 32);
         this.body.setCircle(15,15);
-        this.setOffset(-this.body.radius/2 +8, -this.body.radius/2 + 8);
+        this.setOffset(-this.body.radius/2 +5, -this.body.radius/2 + 5);
 
         //MOVE
         this.forceX = 0;
@@ -62,14 +64,11 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
             gravityY: 2,
             x: { min: 0, max: 360 },
             y: { min: 0, max: 360 },
-            rotate: { min:0, max:360 },
             radial: true,
-            scale: { start: 0.4, end: 0.1 },
+            scale: { start: 0.5, end: 0.1 },
             alpha: { start: 1, end: 0 },
-            speedX : 5,
-            speedY : 4,
-            angle: 0,
-
+            speed: 100,
+            angle: { min: 0, max: 360 },
         });
 
         this.emmiter.startFollow(this);
@@ -139,6 +138,8 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
             this.setVelocityX(this.body.velocity.x*0.992);
         }
         //console.log(Math.abs(this.body.velocity.x));
+
+        this.orient();
     }
 
 
@@ -184,20 +185,10 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
         this.preCanJump = this.canJump;
     }
 
-    orient(body)
+    orient()
     {
-        this.angleVel = Phaser.Math.Angle.Between(0, 1, this.getVel()[0],this.getVel()[1]);
+        this.angleVel = Phaser.Math.Angle.Between(0, 1, this.body.velocity.x,this.body.velocity.y);
         this.setRotation(this.angleVel);
     }
-
-    //VELOCITE
-    getVel(){
-        this.velo = [this.oldCoor[0] - this.x, this.oldCoor[1] - this.y];
-        //console.log(this.velo[0], this.velo[1]);
-        this.oldCoor = [this.x, this.y];
-        return this.velo;
-    }
-
-
 
 }

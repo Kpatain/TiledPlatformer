@@ -15,6 +15,7 @@ class TableauTiled extends Tableau{
         this.load.image('sate', 'assets/sate.png');
         this.load.image('gp', 'assets/greenParticle.png');
         this.load.image('caillou', 'assets/caillou.png');
+        this.load.image('pxlgr', 'assets/pixelgreen.png');
 
     }
 

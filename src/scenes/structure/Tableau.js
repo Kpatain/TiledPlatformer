@@ -21,7 +21,7 @@ class Tableau extends Phaser.Scene{
         this.load.image('blood', 'assets/elec.png');
         this.load.spritesheet('beam',
             'assets/beam.png',
-            { frameWidth: 32, frameHeight: 32  }
+            { frameWidth: 28, frameHeight: 21  }
         );
         this.load.audio('drip', 'assets/sounds/death.mp3');
     }
