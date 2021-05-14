@@ -145,9 +145,6 @@ class TableauTiled extends Tableau{
             console.log("tap");
         });
 
-        this.physic
-
-
 
         //on définit les z à la fin
         this.sky.setDepth(5);
@@ -156,6 +153,8 @@ class TableauTiled extends Tableau{
         this.player.setDepth(20)
         this.stars.setDepth(22);
 
+
+        this.previousPosition = 0;
 
     }
 
@@ -167,6 +166,18 @@ class TableauTiled extends Tableau{
         {
             this.cPlist[i].checkAttract();
             this.cPlist[i].setDepth(21);
+        }
+
+        let actualPosition=JSON.stringify(this.cameras.main.worldView);
+        if(
+            !this.previousPosition
+            || this.previousPosition !== actualPosition
+        ){
+            this.previousPosition=actualPosition;
+            for (let i =0; i < this.cPlist.size; i++) {
+                console.log("boucle update TableauTiled");
+                this.optimizeDisplay(this.cPlist[i].gravityParticle, this.cPlist[i].starsFxContainer);
+            }
         }
 
     }

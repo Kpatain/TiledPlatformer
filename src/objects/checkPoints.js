@@ -74,11 +74,15 @@ class CheckPoints extends Phaser.Physics.Arcade.Sprite
             scene.starsFxContainer2.add(me.greenParticles).setDepth(19);
             me.emitter1.startFollow(me);
             setTimeout(function(){me.emitter1.on = false;}, 100);
-            console.log("in");
         });
 
+        //OPTI
         scene.starsFxContainer.add(this.gravityParticle).setDepth(19);
 
+        this.gravityParticle.pause();
+        this.gravityParticle.visible = false;
+
+        this.gravityParticle.rectangle = new Phaser.Geom.Rectangle(this.x, this.y, 32, 32);
     }
 
     savePos()
@@ -133,6 +137,7 @@ class CheckPoints extends Phaser.Physics.Arcade.Sprite
         {
             //console.log("LOCK POS in", this.valuePos);
             Tableau.current.player.lockPos(this);
+            Tableau.current.player.visible = 0;
             this.loadPos();
             this.changeSprite();
         }
@@ -140,6 +145,7 @@ class CheckPoints extends Phaser.Physics.Arcade.Sprite
         //RANGE 200
         else if (Phaser.Math.Distance.BetweenPoints(Tableau.current.player, this) < 150)
         {
+            Tableau.current.player.body.setAllowGravity(false);
             Tableau.current.player.preCanJump = 0;
             Tableau.current.player.canJump = 0;
             console.log("dedans");
@@ -154,7 +160,7 @@ class CheckPoints extends Phaser.Physics.Arcade.Sprite
             Tableau.current.player.setAccelerationX(this.gravXY[0] * 300);
             Tableau.current.player.setAccelerationY(this.gravXY[1] * 300);
 
-
+            Tableau.current.player.visible = 1;
 
         }
 
@@ -164,6 +170,8 @@ class CheckPoints extends Phaser.Physics.Arcade.Sprite
             //console.log("Left ", this.valuePos);
             Tableau.current.player.setAcceleration(0,0);
             Tableau.current.player.setGravity(0, 0);
+            Tableau.current.player.body.setAllowGravity(true);
+
         }
         this.oldDist = Phaser.Math.Distance.BetweenPoints(this, Tableau.current.player);
 

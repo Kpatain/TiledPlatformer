@@ -258,6 +258,35 @@ class Tableau extends Phaser.Scene{
         game.scene.start(tableau);
     }
 
+    optimizeDisplay(particule, container)
+    {
+        //return;
+        let world = this.cameras.main.worldView; // le rectagle de la caméra, (les coordonnées de la zone visible)
+
+        // on va activer / désactiver les particules de lave
+        for (let particule of container.getAll()) { // parcours toutes les particules de lave
+            if (Phaser.Geom.Rectangle.Overlaps(world, particule.rectangle)) {
+                //si le rectangle de la particule est dans le rectangle de la caméra
+                if (!particule.visible) {
+                    //on active les particules
+                    particule.resume();
+                    particule.visible = true;
+                    console.log("particle visible");
+                }
+            } else {
+                //si le rectangle de la particule n'est PAS dans le rectangle de la caméra
+                if (particule.visible) {
+                    //on désactive les particules
+                    particule.pause();
+                    particule.visible = false;
+                    console.log("particle plus visible");
+                }
+            }
+        }
+
+        // ici vous pouvez appliquer le même principe pour des monstres, des étoiles etc...
+    }
+
 }
 
 /**
