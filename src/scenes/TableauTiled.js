@@ -159,8 +159,9 @@ class TableauTiled extends Tableau{
     }
 
 
-    update(){
+    update(time,delta){
         super.update();
+        this.player.move(delta);
         
         for (var i=0; i < this.cPlist.length; i++)
         {

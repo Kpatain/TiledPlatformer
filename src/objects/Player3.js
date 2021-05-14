@@ -89,7 +89,7 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
     /**
      * NOUVELLE METHODE SLINGSHOT
      */
-    move()
+    move(delta)
     {
         this.forceX = ui.pad.circleDrag.x;
         this.forceY = ui.pad.circleDrag.y;
@@ -119,13 +119,13 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
                     && this.randomCond && this.canJump ))
             {
                 this.randomCond = false;
-                let factor = 100;
+                let factor = delta*5;
                 let speedX = -this.oldforceX*factor;
                 let speedY = -this.oldforceY*factor;
                 this.setVelocityX(speedX);
                 this.setVelocityY(speedY);
 
-                console.log("X:", speedX, "Y:", speedY);
+                console.log("X:", speedX, "Y:", speedY, delta*5);
 
             }
 
