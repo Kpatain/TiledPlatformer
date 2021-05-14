@@ -74,11 +74,15 @@ class CheckPoints extends Phaser.Physics.Arcade.Sprite
             scene.starsFxContainer2.add(me.greenParticles).setDepth(19);
             me.emitter1.startFollow(me);
             setTimeout(function(){me.emitter1.on = false;}, 100);
-            console.log("in");
         });
 
+        //OPTI
         scene.starsFxContainer.add(this.gravityParticle).setDepth(19);
 
+        this.gravityParticle.pause();
+        this.gravityParticle.visible = false;
+
+        this.gravityParticle.rectangle = new Phaser.Geom.Rectangle(this.x, this.y, 32, 32);
     }
 
     savePos()
