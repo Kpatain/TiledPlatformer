@@ -119,7 +119,7 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
                     && this.randomCond && this.canJump ))
             {
                 this.randomCond = false;
-                let factor = 50;
+                let factor = 100;
                 let speedX = -this.oldforceX*factor;
                 let speedY = -this.oldforceY*factor;
                 this.setVelocityX(speedX);
