@@ -8,9 +8,8 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
 
         this.setCollideWorldBounds(true);
         this.setBounce(0.3);
-        this.setMaxVelocity(10);
 
-        this.setFriction(50,50);
+        this.setFriction(1,1);
 
         this.setBodySize(this.body.width-10,this.body.height-10);
         this.displayWidth = 26;
@@ -106,7 +105,7 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
 
             this.oldforceX = this.forceX;
             this.oldforceY = this.forceY;
-            this.randomCond = 1;
+            this.randomCond = true;
 
         }
         else
@@ -114,17 +113,20 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
 
             if((Math.abs(this.forceX - this.oldforceX) === Math.abs(this.oldforceX)
                 && Math.abs(this.forceY - this.oldforceY) === Math.abs(this.oldforceY)
-                && this.randomCond == 1 && this.body.deltaY() > 0 && this.body.onFloor())
+                && this.randomCond && this.body.deltaY() > 0 && this.body.onFloor())
             ||(Math.abs(this.forceX - this.oldforceX) === Math.abs(this.oldforceX)
                     && Math.abs(this.forceY - this.oldforceY) === Math.abs(this.oldforceY)
-                    && this.randomCond == 1 && this.canJump ))
+                    && this.randomCond && this.canJump ))
             {
-                console.log("je viens de lacher")
-                this.randomCond = 0;
-                this.setVelocityX(-this.oldforceX*50);
-                this.setVelocityY(-this.oldforceY*50);
+                this.randomCond = false;
+                let factor = 50;
+                let speedX = -this.oldforceX*factor;
+                let speedY = -this.oldforceY*factor;
+                this.setVelocityX(speedX);
+                this.setVelocityY(speedY);
 
-                console.log(Math.abs(50*(1/(this.oldforceX/this.oldforceY))));
+                console.log("X:", speedX, "Y:", speedY);
+
             }
 
         }

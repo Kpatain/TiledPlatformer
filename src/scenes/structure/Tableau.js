@@ -17,8 +17,6 @@ class Tableau extends Phaser.Scene{
      */
     preload(){
         this.load.image('sky', 'assets/sky.png');
-        this.load.image('spike', 'assets/spike.png');
-        this.load.image('blood', 'assets/elec.png');
         this.load.spritesheet('beam',
             'assets/beam.png',
             { frameWidth: 28, frameHeight: 21  }
@@ -40,10 +38,10 @@ class Tableau extends Phaser.Scene{
 
         /**
          *
-         * @type {Player2}
+         * @type {Player3}
          */
         this.player=new Player3(this,0,0);
-        this.player.setMaxVelocity(800,800);
+        this.player.setMaxVelocity(500,500);
 
 
         this.blood=this.add.sprite(this.sys.canvas.width/2,this.sys.canvas.height/2,"blood")
