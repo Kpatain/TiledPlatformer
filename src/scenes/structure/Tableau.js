@@ -212,6 +212,11 @@ class Tableau extends Phaser.Scene{
         this.scene.stop();
     }
 
+    variaLight(light){
+        light.setIntensity(light.intensity + Phaser.Math.FloatBetween(-0.08, 0.08));
+        light.intensity = Phaser.Math.Clamp(light.intensity, 0.2, 0.4);
+    }
+
     /**
      * Quand on a gagné
      */

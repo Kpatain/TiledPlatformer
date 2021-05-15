@@ -4,7 +4,7 @@ class TableauTiled extends Tableau{
         super.preload();
         // ------pour TILED-------------
         // nos images
-        this.load.image('tiles', ['assets/tilemaps/tableauTiledTileset2.png', 'assets/tilemaps/NormalMap.png']);
+        this.load.image('tiles', ['assets/tilemaps/tableauTiledTileset4.png', 'assets/tilemaps/NormalMap.png']);
         //les données du tableau qu'on a créé dans TILED
         this.load.tilemapTiledJSON('map', 'assets/tilemaps/tableauTiled2.json');
 
@@ -17,6 +17,7 @@ class TableauTiled extends Tableau{
         this.load.image('caillou', 'assets/caillou.png');
         this.load.image('pxlgr', 'assets/pixelgreen.png');
         this.load.image('logo', ['assets/logo.png','assets/logoNM.png']);
+        this.load.image('feu', ['assets/feu.png','assets/feuNM.png']);
 
     }
 
@@ -30,7 +31,7 @@ class TableauTiled extends Tableau{
         this.cameras.main.setZoom(0.8);
 
         //LIGHT
-        this.lights.enable().setAmbientColor(0x222222);
+        this.lights.enable().setAmbientColor(0x555555);
 
         //notre map
         this.map = this.make.tilemap({ key: 'map' });
@@ -48,12 +49,25 @@ class TableauTiled extends Tableau{
         this.calquesTest = this.map.createLayer('calquesTest', this.tileset, 0, 0);
         this.calquesTest.setPipeline('Light2D');
 
+
+        //SPAWNPOINT
         const spawnPoint = this.map.findObject("point", obj => obj.name === "Player");
         this.player.x = spawnPoint.x;
         this.player.y = spawnPoint.y;
 
+        //LOGO
         const logoObj = this.map.findObject("logo", obj => obj.name === "logoname");
-        this.add.sprite(logoObj.x, logoObj.y, 'logo').setDisplaySize(200,200).setDepth(21).setPipeline('Light2D');
+        this.add.sprite(logoObj.x, logoObj.y, 'logo').setDisplaySize(611,200).setDepth(21).setPipeline('Light2D');
+
+        //FEU
+        const feu = this.map.findObject("feu", obj => obj.name === "FeuStart");
+        this.add.sprite(feu.x, feu.y, 'feu').setDisplaySize(64,64).setDepth(25).setPipeline('Light2D');
+        this.lightFire = this.lights.addLight(feu.x, feu.y, 290, 0, 0.5);
+        this.lightFire.color.r = 5;
+        this.lightFire.color.g = 3;
+        this.lightFire.color.b = 1;
+
+
 
         this.calquesTest.setCollisionByProperty({ collides: true });
 
@@ -185,8 +199,12 @@ class TableauTiled extends Tableau{
             }
         }
 
+        //LIGHT FOLLOW
         this.player.light.x = this.player.x;
         this.player.light.y = this.player.y;
+
+        //VARIALIGHT
+        this.variaLight(this.lightFire);
 
     }
 
