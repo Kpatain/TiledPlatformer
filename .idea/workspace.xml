@@ -21,16 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="dd5a153c-ac13-4bff-add4-ca49dca9723d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/logoNM.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/logoNM.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tilemaps/NormalMap.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tilemaps/NormalMap.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tilemaps/TableauTiledTileset2.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tilemaps/TableauTiledTileset2.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tilemaps/tableauTiled2.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled2.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tilemaps/tableauTiled2.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled2.tmx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tilemaps/tableauTiledTileset2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tilemaps/tileset.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/checkPoints.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/checkPoints.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scenes/TableauTiled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/TableauTiled.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/structure/Tableau.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/structure/Tableau.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/structure/Ui.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/structure/Ui.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +127,7 @@
       <workItem from="1620831957014" duration="2499000" />
       <workItem from="1620920834529" duration="12937000" />
       <workItem from="1620991029417" duration="6051000" />
-      <workItem from="1621076610868" duration="24342000" />
+      <workItem from="1621076610868" duration="27081000" />
     </task>
     <servers />
   </component>

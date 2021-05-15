@@ -95,10 +95,6 @@ class TableauTiled extends Tableau{
 
             );
 
-            this.physics.add.overlap(this.player, cP, function()
-            {
-                cP.savePos();
-            });
 
             let playerPos = cP.loadPos();
 

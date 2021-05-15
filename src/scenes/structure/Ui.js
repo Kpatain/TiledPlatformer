@@ -37,7 +37,7 @@ class Ui extends Phaser.Scene{
          * @type {Phaser.GameObjects.Text}
          * @private
          */
-        this._tableauTextClass = this.add.text(this.sys.canvas.width-16, 16+32, ' ', {
+        this._tableauTextClass = this.add.text(this.sys.canvas.width-64, 16, ' ', {
             font:'24px "Arial Black"',
             align: 'right',
             fill: '#317a65',
@@ -46,9 +46,10 @@ class Ui extends Phaser.Scene{
         this._tableauText.originX=1;
         this._tableauTextClass.originX=1;
 
-        this._tableauText.setInteractive();
-        this._tableauText.on('pointerdown', function () {
-            Tableau.suivant();
+        this._tableauTextClass.setInteractive();
+        this._tableauTextClass.on('pointerdown', function () {
+            console.log("pouet");
+            localStorage.setItem('cP', null);
         })
 
         //met l'ui au dessus du tableau
@@ -99,8 +100,16 @@ class Ui extends Phaser.Scene{
 
     update(){
         if(Tableau.current){
-            this._tableauText.setText(Tableau.current.scene.key);
-            this._tableauTextClass.setText(Tableau.current.constructor.name)
+            if (localStorage.getItem('cP') >= 0)
+            {
+                //console.log("1");
+                this._tableauTextClass.setText("Planètes : " + (parseInt(localStorage.getItem('cP')) + 1).toString());
+            }
+            else
+            {
+                //console.log("0");
+                this._tableauTextClass.setText("Planètes : 0");
+            }
         }
 
 

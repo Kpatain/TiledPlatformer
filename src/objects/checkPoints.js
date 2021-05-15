@@ -138,6 +138,7 @@ class CheckPoints extends Phaser.Physics.Arcade.Sprite
         {
             //console.log("LOCK POS in", this.valuePos);
             Tableau.current.player.lockPos(this);
+            this.savePos();
             Tableau.current.player.visible = 0;
             this.loadPos();
             this.changeSprite();
