@@ -8,16 +8,17 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
 
         this.setCollideWorldBounds(true);
         this.setBounce(0.3);
+        this.setGravity(0, -1000);
 
         this.setFriction(1,1);
 
-        this.setBodySize(this.body.width-10,this.body.height-10);
-        this.displayWidth = 26;
-        this.displayHeight = 21;
+        this.setBodySize(this.body.width+10,this.body.height+10);
+        this.displayWidth = 32;
+        this.displayHeight = 24;
 
         //this.setSize(32, 32);
-        this.body.setCircle(15,15);
-        this.setOffset(-this.body.radius/2 +5, -this.body.radius/2 + 5);
+        this.body.setCircle(26,26);
+        this.setOffset(-this.body.radius/2, -this.body.radius/2-3);
 
         //MOVE
         this.forceX = 0;
@@ -36,6 +37,18 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
         console.log(this);
         this.canJump = 0;
         this.preCanJump = 0;
+
+        //LIGHT
+        this.light = scene.lights.addLight(0, 0, 500, 0, 1);
+        this.light.color.r = 1;
+        this.light.color.g = 1;
+        this.light.color.b = 1;
+
+        this.pointLight = scene.add.pointlight(this.x, this.y, (0, 0, 0), 60, 0.1, 0.5).setDepth(20);
+        this.pointLight.color.r = 255;
+        this.pointLight.color.g = 255;
+        this.pointLight.color.b = 255;
+
 
 
 
@@ -60,7 +73,7 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
             lifespan: 500,
             quantity: 1,
             gravityX: 0,
-            gravityY: 2,
+            gravityY: 500,
             x: { min: 0, max: 360 },
             y: { min: 0, max: 360 },
             radial: true,
@@ -119,7 +132,7 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
                     && this.randomCond && this.canJump ))
             {
                 this.randomCond = false;
-                let factor = delta*5;
+                let factor = delta*20;
                 let speedX = -this.oldforceX*factor;
                 let speedY = -this.oldforceY*factor;
                 this.setVelocityX(speedX);
@@ -135,9 +148,9 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
         {
             this.setVelocityX(0);
         }
-        else if(Math.abs(this.body.velocity.x) < 400 && this.body.velocity.x !==0 && this.body.velocity.x < 1)
+        else if(Math.abs(this.body.velocity.x) < 2000 && this.body.velocity.x !==0 && this.body.velocity.y < 1)
         {
-            this.setVelocityX(this.body.velocity.x*0.992);
+            this.setVelocityX(this.body.velocity.x*0.99);
         }
         //console.log(Math.abs(this.body.velocity.x));
 
@@ -176,6 +189,7 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
         {
             //pop
             bodyA.emit(MyEvents.POP);
+            this.emmiter.on = false;
 
             this.x = bodyA.x;
             this.y = bodyA.y;

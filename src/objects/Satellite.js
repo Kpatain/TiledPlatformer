@@ -13,7 +13,7 @@ class Satellite extends ObjetEnnemiSpike{
         let ici = scene;
         this.angleSat = angle;
 
-        this.setDisplaySize(38,10);
+        this.setDisplaySize(55,15);
         this.setSize(20,20)
         this.setOffset(20, 0);
         this.setAngle(this.angleSat);

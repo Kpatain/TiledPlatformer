@@ -9,6 +9,7 @@ class CheckPoints extends Phaser.Physics.Arcade.Sprite
         scene.physics.add.existing(this);
         this.valuePos = value;
         this.body.allowGravity=false;
+        this.setDisplaySize(60,60);
         this.body.setCircle(20,20);
         this.setOffset(-this.body.radius/2 + 10, -this.body.radius/2 + 10);
         this.isChange = 0;
@@ -18,7 +19,7 @@ class CheckPoints extends Phaser.Physics.Arcade.Sprite
         this.angleVel = 0;
         this.oldDist =0;
 
-        this.pointLight = scene.add.pointlight(this.x, this.y, (0, 0, 0), 40, 0.1, 0.5).setDepth(20);
+        this.pointLight = scene.add.pointlight(this.x, this.y, (0, 0, 0), 60, 0.1, 0.5).setDepth(20);
         this.pointLight.color.r = 30;
         this.pointLight.color.g = 5;
         this.pointLight.color.b = 42;
@@ -77,7 +78,7 @@ class CheckPoints extends Phaser.Physics.Arcade.Sprite
         });
 
         //OPTI
-        scene.starsFxContainer.add(this.gravityParticle).setDepth(19);
+        scene.starsFxContainer.add(this.gravityParticle).setDepth(25);
 
         //this.gravityParticle.pause();
         //this.gravityParticle.visible = false;
@@ -118,13 +119,13 @@ class CheckPoints extends Phaser.Physics.Arcade.Sprite
             console.log("change cP", localStorage.getItem('cP'));
             this.isChange = 1;
             this.disableBody(true, true);
-            this.scene.add.sprite(this.x, this.y, 'plan_verte').setDepth(21);
+            this.scene.add.sprite(this.x, this.y, 'plan_verte').setDisplaySize(60,60).setDepth(21);
             this.pointLight.color.r = 20;
             this.pointLight.color.g = 20;
             this.pointLight.color.b = 70;
             this.pointLight.radius = 50;
-            this.pointLight.intensity = 0.1;
-            this.pointLight.attenuation = 0.3;
+            this.pointLight.intensity = 0.07;
+            this.pointLight.attenuation = 0.8;
         }
     }
 
@@ -149,16 +150,16 @@ class CheckPoints extends Phaser.Physics.Arcade.Sprite
             Tableau.current.player.preCanJump = 0;
             Tableau.current.player.canJump = 0;
             console.log("dedans");
-            Tableau.current.player.setGravity(0, -2000);
-            this.xlerp = Math.pow(Phaser.Math.Distance.BetweenPoints(Tableau.current.player, this), 2)
+            Tableau.current.player.setGravity(0, -1000);
+            this.xlerp = Math.pow(Phaser.Math.Distance.BetweenPoints(Tableau.current.player, this), 2.2)
 
             this.gravXY[0] = (this.x - Tableau.current.player.x) / this.xlerp * 1000;
             this.gravXY[1] = (this.y - Tableau.current.player.y) / this.xlerp * 1000;
 
 
             //ADDING VELOCITY
-            Tableau.current.player.setAccelerationX(this.gravXY[0] * 300);
-            Tableau.current.player.setAccelerationY(this.gravXY[1] * 300);
+            Tableau.current.player.setAccelerationX(this.gravXY[0] * 200);
+            Tableau.current.player.setAccelerationY(this.gravXY[1] * 200);
 
             Tableau.current.player.visible = 1;
 
@@ -171,6 +172,7 @@ class CheckPoints extends Phaser.Physics.Arcade.Sprite
             Tableau.current.player.setAcceleration(0,0);
             Tableau.current.player.setGravity(0, 0);
             Tableau.current.player.body.setAllowGravity(true);
+            Tableau.current.player.emmiter.on = true;
 
         }
         this.oldDist = Phaser.Math.Distance.BetweenPoints(this, Tableau.current.player);

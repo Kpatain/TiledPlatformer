@@ -4,7 +4,7 @@ class TableauTiled extends Tableau{
         super.preload();
         // ------pour TILED-------------
         // nos images
-        this.load.image('tiles', 'assets/tilemaps/tableauTiledTileset2.png');
+        this.load.image('tiles', 'assets/tilemaps/tableauTiledTileset2.png', 'assets/tilemaps/NormalMap.png.png');
         //les données du tableau qu'on a créé dans TILED
         this.load.tilemapTiledJSON('map', 'assets/tilemaps/tableauTiled2.json');
 
@@ -16,6 +16,7 @@ class TableauTiled extends Tableau{
         this.load.image('gp', 'assets/greenParticle.png');
         this.load.image('caillou', 'assets/caillou.png');
         this.load.image('pxlgr', 'assets/pixelgreen.png');
+        this.load.image('logo', ['assets/logo.png','assets/logoNM.png']);
 
     }
 
@@ -24,8 +25,12 @@ class TableauTiled extends Tableau{
         let ici =this;
         console.log(myGame);
 
-        //this.physics.world.setFPS(30);
+        //this.physics.world.setFPS(35);
         this.cameras.main.fadeIn(2000,0,0,0);
+        this.cameras.main.setZoom(0.8);
+
+        //LIGHT
+        this.lights.enable().setAmbientColor(0x222222);
 
         //notre map
         this.map = this.make.tilemap({ key: 'map' });
@@ -41,11 +46,14 @@ class TableauTiled extends Tableau{
 
         //les plateformes simples
         this.calquesTest = this.map.createLayer('calquesTest', this.tileset, 0, 0);
-
+        this.calquesTest.setPipeline('Light2D');
 
         const spawnPoint = this.map.findObject("point", obj => obj.name === "Player");
         this.player.x = spawnPoint.x;
         this.player.y = spawnPoint.y;
+
+        const logoObj = this.map.findObject("logo", obj => obj.name === "logoname");
+        this.add.sprite(logoObj.x, logoObj.y, 'logo').setDisplaySize(200,200).setDepth(21).setPipeline('Light2D');
 
         this.calquesTest.setCollisionByProperty({ collides: true });
 
@@ -133,7 +141,6 @@ class TableauTiled extends Tableau{
             debug.visible=false;
         }
 
-
         //----------collisions---------------------
 
         //quoi collide avec quoi?
@@ -157,13 +164,15 @@ class TableauTiled extends Tableau{
     update(time,delta){
         super.update();
         this.player.move(delta);
-        
+
+        //CHECKPOINT
         for (var i=0; i < this.cPlist.length; i++)
         {
             this.cPlist[i].checkAttract();
             this.cPlist[i].setDepth(21);
         }
 
+        //OPTI
         let actualPosition=JSON.stringify(this.cameras.main.worldView);
         if(
             !this.previousPosition
@@ -175,6 +184,9 @@ class TableauTiled extends Tableau{
                 this.optimizeDisplay(this.cPlist[i].gravityParticle, this.cPlist[i].starsFxContainer);
             }
         }
+
+        this.player.light.x = this.player.x;
+        this.player.light.y = this.player.y;
 
     }
 
