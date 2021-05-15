@@ -4,9 +4,9 @@ class TableauTiled extends Tableau{
         super.preload();
         // ------pour TILED-------------
         // nos images
-        this.load.image('tiles', 'assets/tilemaps/tableauTiledTileset.png');
+        this.load.image('tiles', 'assets/tilemaps/tableauTiledTileset2.png');
         //les données du tableau qu'on a créé dans TILED
-        this.load.tilemapTiledJSON('map', 'assets/tilemaps/tableauTiled.json');
+        this.load.tilemapTiledJSON('map', 'assets/tilemaps/tableauTiled2.json');
 
         // -----et puis aussi-------------
         this.load.image('traj', 'assets/traj.png');
@@ -24,13 +24,13 @@ class TableauTiled extends Tableau{
         let ici =this;
         console.log(myGame);
 
-        this.physics.world.setFPS(30);
+        //this.physics.world.setFPS(30);
         this.cameras.main.fadeIn(2000,0,0,0);
 
         //notre map
         this.map = this.make.tilemap({ key: 'map' });
         //nos images qui vont avec la map
-        this.tileset = this.map.addTilesetImage('tableauTiledTileset', 'tiles');
+        this.tileset = this.map.addTilesetImage('TableauTiledTileset2', 'tiles');
 
         //on agrandit le champ de la caméra du coup
         let largeurDuTableau=this.map.widthInPixels;
@@ -139,11 +139,6 @@ class TableauTiled extends Tableau{
         //quoi collide avec quoi?
         this.physics.add.collider(this.player, this.calquesTest);
         this.physics.add.collider(this.stars, this.calquesTest);
-
-        this.physics.add.overlap(this.player, this.collision, function()
-        {
-            console.log("tap");
-        });
 
 
         //on définit les z à la fin
