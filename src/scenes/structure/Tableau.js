@@ -150,7 +150,8 @@ class Tableau extends Phaser.Scene{
             ){
                 //ui.gagne();
                 player.directionY=500;
-                player.setVelocityY(-600);
+                player.setVelocityY(-700);
+                player.setVelocityX(player.body.velocity.x*2);
                 //this.saigne(monster,function(){
                     //à la fin de la petite anim...ben il se passe rien :)
                 //})
