@@ -66,6 +66,25 @@ class TableauTiled extends Tableau{
         this.lightFire.color.r = 5;
         this.lightFire.color.g = 3;
         this.lightFire.color.b = 1;
+        let emmit = new Phaser.Geom.Circle(feu.x+10, feu.y+5, 20);
+        let particleFeu = this.add.particles('pxlgr');
+        let emmiterFeu = particleFeu.createEmitter({
+            frequency: 300,
+            lifespan: Phaser.Math.Between(1500,2000),
+            quantity: 5,
+            gravityX: 0,
+            gravityY: -50,
+            tint: [  0xff4600, 0xe63f00, 0xcc3800, 0xe60000, 0xff3333 ],
+            rotate: { min:0, max:360 },
+            radial: true,
+            scale: { start: 0.2, end: 0.1 },
+            alpha: { start: 1, end: 0 },
+            emitZone: { type: 'random', source: emmit },
+            blendMode: Phaser.BlendModes.ADD,
+            speed: 20
+        });
+
+        this.starsFxContainer.add(particleFeu);
 
 
 
