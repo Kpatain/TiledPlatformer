@@ -18,6 +18,7 @@ class TableauTiled extends Tableau{
         this.load.image('pxlgr', 'assets/pixelgreen.png');
         this.load.image('logo', ['assets/logo.png','assets/logoNM.png']);
         this.load.image('feu', ['assets/feu.png','assets/feuNM.png']);
+        this.load.audio('music', 'assets/sounds/MUSIC.wav');
 
     }
 
@@ -32,6 +33,12 @@ class TableauTiled extends Tableau{
 
         //LIGHT
         this.lights.enable().setAmbientColor(0x555555);
+
+        //MUSIQUE
+        let music = this.sound.add('music');
+        music.loop = true;
+        music.play();
+        music.volume = 0.5;
 
         //notre map
         this.map = this.make.tilemap({ key: 'map' });
