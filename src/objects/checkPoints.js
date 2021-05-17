@@ -158,7 +158,7 @@ class CheckPoints extends Phaser.Physics.Arcade.Sprite
             this.gravXY[1] = (this.y - Tableau.current.player.y) / this.xlerp * 1000;
 
             let factor = (178*delta-424)/5;
-            console.log(factor);
+            //console.log(factor);
             //ADDING VELOCITY
             Tableau.current.player.setAccelerationX(this.gravXY[0] * factor);
             Tableau.current.player.setAccelerationY(this.gravXY[1] * factor);
