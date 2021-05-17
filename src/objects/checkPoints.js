@@ -131,7 +131,7 @@ class CheckPoints extends Phaser.Physics.Arcade.Sprite
 
 
     //MA CHERE ET TENDRE FONCTION D4ATTRACTION
-    checkAttract()
+    checkAttract(delta)
     {
         //RANGE 20 (for locking)
         if(Phaser.Math.Distance.BetweenPoints(this, Tableau.current.player) < 40)
@@ -159,8 +159,8 @@ class CheckPoints extends Phaser.Physics.Arcade.Sprite
 
 
             //ADDING VELOCITY
-            Tableau.current.player.setAccelerationX(this.gravXY[0] * 200);
-            Tableau.current.player.setAccelerationY(this.gravXY[1] * 200);
+            Tableau.current.player.setAccelerationX(this.gravXY[0] * ((178*delta-424)/5));
+            Tableau.current.player.setAccelerationY(this.gravXY[1] * ((178*delta-424)/5));
 
             Tableau.current.player.visible = 1;
 

@@ -44,7 +44,7 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
         this.light.color.g = 1;
         this.light.color.b = 1;
 
-        this.pointLight = scene.add.pointlight(this.x, this.y, (0, 0, 0), 60, 0.1, 0.5).setDepth(20);
+        this.pointLight = scene.add.pointlight(this.x, this.y, (0, 0, 0), 60, 0.1, 0.1).setDepth(20);
         this.pointLight.color.r = 255;
         this.pointLight.color.g = 255;
         this.pointLight.color.b = 255;
@@ -132,7 +132,8 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
                     && this.randomCond && this.canJump ))
             {
                 this.randomCond = false;
-                let factor = delta*20;
+                let factor = (30*delta - 40);
+                console.log(factor);
                 let speedX = -this.oldforceX*factor;
                 let speedY = -this.oldforceY*factor;
                 this.setVelocityX(speedX);

@@ -204,7 +204,7 @@ class TableauTiled extends Tableau{
         //CHECKPOINT
         for (var i=0; i < this.cPlist.length; i++)
         {
-            this.cPlist[i].checkAttract();
+            this.cPlist[i].checkAttract(delta);
             this.cPlist[i].setDepth(21);
         }
 
@@ -224,6 +224,9 @@ class TableauTiled extends Tableau{
         //LIGHT FOLLOW
         this.player.light.x = this.player.x;
         this.player.light.y = this.player.y;
+
+        this.player.pointLight.x = this.player.x;
+        this.player.pointLight.y = this.player.y;
 
         //VARIALIGHT
         this.variaLight(this.lightFire);
