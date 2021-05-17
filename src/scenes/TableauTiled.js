@@ -32,7 +32,7 @@ class TableauTiled extends Tableau{
         this.cameras.main.setZoom(0.8);
 
         //LIGHT
-        this.lights.enable().setAmbientColor(0x555555);
+        this.lights.enable().setAmbientColor(0x28362b);
 
         //MUSIQUE
         let music = this.sound.add('music');
@@ -209,17 +209,19 @@ class TableauTiled extends Tableau{
         }
 
         //OPTI
+        /*
         let actualPosition=JSON.stringify(this.cameras.main.worldView);
         if(
             !this.previousPosition
             || this.previousPosition !== actualPosition
         ){
             this.previousPosition=actualPosition;
-            for (let i =0; i < this.cPlist.size; i++) {
+            for (let i=0; i < this.cPlist.length; i++) {
                 console.log("boucle update TableauTiled");
                 this.optimizeDisplay(this.cPlist[i].gravityParticle, this.cPlist[i].starsFxContainer);
             }
         }
+           */
 
         //LIGHT FOLLOW
         this.player.light.x = this.player.x;

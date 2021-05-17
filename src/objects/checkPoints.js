@@ -79,10 +79,8 @@ class CheckPoints extends Phaser.Physics.Arcade.Sprite
 
         //OPTI
         scene.starsFxContainer.add(this.gravityParticle).setDepth(19);
-
-        //this.gravityParticle.pause();
-        //this.gravityParticle.visible = false;
-
+        this.gravityParticle.pause();
+        this.gravityParticle.visible = false;
         this.gravityParticle.rectangle = new Phaser.Geom.Rectangle(this.x, this.y, 32, 32);
     }
 

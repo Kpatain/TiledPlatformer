@@ -83,7 +83,10 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
             angle: { min: 0, max: 360 },
         });
 
-        this.emmiter.startFollow(this);
+
+
+
+
         scene.starsFxContainer.add(this.particles);
         this.scene.starsFxContainer.setDepth(19);
 
@@ -156,6 +159,12 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
         //console.log(Math.abs(this.body.velocity.x));
 
         this.orient();
+        let partbool = 1;
+        if(this.x > 2800 && partbool) {
+                partbool = 0;
+                this.emmiter.startFollow(this);
+        }
+
     }
 
 
@@ -200,6 +209,13 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
             this.setGravity(0,-2000);
         }
         this.preCanJump = this.canJump;
+
+        let boolAmbiance = true;
+        if (boolAmbiance){
+            this.lights.setAmbientColor(0x28362b);
+
+        }
+
     }
 
     orient()
