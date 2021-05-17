@@ -35,13 +35,11 @@ class CheckPoints extends Phaser.Physics.Arcade.Sprite
             frequency: 0.1,
             x: this.x,
             y: this.y,
-            angle: { min: 0, max: 360 },
             scale: { start: 0.1, end: 0.1 },
             lifespan: 800,
             emitZone: { type: 'random', source: shape1},
             alpha: 0.2,
-            moveToX: this.x,
-            moveToY:this.y,
+            angle: { min: 0, max: 360 },
 
         });
 

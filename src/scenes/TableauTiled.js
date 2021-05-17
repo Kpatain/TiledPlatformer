@@ -32,7 +32,7 @@ class TableauTiled extends Tableau{
         this.cameras.main.setZoom(0.8);
 
         //LIGHT
-        this.lights.enable().setAmbientColor(0x28362b);
+        this.lights.enable().setAmbientColor(0x202b22);
 
         //MUSIQUE
         let music = this.sound.add('music');
@@ -168,6 +168,29 @@ class TableauTiled extends Tableau{
             this.caillouList.push(Aste);
 
         })
+
+        //DES PARTICULES VOLANTES
+        let emitRect = new Phaser.Geom.Rectangle(0, 0, 4500, 3300)
+
+        let particleSpace = this.add.particles('traj');
+        let emmiterSpace = particleSpace.createEmitter({
+            frequency: 8,
+            lifespan: Phaser.Math.Between(300,1100),
+            quantity: 25,
+            gravityX: 0,
+            gravityY: 0,
+            tint: 0x888888,
+            radial: true,
+            scale: 0.2,
+            alpha: { start: 0.5, end: 0 },
+            emitZone: { type: 'random', source: emitRect },
+            blendMode: Phaser.BlendModes.DST_COLOR,
+            angle: { min: 0, max: 360 },
+            speed : 50,
+        });
+
+        this.starsFxContainer.add(particleSpace).setDepth(5);
+        this.starsFxContainer.add(particleFeu);
 
         //----------débug---------------------
 

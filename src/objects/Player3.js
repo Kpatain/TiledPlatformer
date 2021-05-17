@@ -39,15 +39,17 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
         this.preCanJump = 0;
 
         //LIGHT
-        this.light = scene.lights.addLight(0, 0, 500, 0, 1);
-        this.light.color.r = 1;
-        this.light.color.g = 1;
-        this.light.color.b = 1;
+        this.light = scene.lights.addLight(0, 0, 300, 0, 1);
+        this.light.color.r = 1.5;
+        this.light.color.g = 1.5;
+        this.light.color.b = 1.5;
 
         this.pointLight = scene.add.pointlight(this.x, this.y, (0, 0, 0), 60, 0.1, 0.1).setDepth(20);
         this.pointLight.color.r = 255;
         this.pointLight.color.g = 255;
         this.pointLight.color.b = 255;
+
+        this.boolAmbiance = true;
 
 
 
@@ -210,10 +212,10 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
         }
         this.preCanJump = this.canJump;
 
-        let boolAmbiance = true;
-        if (boolAmbiance){
-            this.lights.setAmbientColor(0x28362b);
 
+        if (this.boolAmbiance){
+            Tableau.current.lights.setAmbientColor(0x777777);
+            this.boolAmbiance = false;
         }
 
     }
