@@ -169,8 +169,15 @@ class TableauTiled extends Tableau{
 
         })
 
+        //TROU
+        let Blackhole = new Trou(
+            this,
+            0,
+            this.map.heightInPixels
+        );
+
         //DES PARTICULES VOLANTES
-        let emitRect = new Phaser.Geom.Rectangle(0, 0, 4500, 3300)
+        let emitRect = new Phaser.Geom.Rectangle(0, 0, 4500, 3300);
 
         let particleSpace = this.add.particles('traj');
         let emmiterSpace = particleSpace.createEmitter({

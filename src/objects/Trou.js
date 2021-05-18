@@ -4,7 +4,6 @@ class Trou extends ObjetEnnemiSpike {
         this.load.image('trou', 'assets/trou.png');
     }
 
-
     /**
      *
      * @param {Tableau} scene
@@ -20,7 +19,7 @@ class Trou extends ObjetEnnemiSpike {
         //this.setOffset(150, 250);
         //this.setSize(40, 100);                                                 //Hitbox
         this.setDepth(30);                                                 //Profondeur
-
+        this.setScrollFactor(0, 0);
     }
 }
 
