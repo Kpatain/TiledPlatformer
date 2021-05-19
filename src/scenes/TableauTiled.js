@@ -18,6 +18,7 @@ class TableauTiled extends Tableau{
         this.load.image('pxlgr', 'assets/pixelgreen.png');
         this.load.image('logo', ['assets/logo.png','assets/logoNM.png']);
         this.load.image('feu', ['assets/feu.png','assets/feuNM.png']);
+        this.load.image('trou', 'assets/anta.png');
         this.load.audio('music', 'assets/sounds/MUSIC.wav');
 
     }
@@ -27,7 +28,6 @@ class TableauTiled extends Tableau{
         let ici =this;
         console.log(myGame);
 
-        //this.physics.world.setFPS(35);
         this.cameras.main.fadeIn(2000,0,0,0);
         this.cameras.main.setZoom(0.8);
 
@@ -170,10 +170,11 @@ class TableauTiled extends Tableau{
         })
 
         //TROU
-        let Blackhole = new Trou(
+        this.Blackhole = new Trou(
             this,
-            0,
-            this.map.heightInPixels
+            50000,
+            50000,
+            "trou"
         );
 
         //DES PARTICULES VOLANTES
@@ -215,11 +216,30 @@ class TableauTiled extends Tableau{
 
 
         //on définit les z à la fin
-        this.sky.setDepth(5);
-        this.calquesTest.setDepth(10);
-        //this.player.scene.starsFxContainer.setDepth(19);
-        this.player.setDepth(20)
-        this.stars.setDepth(22);
+        let prof= 1000;
+        this.Blackhole.setDepth(prof--);
+        for (var i=0; i < this.cPlist.length; i++)
+        {
+            this.cPlist[i].setDepth(prof);
+        }
+        prof = prof--;
+        for (var i=0; i < this.caillouList.length; i++)
+        {
+            this.caillouList[i].setDepth(prof);
+        }
+        prof = prof--;
+        for (var i=0; i < this.satList.length; i++)
+        {
+            this.satList[i].setDepth(prof);
+        }
+        this.stars.setDepth(prof--);
+        this.player.setDepth(prof--);
+        this.calquesTest.setDepth(prof--);
+        this.sky.setDepth(1);
+
+        this.player.scene.starsFxContainer.setDepth(19);
+
+
 
 
         this.previousPosition = 0;
@@ -230,6 +250,7 @@ class TableauTiled extends Tableau{
     update(time,delta){
         super.update();
         this.player.move(delta);
+        this.Blackhole.moveAnta();
 
         //CHECKPOINT
         for (var i=0; i < this.cPlist.length; i++)

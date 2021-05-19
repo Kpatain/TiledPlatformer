@@ -115,7 +115,7 @@ class CheckPoints extends Phaser.Physics.Arcade.Sprite
             console.log("change cP", localStorage.getItem('cP'));
             this.isChange = 1;
             this.disableBody(true, true);
-            this.scene.add.sprite(this.x, this.y, 'plan_verte').setDisplaySize(60,60).setDepth(21);
+            this.scene.add.sprite(this.x, this.y, 'plan_verte').setDisplaySize(60,60).setDepth(25);
             this.pointLight.color.r = 20;
             this.pointLight.color.g = 20;
             this.pointLight.color.b = 70;
@@ -153,7 +153,8 @@ class CheckPoints extends Phaser.Physics.Arcade.Sprite
             this.gravXY[0] = (this.x - Tableau.current.player.x) / this.xlerp * 1000;
             this.gravXY[1] = (this.y - Tableau.current.player.y) / this.xlerp * 1000;
 
-            let factor = (178*delta-424)/5;
+            //let factor = (178*delta-424)/5;
+            let factor = (-126*delta - 3125.2)/(-9.7);
             //console.log(factor);
             //ADDING VELOCITY
             Tableau.current.player.setAccelerationX(this.gravXY[0] * factor);
