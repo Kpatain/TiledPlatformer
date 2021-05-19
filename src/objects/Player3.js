@@ -50,6 +50,7 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
         this.pointLight.color.b = 255;
 
         this.boolAmbiance = true;
+        this.boolAnta = true;
 
 
 
@@ -217,6 +218,13 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
             Tableau.current.lights.setAmbientColor(0x777777);
             this.boolAmbiance = false;
         }
+
+        if (this.boolAnta){
+            Tableau.current.Blackhole.emit(MyEvents.ANTA);
+            this.boolAnta = false;
+            Tableau.current.minimap.visible = true;
+        }
+
 
     }
 

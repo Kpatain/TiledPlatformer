@@ -31,6 +31,15 @@ class TableauTiled extends Tableau{
         this.cameras.main.fadeIn(2000,0,0,0);
         this.cameras.main.setZoom(0.8);
 
+        this.minimap = this.cameras.add(50, 20, 150, 200).setZoom(0.2).setName('mini').fadeIn(1000,0,0,0);;
+        this.minimap.setBackgroundColor(0x111111);
+        this.minimap.scrollX = 1600;
+        this.minimap.scrollY = 300;
+        this.minimap.startFollow(this.player, true, 1, 1, 0, -300);
+        this.minimap.ignore(this.sky);
+        this.minimap.visible = false;
+
+
         //LIGHT
         this.lights.enable().setAmbientColor(0x202b22);
 
@@ -173,7 +182,7 @@ class TableauTiled extends Tableau{
         this.Blackhole = new Trou(
             this,
             50000,
-            50000,
+            this.map.heightInPixels,
             "trou"
         );
 
@@ -217,6 +226,7 @@ class TableauTiled extends Tableau{
 
         //on définit les z à la fin
         let prof= 1000;
+
         this.Blackhole.setDepth(prof--);
         for (var i=0; i < this.cPlist.length; i++)
         {

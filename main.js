@@ -4,7 +4,9 @@ let height=7*64; //448;
 
 window.MyEvents = {
     POP : "pop",
+    ANTA : "anta",
 }
+
 
 let config = {
     type: Phaser.WEBGL,
