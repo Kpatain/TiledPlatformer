@@ -44,10 +44,10 @@ class TableauTiled extends Tableau{
         this.lights.enable().setAmbientColor(0x202b22);
 
         //MUSIQUE
-        let music = this.sound.add('music');
-        music.loop = true;
-        music.play();
-        music.volume = 0.5;
+        this.music = this.sound.add('music');
+        this.music.loop = true;
+        this.music.play();
+        this.music.volume = 0.5;
 
         //notre map
         this.map = this.make.tilemap({ key: 'map' });
@@ -73,11 +73,11 @@ class TableauTiled extends Tableau{
 
         //LOGO
         const logoObj = this.map.findObject("logo", obj => obj.name === "logoname");
-        this.add.sprite(logoObj.x, logoObj.y, 'logo').setDisplaySize(611,200).setDepth(21).setPipeline('Light2D');
+        this.add.sprite(logoObj.x, logoObj.y, 'logo').setDisplaySize(611,200).setDepth(999).setPipeline('Light2D');
 
         //FEU
         const feu = this.map.findObject("feu", obj => obj.name === "FeuStart");
-        this.add.sprite(feu.x, feu.y, 'feu').setDisplaySize(64,64).setDepth(25).setPipeline('Light2D');
+        this.add.sprite(feu.x, feu.y, 'feu').setDisplaySize(64,64).setDepth(999).setPipeline('Light2D');
         this.lightFire = this.lights.addLight(feu.x, feu.y, 290, 0, 0.5);
         this.lightFire.color.r = 5;
         this.lightFire.color.g = 3;
@@ -182,7 +182,7 @@ class TableauTiled extends Tableau{
         this.Blackhole = new Trou(
             this,
             50000,
-            this.map.heightInPixels,
+            this.player.y + 600,
             "trou"
         );
 

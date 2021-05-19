@@ -123,12 +123,17 @@ class Tableau extends Phaser.Scene{
      */
     hitSat (player, sat)
     {
-        this.sound.play('drip');
-        this.cameras.main.fadeOut(2000,0,0,0);
         this.physics.pause();
+        this.cameras.main.fadeOut(2000,0,0,0);
         this.player.setTint(0xff0000);
-        this.scene.restart()
+        this.sound.play('drip');
         console.log('dead');
+        let ici = this;
+        setTimeout(function(){
+            ici.scene.restart()
+            Tableau.current.music.stop();
+        }, 2000);
+
 
     }
 

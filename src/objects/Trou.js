@@ -27,6 +27,7 @@ class Trou extends ObjetEnnemiSpike {
     moveAnta(){
         this.x = Tableau.current.player.x;
         let temp = this.y + (Tableau.current.player.y - this.y);
+        let factor = 1;
 
         // if (this.y - 270 > Tableau.current.player.y) {
         //     this.y = Tableau.current.player.y + 270;
@@ -34,8 +35,10 @@ class Trou extends ObjetEnnemiSpike {
 
         if (this.inMov)
         {
-            this.y = this.y - 4;
+            this.y = this.y - factor;
         }
+
+        factor = factor * 1.001;
 
 
         //this.setOffset(Tableau.current.cameras.main.x, Tableau.current.cameras.main.y+200);

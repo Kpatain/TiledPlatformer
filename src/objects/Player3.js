@@ -17,7 +17,7 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
         this.displayHeight = 24;
 
         //this.setSize(32, 32);
-        this.body.setCircle(26,26);
+        this.body.setCircle(20,20);
         this.setOffset(-this.body.radius/2, -this.body.radius/2-3);
 
         //MOVE
