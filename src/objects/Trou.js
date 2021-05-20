@@ -14,8 +14,8 @@ class Trou extends ObjetEnnemiSpike {
 
         super(scene, x, y, image);
         this.body.allowGravity = false;
-        this.body.setCircle(2700, -1160, 1940);
-        this.setDisplaySize(2000, 1000);
+        this.body.setCircle(2000, -450, 400);
+        this.setDisplaySize(2000, 2000);
         //this.setBodySize(this.body.width - 400, this.body.height - 400);
 
         this.inMov = false;
