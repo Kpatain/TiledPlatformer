@@ -35,11 +35,13 @@ class CheckPoints extends Phaser.Physics.Arcade.Sprite
             frequency: 0.1,
             x: this.x,
             y: this.y,
-            scale: { start: 0.1, end: 0.1 },
+            angle: { min: 0, max: 360 },
+            scale: { start: 0.2, end: 0.2 },
             lifespan: 800,
             emitZone: { type: 'random', source: shape1},
             alpha: 0.2,
-            angle: { min: 0, max: 360 },
+            moveToX: this.x,
+            moveToY:this.y,
 
         });
 
@@ -76,10 +78,10 @@ class CheckPoints extends Phaser.Physics.Arcade.Sprite
         });
 
         //OPTI
-        scene.starsFxContainer.add(this.gravityParticle).setDepth(19);
-        this.gravityParticle.pause();
-        this.gravityParticle.visible = false;
-        this.gravityParticle.rectangle = new Phaser.Geom.Rectangle(this.x, this.y, 32, 32);
+        scene.starsFxContainer.add(this.gravityParticle);
+        //this.gravityParticle.pause();
+        //this.gravityParticle.visible = false;
+        //this.gravityParticle.rectangle = new Phaser.Geom.Rectangle(this.x, this.y, 32, 32);
     }
 
     savePos()

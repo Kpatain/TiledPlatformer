@@ -16,6 +16,8 @@ class TableauTiled extends Tableau{
         this.load.image('gp', 'assets/greenParticle.png');
         this.load.image('caillou', 'assets/caillou.png');
         this.load.image('pxlgr', 'assets/pixelgreen.png');
+        this.load.image('pxlred', 'assets/pixelred.png');
+        this.load.image('pxlprpl', 'assets/pixelprpl.png');
         this.load.image('logo', ['assets/logo.png','assets/logoNM.png']);
         this.load.image('feu', ['assets/feu.png','assets/feuNM.png']);
         this.load.image('trou', 'assets/anta.png');
@@ -29,7 +31,7 @@ class TableauTiled extends Tableau{
         console.log(myGame);
 
         this.cameras.main.fadeIn(2000,0,0,0);
-        this.cameras.main.setZoom(0.8);
+        this.cameras.main.setZoom(0.7);
 
         this.minimap = this.cameras.add(50, 20, 150, 200).setZoom(0.2).setName('mini').fadeIn(1000,0,0,0);;
         this.minimap.setBackgroundColor(0x492543);
@@ -81,22 +83,23 @@ class TableauTiled extends Tableau{
         this.lightFire.color.r = 5;
         this.lightFire.color.g = 3;
         this.lightFire.color.b = 1;
-        let emmit = new Phaser.Geom.Circle(feu.x+10, feu.y+5, 20);
-        let particleFeu = this.add.particles('pxlgr');
-        let emmiterFeu = particleFeu.createEmitter({
-            frequency: 300,
-            lifespan: Phaser.Math.Between(1500,2000),
-            quantity: 5,
+        let emmit = new Phaser.Geom.Circle(feu.x+5, feu.y+20, 10);
+        let particleFeu = this.add.particles('pxlred');
+        this.emmiterFeu = particleFeu.createEmitter({
+            lifespan: 450,
+            quantity: 1,
+            frequency:0.1,
             gravityX: 0,
             gravityY: -50,
-            tint: [  0xff4600, 0xe63f00, 0xcc3800, 0xe60000, 0xff3333 ],
-            rotate: { min:0, max:360 },
+            tint: { start: 0xFFFFFF, medium : 0xFFE5CF, end: 0xFF500E },
+            rotate: { min:0,  max:360 },
             radial: true,
-            scale: { start: 0.2, end: 0.1 },
+            scale: { start: 0.6, medium : 0.1, end: 0 },
             alpha: { start: 1, end: 0 },
             emitZone: { type: 'random', source: emmit },
-            blendMode: Phaser.BlendModes.ADD,
-            speed: 20
+            speed: 250,
+            angle : {min:270-20, max:270+20},
+            blendMode : Phaser.BlendModes.ADD,
         });
 
         this.starsFxContainer.add(particleFeu);
@@ -197,7 +200,7 @@ class TableauTiled extends Tableau{
             gravityY: 0,
             tint: 0x888888,
             radial: true,
-            scale: 0.2,
+            scale: 0.1,
             alpha: { start: 0.5, end: 0 },
             emitZone: { type: 'random', source: emitRect },
             blendMode: Phaser.BlendModes.DST_COLOR,
@@ -292,6 +295,7 @@ class TableauTiled extends Tableau{
 
         //VARIALIGHT
         this.variaLight(this.lightFire);
+
 
     }
 

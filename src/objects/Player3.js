@@ -52,6 +52,8 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
         this.boolAmbiance = true;
         this.boolAnta = true;
 
+        this.visible = false;
+
 
 
 

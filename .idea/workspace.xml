@@ -60,6 +60,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2020.3.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -131,7 +132,7 @@
       <workItem from="1621360607797" duration="2159000" />
       <workItem from="1621406287625" duration="7791000" />
       <workItem from="1621429093510" duration="10477000" />
-      <workItem from="1621493202658" duration="12737000" />
+      <workItem from="1621493202658" duration="24602000" />
     </task>
     <servers />
   </component>
