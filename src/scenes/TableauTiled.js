@@ -40,6 +40,7 @@ class TableauTiled extends Tableau{
         this.minimap.visible = false;
 
 
+
         //LIGHT
         this.lights.enable().setAmbientColor(0x202b22);
 
