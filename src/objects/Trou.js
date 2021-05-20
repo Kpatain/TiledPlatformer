@@ -27,7 +27,7 @@ class Trou extends ObjetEnnemiSpike {
         //Particules
         this.circleEmit = new Phaser.Geom.Rectangle(this.x, this.y, 1500, 200);
 
-        this.gravityParticle = scene.add.particles('traj')
+        this.gravityParticle = scene.add.particles('traj');
         this.emitter = this.gravityParticle.createEmitter({
             frequency: 0.1,
             quantity : 50,
@@ -43,7 +43,7 @@ class Trou extends ObjetEnnemiSpike {
 
         });
 
-        Tableau.current.starsFxContainer.add(this.gravityParticle).setDepth(1001);
+        Tableau.current.starsFxContainer.add(this.gravityParticle).setDepth(1000);
     }
 
     moveAnta(){

@@ -32,14 +32,12 @@ class TableauTiled extends Tableau{
         this.cameras.main.setZoom(0.8);
 
         this.minimap = this.cameras.add(50, 20, 150, 200).setZoom(0.2).setName('mini').fadeIn(1000,0,0,0);;
-        this.minimap.setBackgroundColor(0x111111);
+        this.minimap.setBackgroundColor(0x492543);
         this.minimap.scrollX = 1600;
         this.minimap.scrollY = 300;
         this.minimap.startFollow(this.player, true, 1, 1, 0, -300);
         this.minimap.ignore(this.sky);
         this.minimap.visible = false;
-
-
 
         //LIGHT
         this.lights.enable().setAmbientColor(0x202b22);
