@@ -34,7 +34,6 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
         this.oldCoor = [0,0];
         this.velo =[];
         this.boolean = 0;
-        console.log(this);
         this.canJump = 0;
         this.preCanJump = 0;
 
@@ -52,11 +51,6 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
         this.boolAmbiance = true;
         this.boolAnta = true;
 
-        this.visible = false;
-
-
-
-
         this._directionX=0;
         this._directionY=0;
 
@@ -66,7 +60,7 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
         scene.starsFxContainer.x = 0;
         scene.starsFxContainer.y = 0;
 
-        scene.starsFxContainer2 = scene.add.container();
+        scene.starsFxContainer2 = scene.add.container().setDepth(999);
         scene.starsFxContainer2.x = 0;
         scene.starsFxContainer2.y = 0;
 

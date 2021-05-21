@@ -25,26 +25,22 @@ class Trou extends ObjetEnnemiSpike {
 
 
         //Particules
-        this.circleEmit = new Phaser.Geom.Ellipse(3000, 7000, 1500, 400);
+        this.circleEmit = new Phaser.Geom.Rectangle(3000, 7000, 1500, 10);
 
         this.gravityParticle = scene.add.particles('pxlprpl');
         this.emitter = this.gravityParticle.createEmitter({
             lifespan: 1000,
-            quantity: 100,
-            frequency:5,
-            gravityX: 0,
-            gravityY: 10,
-            tint: { min: 0x450040, medium : 0x9A4B94, max: 0xFFFFFF },
-            rotate: { min:0,  max:360 },
-            scale: {start : 0, end : 2},
-            alpha: { start: 0, end: 1 },
-            emitZone: {type: 'edge', source: this.circleEmit},
-            speedX: 250,
-            angle : {min:270-20, max:270+20},
-            blendMode : Phaser.BlendModes.ADD,
+            quantity: 20,
+            gravityY : -200,
+            speedY: 400,
+            frequency:1,
+            scale: {start : 0, medium : 0.8, end : 1.3},
+            tint : 0xE78FFF,
+            emitZone: {type: 'random', source: this.circleEmit},
+            blendMode : Phaser.BlendModes.NORMAL,
         });
 
-        Tableau.current.starsFxContainer.add(this.gravityParticle).setDepth(1000);
+        Tableau.current.starsFxContainer2.add(this.gravityParticle).setDepth(999);
     }
 
     moveAnta(){
@@ -61,10 +57,8 @@ class Trou extends ObjetEnnemiSpike {
             this.y = this.y - factor;
         }
 
-        this.circleEmit.x = this.x - 80;
-        this.circleEmit.y = this.y+ 190;
-
-        this.emitter.setEmitZone({ type: 'edge', source: this.circleEmit, quantity: 50});
+        this.circleEmit.x = this.x - 800;
+        this.circleEmit.y = this.y - 250;
 
         factor = factor * 1.001;
         //this.setOffset(Tableau.current.cameras.main.x, Tableau.current.cameras.main.y+200);

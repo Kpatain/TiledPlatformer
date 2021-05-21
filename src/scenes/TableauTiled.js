@@ -228,7 +228,7 @@ class TableauTiled extends Tableau{
 
         //on définit les z à la fin
         let prof= 1000;
-
+        this.player.scene.starsFxContainer2.setDepth(101000);
         this.Blackhole.setDepth(prof--);
         for (var i=0; i < this.cPlist.length; i++)
         {
@@ -247,9 +247,10 @@ class TableauTiled extends Tableau{
         this.stars.setDepth(prof--);
         this.player.setDepth(prof--);
         this.calquesTest.setDepth(prof--);
-        this.sky.setDepth(1);
+        this.sky.setDepth(0);
 
         this.player.scene.starsFxContainer.setDepth(19);
+
 
 
 
