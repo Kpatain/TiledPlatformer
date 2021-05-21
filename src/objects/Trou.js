@@ -39,7 +39,7 @@ class Trou extends ObjetEnnemiSpike {
             emitZone: {type: 'random', source: this.circleEmit},
             blendMode : Phaser.BlendModes.NORMAL,
         });
-
+        let ici = this;
         Tableau.current.starsFxContainer2.add(this.gravityParticle).setDepth(999);
     }
 
@@ -59,9 +59,19 @@ class Trou extends ObjetEnnemiSpike {
 
         this.circleEmit.x = this.x - 800;
         this.circleEmit.y = this.y - 250;
-
+        this.shake()
         factor = factor * 1.001;
         //this.setOffset(Tableau.current.cameras.main.x, Tableau.current.cameras.main.y+200);
+    }
+
+    shake() {
+        if (Tableau.current.player.y - this.y > -200){
+
+            let temp = Math.abs(Tableau.current.cameras.main.y - this.y)/1000000;
+
+            Tableau.current.cameras.main.shake(500, temp);
+        }
+
     }
 
 
