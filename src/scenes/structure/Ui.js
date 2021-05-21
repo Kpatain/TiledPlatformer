@@ -40,7 +40,7 @@ class Ui extends Phaser.Scene{
         this._tableauTextClass = this.add.text(this.sys.canvas.width-64, 16, ' ', {
             font:'24px "Arial Black"',
             align: 'right',
-            fill: '#317a65',
+            fill: '#34993D',
         }).setAlpha(0.5)
 
         this._tableauText.originX=1;
@@ -48,7 +48,6 @@ class Ui extends Phaser.Scene{
 
         this._tableauTextClass.setInteractive();
         this._tableauTextClass.on('pointerdown', function () {
-            console.log("pouet");
             localStorage.setItem('cP', null);
         })
 
