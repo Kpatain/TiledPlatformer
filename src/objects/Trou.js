@@ -59,7 +59,7 @@ class Trou extends ObjetEnnemiSpike {
         }
 
         this.circleEmit.x = this.x - 800;
-        this.circleEmit.y = this.y - 250;
+        this.circleEmit.y = this.y - 300;
         this.shake()
         factor = factor * 1.001;
         //this.setOffset(Tableau.current.cameras.main.x, Tableau.current.cameras.main.y+200);
