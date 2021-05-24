@@ -137,6 +137,24 @@ class Tableau extends Phaser.Scene{
 
     }
 
+    rectRender()
+    {
+        if (typeof this.rectCam != "undefined") {
+            this.rectCam.x = this.player.x - (this.cameras.main.width / this.cameras.main.zoom)/2;
+            this.rectCam.y = this.player.y - (this.cameras.main.height / this.cameras.main.zoom)/2 -50;
+        }
+        else {
+            this.rectCam = new Phaser.Geom.Rectangle
+            (
+                0,
+                0,
+                this.cameras.main.width / this.cameras.main.zoom,
+                this.cameras.main.height / this.cameras.main.zoom
+            );
+        }
+        return this.rectCam;
+    }
+
     /**
      * Quand on touche un monstre
      * si on le touche par en haut on le tue, sinon c'est lui qui nous tue

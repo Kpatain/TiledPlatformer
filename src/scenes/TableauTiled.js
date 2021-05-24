@@ -33,7 +33,7 @@ class TableauTiled extends Tableau{
         this.cameras.main.fadeIn(2000,0,0,0);
         this.cameras.main.setZoom(0.7);
 
-        this.minimap = this.cameras.add(50, 20, 150, 200).setZoom(0.2).setName('mini').fadeIn(1000,0,0,0);;
+        this.minimap = this.cameras.add(50, 20, 150, 200).setZoom(0.1).setName('mini').fadeIn(1000,0,0,0);;
         this.minimap.setBackgroundColor(0x162614);
         this.minimap.scrollX = 1600;
         this.minimap.scrollY = 300;
@@ -192,7 +192,7 @@ class TableauTiled extends Tableau{
         let emitRect = new Phaser.Geom.Rectangle(0, 0, 4500, 3300);
 
         let particleSpace = this.add.particles('traj');
-        let emmiterSpace = particleSpace.createEmitter({
+        this.emmiterSpace = particleSpace.createEmitter({
             frequency: 8,
             lifespan: Phaser.Math.Between(300,1100),
             quantity: 25,
@@ -228,7 +228,6 @@ class TableauTiled extends Tableau{
 
         //on définit les z à la fin
         let prof= 1000;
-        this.player.scene.starsFxContainer2.setDepth(101000);
         this.Blackhole.setDepth(prof--);
         for (var i=0; i < this.cPlist.length; i++)
         {
@@ -250,11 +249,6 @@ class TableauTiled extends Tableau{
         this.sky.setDepth(0);
 
         this.player.scene.starsFxContainer.setDepth(19);
-
-
-
-
-
         this.previousPosition = 0;
 
     }
@@ -296,6 +290,11 @@ class TableauTiled extends Tableau{
 
         //VARIALIGHT
         this.variaLight(this.lightFire);
+
+        //DEATHZONE OPTI
+        this.Blackhole.emitter.setDeathZone({ type: 'onLeave', source: Tableau.current.rectRender() });
+        this.emmiterFeu.setDeathZone({ type: 'onLeave', source: Tableau.current.rectRender() });
+        this.emmiterSpace.setDeathZone({ type: 'onLeave', source: Tableau.current.rectRender() });
 
 
     }

@@ -39,6 +39,7 @@ class Trou extends ObjetEnnemiSpike {
             emitZone: {type: 'random', source: this.circleEmit},
             blendMode : Phaser.BlendModes.NORMAL,
         });
+
         let ici = this;
         Tableau.current.starsFxContainer2.add(this.gravityParticle).setDepth(999);
     }
