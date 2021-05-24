@@ -287,7 +287,7 @@
   <object id="56" gid="33" x="2688" y="2112" width="64" height="64"/>
   <object id="57" gid="33" x="2496" y="2560" width="64" height="64"/>
   <object id="59" gid="33" x="1468" y="2562" width="64" height="64"/>
-  <object id="60" gid="33" x="1727.5" y="2765.5" width="64" height="64" rotation="-90"/>
+  <object id="60" gid="33" x="1688.83" y="2726.83" width="64" height="64" rotation="-90"/>
  </objectgroup>
  <objectgroup id="5" name="caillou">
   <object id="9" gid="1" x="2816" y="3392" width="64" height="64"/>
