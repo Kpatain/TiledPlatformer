@@ -51,7 +51,7 @@ class TableauTiled extends Tableau{
         this.music = this.sound.add('music');
         this.music.loop = true;
         this.music.play();
-        this.music.volume = 0.5;
+        this.music.volume = 0.8;
 
         //notre map
         this.map = this.make.tilemap({ key: 'map' });
