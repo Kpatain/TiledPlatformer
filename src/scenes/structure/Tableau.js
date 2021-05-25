@@ -137,10 +137,12 @@ class Tableau extends Phaser.Scene{
 
     hitCristal()
     {
+        this.player.x = this.player.x + 5;
         this.player.setVelocityY(-10000);
         this.player.directionY = 500;
         this.player.setVelocityX(0);
         this.player.body.setAllowGravity(false);
+
     }
 
 

@@ -11,7 +11,7 @@ class Cristal extends ObjetPhysique {
         scene.physics.add.overlap(
             scene.player,
             this,
-            scene.hitCristal,
+            scene.hitCristal(),
             null,
             scene
         );
@@ -34,15 +34,14 @@ class Cristal extends ObjetPhysique {
             x: this.x-20,
             y : this.y+20,
             lifespan: 1000,
-            quantity: 1,
+            quantity: 2,
             frequency:0.1,
             gravityX: 0,
             gravityY: -1000,
             tint: { start: 0xFFFFFF, end: 0x8AFFF8 },
             rotate: { min:0,  max:360 },
             radial: true,
-            scale: { start: 0.6, medium : 0.1, end: 0 },
-            alpha: { start: 1, end: 0 },
+            scale: 0.5,
             speed: 50,
             angle : {min:270-90, max:270+90},
             blendMode : Phaser.BlendModes.ADD,

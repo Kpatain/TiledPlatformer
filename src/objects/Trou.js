@@ -35,9 +35,8 @@ class Trou extends ObjetEnnemiSpike {
             speedY: 400,
             frequency:1,
             scale: {start : 0, medium : 0.8, end : 1.3},
-            tint : 0xE78FFF,
+            tint : 0xE78FF0 ,
             emitZone: {type: 'random', source: this.circleEmit},
-            blendMode : Phaser.BlendModes.NORMAL,
         });
 
         let ici = this;

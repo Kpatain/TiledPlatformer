@@ -5,6 +5,7 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
         scene.physics.add.existing(this)
 
         console.log("C'est le player 3");
+        this.visible = true;
 
         this.setCollideWorldBounds(true);
         this.setBounce(0.3);
