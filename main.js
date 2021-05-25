@@ -29,6 +29,7 @@ let config = {
     ],
     width: width,
     height: height,
+    roundPixels : true,
     scale: {
         mode: Phaser.Scale.FIT,
         orientation:Phaser.Scale.LANDSCAPE,

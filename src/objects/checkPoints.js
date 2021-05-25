@@ -53,17 +53,17 @@ class CheckPoints extends Phaser.Physics.Arcade.Sprite
         this.greenParticles = scene.add.particles('pxlgr')
         this.emitter1 = this.greenParticles.createEmitter({
             frequency: 2,
-            quantity : 10,
+            quantity : 50,
             x: this.x,
             y: this.y,
             angle: {
                 min: 0,
                 max: 360
             },
-            scale: { start: 0.6, end: 0 },
+            scale: { start: 0.8, end: 0 },
             lifespan: 1000,
             alpha: 0.2,
-            speed: 100
+            speed: 200
 
         });
 

@@ -21,6 +21,7 @@ class TableauTiled extends Tableau{
         this.load.image('logo', ['assets/logo.png','assets/logoNM.png']);
         this.load.image('feu', ['assets/feu.png','assets/feuNM.png']);
         this.load.image('trou', 'assets/anta.png');
+        this.load.image('cristal', 'assets/cristal.png');
         this.load.audio('music', 'assets/sounds/MUSIC.wav');
 
     }
@@ -33,6 +34,8 @@ class TableauTiled extends Tableau{
         this.cameras.main.fadeIn(2000,0,0,0);
         this.cameras.main.setZoom(0.7);
 
+
+        //MINIMAP
         this.minimap = this.cameras.add(50, 20, 150, 200).setZoom(0.2).setName('mini').fadeIn(1000,0,0,0);;
         this.minimap.setBackgroundColor(0x162614);
         this.minimap.scrollX = 1600;
@@ -40,7 +43,6 @@ class TableauTiled extends Tableau{
         this.minimap.startFollow(this.player, true, 1, 1, 0, -300);
         this.minimap.ignore(this.sky);
         this.minimap.visible = false;
-        this.minimap.alpha = 0.5;
 
         //LIGHT
         this.lights.enable().setAmbientColor(0x202b22);
@@ -84,7 +86,7 @@ class TableauTiled extends Tableau{
         this.lightFire.color.r = 5;
         this.lightFire.color.g = 3;
         this.lightFire.color.b = 1;
-        let emmit = new Phaser.Geom.Circle(feu.x+5, feu.y+20, 10);
+        let emmit = new Phaser.Geom.Circle(feu.x+5, feu.y+15, 10);
         let particleFeu = this.add.particles('pxlred');
         this.emmiterFeu = particleFeu.createEmitter({
             lifespan: 450,
@@ -189,6 +191,10 @@ class TableauTiled extends Tableau{
             "trou"
         );
 
+        //LE CRISTAL
+        const cristalObj = this.map.findObject("cristal", obj => obj.name === "cristalName");
+        this.cristal = new Cristal(this, cristalObj.x, cristalObj.y + 80, 'cristal');
+
         //DES PARTICULES VOLANTES
         let emitRect = new Phaser.Geom.Rectangle(0, 0, 4500, 3300);
 
@@ -211,6 +217,9 @@ class TableauTiled extends Tableau{
 
         this.starsFxContainer.add(particleSpace).setDepth(5);
         this.starsFxContainer.add(particleFeu);
+
+        this.minimap.ignore(this.starsFxContainer);
+        this.minimap.ignore(this.starsFxContainer2);
 
         //----------débug---------------------
 
@@ -245,6 +254,7 @@ class TableauTiled extends Tableau{
             this.satList[i].setDepth(prof);
         }
         this.stars.setDepth(prof--);
+        this.cristal.setDepth(prof--);
         this.player.setDepth(prof--);
         this.calquesTest.setDepth(prof--);
         this.sky.setDepth(0);
@@ -297,7 +307,6 @@ class TableauTiled extends Tableau{
         this.Blackhole.emitter.setDeathZone({ type: 'onLeave', source: Tableau.current.rectRender() });
         this.emmiterFeu.setDeathZone({ type: 'onLeave', source: Tableau.current.rectRender() });
         this.emmiterSpace.setDeathZone({ type: 'onLeave', source: Tableau.current.rectRender() });
-
 
 
     }

@@ -133,9 +133,16 @@ class Tableau extends Phaser.Scene{
             ici.scene.restart()
             Tableau.current.music.stop();
         }, 2000);
-
-
     }
+
+    hitCristal()
+    {
+        this.player.setVelocityY(-10000);
+        this.player.directionY = 500;
+        this.player.setVelocityX(0);
+        this.player.body.setAllowGravity(false);
+    }
+
 
     rectRender()
     {
