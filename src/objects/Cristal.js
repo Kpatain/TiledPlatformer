@@ -11,7 +11,7 @@ class Cristal extends ObjetPhysique {
         scene.physics.add.overlap(
             scene.player,
             this,
-            scene.hitCristal(),
+            scene.hitCristal,
             null,
             scene
         );
@@ -32,13 +32,13 @@ class Cristal extends ObjetPhysique {
         let particleCristal = scene.add.particles('pxlgr');
         this.emmiterCristal = particleCristal.createEmitter({
             x: this.x-20,
-            y : this.y+20,
+            y : this.y-20,
             lifespan: 1000,
             quantity: 2,
             frequency:0.1,
             gravityX: 0,
             gravityY: -1000,
-            tint: { start: 0xFFFFFF, end: 0x8AFFF8 },
+            tint: { start: 0xFFFFFF, end: 0xD7FFF8 },
             rotate: { min:0,  max:360 },
             radial: true,
             scale: 0.5,
