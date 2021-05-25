@@ -22,6 +22,7 @@ class TableauTiled extends Tableau{
         this.load.image('feu', ['assets/feu.png','assets/feuNM.png']);
         this.load.image('trou', 'assets/anta.png');
         this.load.image('cristal', 'assets/cristal.png');
+        this.load.image('pxlwg', 'assets/pixelwhitegreen.png');
         this.load.audio('music', 'assets/sounds/MUSIC.wav');
 
     }
@@ -68,7 +69,8 @@ class TableauTiled extends Tableau{
         //les plateformes simples
         this.calquesTest = this.map.createLayer('calquesTest', this.tileset, 0, 0);
         this.calquesTest.setPipeline('Light2D');
-
+        this.derriere = this.map.createLayer('derriere', this.tileset, 0, 0);
+        this.derriere.setPipeline('Light2D');
 
         //SPAWNPOINT
         const spawnPoint = this.map.findObject("point", obj => obj.name === "Player");
@@ -192,8 +194,23 @@ class TableauTiled extends Tableau{
         );
 
         //LE CRISTAL
-        const cristalObj = this.map.findObject("cristal", obj => obj.name === "cristalName");
-        this.cristal = new Cristal(this, cristalObj.x, cristalObj.y + 80, 'cristal');
+
+        this.cristalList = [];
+
+        this.cristalContainer = this.add.container();
+        this.cristalObj = this.map.getObjectLayer("cristal")['objects'];
+
+        this.cristalObj.forEach(cristalObj => {
+            let cristal = new Cristal(
+                this,
+                cristalObj.x + 32,
+                cristalObj.y + 80,
+                'cristal'
+            );
+            this.cristalContainer.add(cristal);
+            this.cristalList.push(cristal);
+
+        })
 
         //DES PARTICULES VOLANTES
         let emitRect = new Phaser.Geom.Rectangle(0, 0, 4500, 3300);
@@ -253,13 +270,15 @@ class TableauTiled extends Tableau{
         {
             this.satList[i].setDepth(prof);
         }
+        this.player.scene.starsFxContainer.setDepth(prof--);
         this.stars.setDepth(prof--);
-        this.cristal.setDepth(prof--);
+        this.cristalContainer.setDepth(prof--);
         this.player.setDepth(prof--);
         this.calquesTest.setDepth(prof--);
+        this.derriere.setDepth(prof--);
         this.sky.setDepth(0);
 
-        this.player.scene.starsFxContainer.setDepth(19);
+
         this.previousPosition = 0;
 
     }

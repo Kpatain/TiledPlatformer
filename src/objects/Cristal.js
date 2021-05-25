@@ -29,7 +29,7 @@ class Cristal extends ObjetPhysique {
         this.pointLight.color.g = 255;
         this.pointLight.color.b = 191;
 
-        let particleCristal = scene.add.particles('pxlgr');
+        let particleCristal = scene.add.particles('pxlwg');
         this.emmiterCristal = particleCristal.createEmitter({
             x: this.x-20,
             y : this.y-20,
@@ -37,13 +37,13 @@ class Cristal extends ObjetPhysique {
             quantity: 2,
             frequency:0.1,
             gravityX: 0,
-            gravityY: -1000,
-            tint: { start: 0xFFFFFF, end: 0xD7FFF8 },
+            gravityY: -2000,
             rotate: { min:0,  max:360 },
             radial: true,
-            scale: 0.5,
+            scale: {start : 0.5, end: 0.1},
             speed: 50,
             angle : {min:270-90, max:270+90},
+            alpha : {start : 1, end: 0.1},
             blendMode : Phaser.BlendModes.ADD,
         });
 

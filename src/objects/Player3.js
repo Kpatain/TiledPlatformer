@@ -1,10 +1,12 @@
-class Player3 extends Phaser.Physics.Arcade.Sprite{
-    constructor(scene, x, y) {
+class Player3 extends Phaser.Physics.Arcade.Sprite
+{
+    constructor(scene, x, y)
+    {
         super(scene, x, y, "beam")
         scene.add.existing(this)
         scene.physics.add.existing(this)
 
-        console.log("C'est le player 3");
+        // console.log("C'est le player 3");
         this.visible = true;
 
         this.setCollideWorldBounds(true);
@@ -141,8 +143,6 @@ class Player3 extends Phaser.Physics.Arcade.Sprite{
                 let speedY = -this.oldforceY*factor;
                 this.setVelocityX(speedX);
                 this.setVelocityY(speedY);
-
-                console.log("X:", speedX, "Y:", speedY, delta*5);
 
             }
 

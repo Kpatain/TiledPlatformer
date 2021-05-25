@@ -27,7 +27,7 @@ class Tableau extends Phaser.Scene{
 
         Tableau.current=this;
         this.sys.scene.scale.lockOrientation("landscape")
-        console.log("On est sur "+this.constructor.name+" / "+this.scene.key);
+        // console.log("On est sur "+this.constructor.name+" / "+this.scene.key);
         /**
          * Le ciel en fond
          * @type {Phaser.GameObjects.Image}
@@ -135,14 +135,20 @@ class Tableau extends Phaser.Scene{
         }, 2000);
     }
 
-    hitCristal()
+    hitCristal(player, cristal)
     {
-        this.player.setVelocityY(-10000);
-        this.player.directionY = 500;
-        this.player.setVelocityX(0);
-        this.player.body.setAllowGravity(false);
-        this.player.x = 2900;
-        console.log(this.player.x);
+        let ici = this;
+
+        setTimeout(function()
+        {
+            ici.player.setVelocityY(-10000);
+            ici.player.directionY = 500;
+            ici.player.setVelocityX(0);
+            ici.player.body.setAllowGravity(false);
+            ici.player.x = cristal.x ;
+        }, 800);
+
+        // console.log(this.player.x);
     }
 
 
