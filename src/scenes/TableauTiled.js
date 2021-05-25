@@ -30,7 +30,7 @@ class TableauTiled extends Tableau{
     create() {
         super.create();
         let ici =this;
-        console.log(myGame);
+        // console.log(myGame);
 
         this.cameras.main.fadeIn(2000,0,0,0);
         this.cameras.main.setZoom(0.7);
@@ -88,7 +88,7 @@ class TableauTiled extends Tableau{
         this.lightFire.color.r = 5;
         this.lightFire.color.g = 3;
         this.lightFire.color.b = 1;
-        let emmit = new Phaser.Geom.Circle(feu.x+5, feu.y+15, 10);
+        let emmit = new Phaser.Geom.Circle(feu.x+5, feu.y+10, 10);
         let particleFeu = this.add.particles('pxlred');
         this.emmiterFeu = particleFeu.createEmitter({
             lifespan: 450,
@@ -270,11 +270,13 @@ class TableauTiled extends Tableau{
         {
             this.satList[i].setDepth(prof);
         }
-        this.player.scene.starsFxContainer.setDepth(prof--);
+
         this.stars.setDepth(prof--);
         this.cristalContainer.setDepth(prof--);
         this.player.setDepth(prof--);
         this.calquesTest.setDepth(prof--);
+        this.player.scene.starsFxContainer.setDepth(prof--);
+        this.player.scene.starsFxContainer2.setDepth(prof--);
         this.derriere.setDepth(prof--);
         this.sky.setDepth(0);
 
@@ -321,12 +323,18 @@ class TableauTiled extends Tableau{
 
         //VARIALIGHT
         this.variaLight(this.lightFire);
+        this.cristalList.forEach(cristal=>{
+            this.variaLight(cristal.lightCristal);
+            });
+
 
         //DEATHZONE OPTI
         this.Blackhole.emitter.setDeathZone({ type: 'onLeave', source: Tableau.current.rectRender() });
         this.emmiterFeu.setDeathZone({ type: 'onLeave', source: Tableau.current.rectRender() });
         this.emmiterSpace.setDeathZone({ type: 'onLeave', source: Tableau.current.rectRender() });
-
+        this.cristalList.forEach(cristal=>{
+            cristal.emmiterCristal.setDeathZone({ type: 'onLeave', source: Tableau.current.rectRender() });
+        });
 
     }
 
