@@ -39,8 +39,8 @@ class Trigger extends ObjetPhysique {
 
         setTimeout(function () {
             console.log("allume");
-            lamp.setIntensity(1);
+            lamp.setIntensity(2);
             this.bool = false;
-        }, 3000);
+        }, 1000);
     }
 }

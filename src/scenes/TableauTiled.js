@@ -227,9 +227,9 @@ class TableauTiled extends Tableau{
 
         this.lightObj.forEach(lightObj => {
             let point = this.lights.addLight(lightObj.x, lightObj.y, 200, (255, 255, 255), 0);
-            point.color.r = 0.5;
-            point.color.g = 0.8;
-            point.color.b = 0.5;
+            point.color.r = 0.25;
+            point.color.g = 0.3;
+            point.color.b = 0.25;
 
             this.lightList.push(point);
         });
@@ -246,7 +246,7 @@ class TableauTiled extends Tableau{
         this.triggerObj.forEach(triggerObj => {
             let trigger = new Trigger(
                 this,
-                triggerObj.x,
+                triggerObj.x-50,
                 triggerObj.y,
                 "pxlgr",
                 triggerObj.properties[0].value
@@ -312,8 +312,8 @@ class TableauTiled extends Tableau{
         {
             this.satList[i].setDepth(prof);
         }
-        this.starsFxContainer.setDepth(prof--);
         this.cristalContainer.setDepth(prof--);
+        this.starsFxContainer.setDepth(prof--);
         this.player.setDepth(prof--);
         this.calquesTest.setDepth(prof--);
         this.derriere.setDepth(prof--);

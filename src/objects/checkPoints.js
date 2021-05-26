@@ -111,7 +111,7 @@ class CheckPoints extends Phaser.Physics.Arcade.Sprite
             console.log("change cP", localStorage.getItem('cP'));
             this.isChange = 1;
             this.disableBody(true, true);
-            this.scene.add.sprite(this.x, this.y, 'plan_verte').setDisplaySize(60,60).setDepth(995);
+            this.scene.add.sprite(this.x, this.y, 'plan_verte').setDisplaySize(60,60).setDepth(997);
             this.pointLight.color.r = 20;
             this.pointLight.color.g = 20;
             this.pointLight.color.b = 70;

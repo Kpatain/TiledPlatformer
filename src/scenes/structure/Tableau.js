@@ -192,7 +192,7 @@ class Tableau extends Phaser.Scene{
                 ici.player.pointLight.intensity = 0;
 
                 console.log("3");
-            }, 5000);
+            }, 3000);
             this.boolReset3 = 0;
         }
 
@@ -201,7 +201,7 @@ class Tableau extends Phaser.Scene{
                 localStorage.setItem('cP', null);
                 document.location.reload();
                 console.log("4");
-            }, 5100);
+            }, 6100);
             this.boolReset4 = 0;
         }
 
