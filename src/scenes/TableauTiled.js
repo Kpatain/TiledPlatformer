@@ -220,9 +220,43 @@ class TableauTiled extends Tableau{
 
         });
 
+        //LES LIGHTS
+
+        this.lightList = [];
+        this.lightObj = this.map.getObjectLayer("light")['objects'];
+
+        this.lightObj.forEach(lightObj => {
+            let point = this.lights.addLight(lightObj.x, lightObj.y, 200, (255, 255, 255), 0);
+            point.color.r = 1;
+            point.color.g = 1;
+            point.color.b = 1;
+
+            let light = this.add.pointlight(lightObj.x, lightObj.y, (0, 0, 0), 30, 0.1).setDepth(998);
+            light.color.r = 50;
+            light.color.g = 50;
+            light.color.b = 50;
+
+            this.lightList.push([point,light]);
+        });
+
         //FIN
         const finObj = this.map.findObject("fin", obj => obj.name === "finn");
         this.fin = new Fin(this, finObj.x, finObj.y - 1500, 'fin');
+
+        //TriggerBox
+        this.triggerList = [];
+        this.triggerObj = this.map.getObjectLayer("trigger")['objects'];
+
+
+        this.triggerObj.forEach(triggerObj => {
+            let trigger = new Trigger(
+                this,
+                triggerObj.x,
+                triggerObj.y,
+                "pxlgr",
+                triggerObj.properties[0].value
+            )
+        });
 
         //DES PARTICULES VOLANTES
         let emitRect = new Phaser.Geom.Rectangle(0, 0, 4500, 3300);
