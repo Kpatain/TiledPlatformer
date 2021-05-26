@@ -30,16 +30,17 @@ class Trigger extends ObjetPhysique {
 
     turnOn(light){
         console.log("turnon");
-        let lamp = Tableau.current.lightList[light][0];
+        let lamp = Tableau.current.lightList[light];
         if(this.bool){
-            lamp.setIntensity(lamp.intensity + Phaser.Math.FloatBetween(-0.08, 0.08));
-            lamp.intensity = Phaser.Math.Clamp(lamp.intensity, 0.6, 0.9);
+            lamp.setIntensity(0.2);
+            lamp.setIntensity(lamp.intensity + Phaser.Math.FloatBetween(-0.07, 0.1));
+            lamp.intensity = Phaser.Math.Clamp(lamp.intensity, 0.2, 0.1);
         }
 
         setTimeout(function () {
             console.log("allume");
             lamp.setIntensity(1);
             this.bool = false;
-        }, 2000);
+        }, 3000);
     }
 }

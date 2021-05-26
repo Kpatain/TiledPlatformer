@@ -227,16 +227,11 @@ class TableauTiled extends Tableau{
 
         this.lightObj.forEach(lightObj => {
             let point = this.lights.addLight(lightObj.x, lightObj.y, 200, (255, 255, 255), 0);
-            point.color.r = 1;
-            point.color.g = 1;
-            point.color.b = 1;
+            point.color.r = 0.5;
+            point.color.g = 0.8;
+            point.color.b = 0.5;
 
-            let light = this.add.pointlight(lightObj.x, lightObj.y, (0, 0, 0), 30, 0.1).setDepth(998);
-            light.color.r = 50;
-            light.color.g = 50;
-            light.color.b = 50;
-
-            this.lightList.push([point,light]);
+            this.lightList.push(point);
         });
 
         //FIN
@@ -369,6 +364,7 @@ class TableauTiled extends Tableau{
         this.cristalList.forEach(cristal=>{
             this.variaLight(cristal.lightCristal);
             });
+
 
 
         //DEATHZONE OPTI
