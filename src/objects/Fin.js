@@ -19,7 +19,7 @@ class Fin extends ObjetPhysique {
 
 
         this.body.allowGravity = false;
-        this.setDisplaySize(2000, 500);
+        this.setDisplaySize(2000, 3000);
 
         this.lightCristal = scene.lights.addLight(this.x, this.y-50, 1000, 0, 0.5);
         this.lightCristal.color.r = 10;

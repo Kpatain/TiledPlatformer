@@ -178,7 +178,7 @@ class Tableau extends Phaser.Scene{
 
         setTimeout(function()
         {
-            Tableau.current.cameras.main.fadeOut(2000,0,0,0);
+            Tableau.current.cameras.main.fadeOut(2000,255,255,255);
             ici.player.pointLight.intensity = 0;
         }, 5000);
 

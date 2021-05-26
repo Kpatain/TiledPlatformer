@@ -215,7 +215,7 @@ class TableauTiled extends Tableau{
 
         //FIN
         const finObj = this.map.findObject("fin", obj => obj.name === "finn");
-        this.fin = new Fin(this, finObj.x, finObj.y, 'fin');
+        this.fin = new Fin(this, finObj.x, finObj.y - 1500, 'fin');
 
         //DES PARTICULES VOLANTES
         let emitRect = new Phaser.Geom.Rectangle(0, 0, 4500, 3300);

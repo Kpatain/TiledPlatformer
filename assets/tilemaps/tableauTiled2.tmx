@@ -867,6 +867,6 @@
   </object>
  </objectgroup>
  <objectgroup id="13" name="fin">
-  <object id="140" name="finn" gid="57" x="1536" y="8768" width="64" height="64"/>
+  <object id="140" name="finn" gid="57" x="1408" y="8960" width="64" height="64"/>
  </objectgroup>
 </map>
