@@ -23,6 +23,7 @@ class TableauTiled extends Tableau{
         this.load.image('trou', 'assets/anta.png');
         this.load.image('cristal', 'assets/cristal.png');
         this.load.image('pxlwg', 'assets/pixelwhitegreen.png');
+        this.load.image('fin', 'assets/fin.png');
         this.load.audio('music', 'assets/sounds/MUSIC.wav');
 
     }
@@ -210,7 +211,11 @@ class TableauTiled extends Tableau{
             this.cristalContainer.add(cristal);
             this.cristalList.push(cristal);
 
-        })
+        });
+
+        //FIN
+        const finObj = this.map.findObject("fin", obj => obj.name === "finn");
+        this.fin = new Fin(this, finObj.x, finObj.y, 'fin');
 
         //DES PARTICULES VOLANTES
         let emitRect = new Phaser.Geom.Rectangle(0, 0, 4500, 3300);
@@ -256,10 +261,12 @@ class TableauTiled extends Tableau{
         //on définit les z à la fin
         let prof= 1000;
         this.Blackhole.setDepth(prof--);
+        this.starsFxContainer2.setDepth(prof--);
         for (var i=0; i < this.cPlist.length; i++)
         {
             this.cPlist[i].setDepth(prof);
         }
+
         prof = prof--;
         for (var i=0; i < this.caillouList.length; i++)
         {
@@ -274,9 +281,9 @@ class TableauTiled extends Tableau{
         this.stars.setDepth(prof--);
         this.cristalContainer.setDepth(prof--);
         this.player.setDepth(prof--);
+
         this.calquesTest.setDepth(prof--);
-        this.player.scene.starsFxContainer.setDepth(prof--);
-        this.player.scene.starsFxContainer2.setDepth(prof--);
+        this.starsFxContainer.setDepth(prof--);
         this.derriere.setDepth(prof--);
         this.sky.setDepth(0);
 

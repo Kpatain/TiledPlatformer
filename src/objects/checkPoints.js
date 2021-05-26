@@ -24,9 +24,6 @@ class CheckPoints extends Phaser.Physics.Arcade.Sprite
         this.pointLight.color.g = 5;
         this.pointLight.color.b = 42;
 
-        // //range circle
-        // let circle = Tableau.current.add.circle(this.x, this.y, 200).setDepth(15);
-        // circle.setStrokeStyle(2, 0x1a65ac);
 
         let shape1 = new Phaser.Geom.Circle(0, 0, 200);
 
@@ -72,16 +69,13 @@ class CheckPoints extends Phaser.Physics.Arcade.Sprite
         let me = this;
         this.once(MyEvents.POP, function(){
             me.emitter1.on = true;
-            scene.starsFxContainer2.add(me.greenParticles).setDepth(19);
+            scene.starsFxContainer.add(me.greenParticles);
             me.emitter1.startFollow(me);
             setTimeout(function(){me.emitter1.on = false;}, 100);
         });
 
         //OPTI
         scene.starsFxContainer.add(this.gravityParticle);
-        //this.gravityParticle.pause();
-        //this.gravityParticle.visible = false;
-        //this.gravityParticle.rectangle = new Phaser.Geom.Rectangle(this.x, this.y, 32, 32);
     }
 
     savePos()
@@ -117,7 +111,7 @@ class CheckPoints extends Phaser.Physics.Arcade.Sprite
             console.log("change cP", localStorage.getItem('cP'));
             this.isChange = 1;
             this.disableBody(true, true);
-            this.scene.add.sprite(this.x, this.y, 'plan_verte').setDisplaySize(60,60).setDepth(25);
+            this.scene.add.sprite(this.x, this.y, 'plan_verte').setDisplaySize(60,60).setDepth(this.depth);
             this.pointLight.color.r = 20;
             this.pointLight.color.g = 20;
             this.pointLight.color.b = 70;
@@ -173,7 +167,7 @@ class CheckPoints extends Phaser.Physics.Arcade.Sprite
             Tableau.current.player.setAcceleration(0,0);
             Tableau.current.player.setGravity(0, 0);
             Tableau.current.player.body.setAllowGravity(true);
-            Tableau.current.player.emmiter.on = true;
+
 
         }
         this.oldDist = Phaser.Math.Distance.BetweenPoints(this, Tableau.current.player);

@@ -5,6 +5,7 @@ let height=7*64; //448;
 window.MyEvents = {
     POP : "pop",
     ANTA : "anta",
+    FIN : "fin",
 }
 
 

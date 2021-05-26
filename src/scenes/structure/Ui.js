@@ -48,7 +48,7 @@ class Ui extends Phaser.Scene{
 
         this._tableauTextClass.setInteractive();
         this._tableauTextClass.on('pointerdown', function () {
-            localStorage.setItem('cP', null);
+            localStorage.setItem('cP', (parseInt(localStorage.getItem('cP'))) - 1);
         })
 
         //met l'ui au dessus du tableau

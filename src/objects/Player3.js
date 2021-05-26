@@ -63,7 +63,7 @@ class Player3 extends Phaser.Physics.Arcade.Sprite
         scene.starsFxContainer.x = 0;
         scene.starsFxContainer.y = 0;
 
-        scene.starsFxContainer2 = scene.add.container().setDepth(999);
+        scene.starsFxContainer2 = scene.add.container();
         scene.starsFxContainer2.x = 0;
         scene.starsFxContainer2.y = 0;
 
@@ -85,12 +85,7 @@ class Player3 extends Phaser.Physics.Arcade.Sprite
             angle: { min: 0, max: 360 },
         });
 
-
-
-
-
         scene.starsFxContainer.add(this.particles);
-        this.scene.starsFxContainer.setDepth(19);
 
     }
 
@@ -163,6 +158,15 @@ class Player3 extends Phaser.Physics.Arcade.Sprite
         if(this.x > 2800 && partbool) {
                 partbool = 0;
                 this.emmiter.startFollow(this);
+        }
+
+        //console.log(this.body.velocity[0] * this.body.velocity[1]);
+        if (this.body.velocity > 100){
+            Tableau.current.player.emmiter.on = true;
+            console.log("on");
+        }
+        else {
+            Tableau.current.player.emmiter.off = true;
         }
 
     }

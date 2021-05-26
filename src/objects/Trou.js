@@ -40,7 +40,7 @@ class Trou extends ObjetEnnemiSpike {
         });
 
         let ici = this;
-        Tableau.current.starsFxContainer2.add(this.gravityParticle).setDepth(999);
+        Tableau.current.starsFxContainer2.add(this.gravityParticle);
     }
 
     moveAnta(){
@@ -67,7 +67,7 @@ class Trou extends ObjetEnnemiSpike {
     shake() {
         if (Tableau.current.player.y - this.y > -200){
 
-            let temp = Math.abs(Tableau.current.cameras.main.y - this.y)/1000000;
+            let temp = Math.abs(Tableau.current.cameras.main.y - this.y)/900000;
 
             Tableau.current.cameras.main.shake(500, temp);
         }
