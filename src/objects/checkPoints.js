@@ -19,7 +19,7 @@ class CheckPoints extends Phaser.Physics.Arcade.Sprite
         this.angleVel = 0;
         this.oldDist =0;
 
-        this.pointLight = scene.add.pointlight(this.x, this.y, (0, 0, 0), 60, 0.1, 0.5).setDepth(20);
+        this.pointLight = scene.add.pointlight(this.x, this.y, (0, 0, 0), 60, 0.1, 0.5).setDepth(994);
         this.pointLight.color.r = 30;
         this.pointLight.color.g = 5;
         this.pointLight.color.b = 42;

@@ -50,10 +50,17 @@ class TableauTiled extends Tableau{
         this.lights.enable().setAmbientColor(0x202b22);
 
         //MUSIQUE
+        if (typeof this.music != "undefined") {
+            this.music.stop();
+        }
+
         this.music = this.sound.add('music');
-        this.music.loop = true;
-        this.music.play();
-        this.music.volume = 0.8;
+        if (this.music.isPlaying === false){
+            this.music.play();
+            this.music.loop = true;
+            this.music.volume = 0.8;
+            console.log("musique");
+        }
 
         //notre map
         this.map = this.make.tilemap({ key: 'map' });

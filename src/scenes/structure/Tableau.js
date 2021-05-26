@@ -52,6 +52,10 @@ class Tableau extends Phaser.Scene{
         this.oldDist = 0;
         this.canSnap= 1;
 
+        this.boolReset2 = 1;
+        this.boolReset3 = 1;
+        this.boolReset4 = 1;
+
     }
 
     update(time, delta){
@@ -138,14 +142,16 @@ class Tableau extends Phaser.Scene{
     hitCristal(player, cristal)
     {
         let ici = this;
+        ici.player.x = cristal.x - 20;
+        ici.player.setVelocityX(0);
 
         setTimeout(function()
         {
             ici.player.setVelocityY(-10000);
             ici.player.directionY = 500;
-            ici.player.setVelocityX(0);
+
             ici.player.body.setAllowGravity(false);
-            ici.player.x = cristal.x ;
+
         }, 800);
 
         // console.log(this.player.x);
@@ -166,28 +172,38 @@ class Tableau extends Phaser.Scene{
                 duration: 1000,
                 ease: 'Power2'
             }, ici);
+            console.log("1");
         }, 2000);
 
-        setTimeout(function()
-        {
-            let light = ici.player.pointLight;
-            ici.player.emmiter.off = true;
-            light.intensity = light.intensity + Phaser.Math.FloatBetween(-0.08, 0.08);
-            light.intensity = Phaser.Math.Clamp(light.intensity, 0.2, 0.4);
-        }, 3000);
+        if (this.boolReset2) {
+            setTimeout(function () {
+                let light = ici.player.pointLight;
+                ici.player.emmiter.off = true;
+                light.intensity = light.intensity + Phaser.Math.FloatBetween(-0.08, 0.08);
+                light.intensity = Phaser.Math.Clamp(light.intensity, 0.2, 0.4);
+                console.log("2");
+            }, 3000);
+            this.boolReset2 = 0;
+        }
 
-        setTimeout(function()
-        {
-            Tableau.current.cameras.main.fadeOut(2000,255,255,255);
-            ici.player.pointLight.intensity = 0;
-        }, 5000);
+        if (this.boolReset3) {
+            setTimeout(function () {
+                Tableau.current.cameras.main.fadeOut(20, 255, 255, 255);
+                ici.player.pointLight.intensity = 0;
 
-        setTimeout(function()
-        {
-            localStorage.setItem('cP', null);
-            ici.scene.restart()
-        }, 7000);
+                console.log("3");
+            }, 5000);
+            this.boolReset3 = 0;
+        }
 
+        if (this.boolReset4) {
+            setTimeout(function () {
+                localStorage.setItem('cP', null);
+                document.location.reload();
+                console.log("4");
+            }, 5100);
+            this.boolReset4 = 0;
+        }
 
 
     }

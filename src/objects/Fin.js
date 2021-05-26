@@ -18,6 +18,7 @@ class Fin extends ObjetPhysique {
         );
 
 
+
         this.body.allowGravity = false;
         this.setDisplaySize(2000, 3000);
 
