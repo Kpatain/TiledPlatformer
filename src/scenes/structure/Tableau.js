@@ -156,26 +156,38 @@ class Tableau extends Phaser.Scene{
         let ici = this;
         console.log("gravityInversion");
         this.player.setGravityY(-4000);
+        this.player.setDisplaySize(this.player.displayWidth*0.992,this.player.displayHeight*0.992);
 
         setTimeout(function()
         {
             ici.tweens.add({
                 targets: ici.player,
                 alpha: 0,
-                duration: 300,
+                duration: 1000,
                 ease: 'Power2'
             }, ici);
         }, 2000);
 
         setTimeout(function()
         {
+            let light = ici.player.pointLight;
             ici.player.emmiter.off = true;
+            light.intensity = light.intensity + Phaser.Math.FloatBetween(-0.08, 0.08);
+            light.intensity = Phaser.Math.Clamp(light.intensity, 0.2, 0.4);
         }, 3000);
 
         setTimeout(function()
         {
-            Tableau.current.cameras.main.fadeOut(5000,0,0,0);
+            Tableau.current.cameras.main.fadeOut(2000,0,0,0);
+            ici.player.pointLight.intensity = 0;
         }, 5000);
+
+        setTimeout(function()
+        {
+            localStorage.setItem('cP', null);
+            ici.scene.restart()
+        }, 7000);
+
 
 
     }

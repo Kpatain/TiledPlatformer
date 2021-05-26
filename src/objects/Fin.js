@@ -12,15 +12,11 @@ class Fin extends ObjetPhysique {
         scene.physics.add.overlap(
             scene.player,
             this,
-            function(){ici.emit(MyEvents.FIN)},
+            scene.hitFin,
             null,
             scene
         );
 
-        this.once(MyEvents.FIN, function(){
-            scene.hitFin;
-            console.log("pouet");
-        });
 
         this.body.allowGravity = false;
         this.setDisplaySize(2000, 500);

@@ -237,7 +237,7 @@ class TableauTiled extends Tableau{
             speed : 50,
         });
 
-        this.starsFxContainer.add(particleSpace).setDepth(5);
+        this.starsFxContainer.add(particleSpace);
         this.starsFxContainer.add(particleFeu);
 
         this.minimap.ignore(this.starsFxContainer);
@@ -255,18 +255,17 @@ class TableauTiled extends Tableau{
 
         //quoi collide avec quoi?
         this.physics.add.collider(this.player, this.calquesTest);
-        this.physics.add.collider(this.stars, this.calquesTest);
 
 
         //on définit les z à la fin
         let prof= 1000;
         this.Blackhole.setDepth(prof--);
         this.starsFxContainer2.setDepth(prof--);
+
         for (var i=0; i < this.cPlist.length; i++)
         {
             this.cPlist[i].setDepth(prof);
         }
-
         prof = prof--;
         for (var i=0; i < this.caillouList.length; i++)
         {
@@ -277,13 +276,10 @@ class TableauTiled extends Tableau{
         {
             this.satList[i].setDepth(prof);
         }
-
-        this.stars.setDepth(prof--);
+        this.starsFxContainer.setDepth(prof--);
         this.cristalContainer.setDepth(prof--);
         this.player.setDepth(prof--);
-
         this.calquesTest.setDepth(prof--);
-        this.starsFxContainer.setDepth(prof--);
         this.derriere.setDepth(prof--);
         this.sky.setDepth(0);
 
@@ -302,7 +298,6 @@ class TableauTiled extends Tableau{
         for (var i=0; i < this.cPlist.length; i++)
         {
             this.cPlist[i].checkAttract(delta);
-            this.cPlist[i].setDepth(21);
             this.cPlist[i].emitter0.setDeathZone({ type: 'onLeave', source: Tableau.current.rectRender() });
         }
 
@@ -344,6 +339,8 @@ class TableauTiled extends Tableau{
         });
 
     }
+
+
 
 
 

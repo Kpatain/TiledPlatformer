@@ -53,6 +53,7 @@ class Player3 extends Phaser.Physics.Arcade.Sprite
 
         this.boolAmbiance = true;
         this.boolAnta = true;
+        this.partbool = 1;
 
         this._directionX=0;
         this._directionY=0;
@@ -151,22 +152,17 @@ class Player3 extends Phaser.Physics.Arcade.Sprite
         {
             this.setVelocityX(this.body.velocity.x*0.99);
         }
-        //console.log(Math.abs(this.body.velocity.x));
 
         this.orient();
-        let partbool = 1;
-        if(this.x > 2800 && partbool) {
-                partbool = 0;
-                this.emmiter.startFollow(this);
-        }
 
-        //console.log(this.body.velocity[0] * this.body.velocity[1]);
-        if (this.body.velocity > 100){
+
+        //console.log(this.body.velocity.x * this.body.velocity.y);
+        if (this.body.velocity.x * this.body.velocity.y > 10){
             Tableau.current.player.emmiter.on = true;
             console.log("on");
         }
         else {
-            Tableau.current.player.emmiter.off = true;
+            Tableau.current.player.emmiter.on = false;
         }
 
     }
@@ -203,7 +199,6 @@ class Player3 extends Phaser.Physics.Arcade.Sprite
         {
             //pop
             bodyA.emit(MyEvents.POP);
-            this.emmiter.on = false;
 
             this.x = bodyA.x;
             this.y = bodyA.y;
@@ -226,7 +221,10 @@ class Player3 extends Phaser.Physics.Arcade.Sprite
             Tableau.current.minimap.visible = true;
         }
 
-
+        if(this.partbool) {
+            this.partbool = 0;
+            this.emmiter.startFollow(this);
+        }
     }
 
     orient()
