@@ -80,6 +80,8 @@ class TableauTiled extends Tableau{
         this.calquesTest.setPipeline('Light2D');
         this.derriere = this.map.createLayer('derriere', this.tileset, 0, 0);
         this.derriere.setPipeline('Light2D');
+        this.devant = this.map.createLayer('devant', this.tileset, 0, 0);
+        this.devant.setPipeline('Light2D');
 
         //SPAWNPOINT
         const spawnPoint = this.map.findObject("point", obj => obj.name === "Player");
@@ -298,6 +300,7 @@ class TableauTiled extends Tableau{
         let prof= 1000;
         this.Blackhole.setDepth(prof--);
         this.starsFxContainer2.setDepth(prof--);
+        this.devant.setDepth(prof--);
 
         for (var i=0; i < this.cPlist.length; i++)
         {
