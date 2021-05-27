@@ -24,6 +24,11 @@ class CheckPoints extends Phaser.Physics.Arcade.Sprite
         this.pointLight.color.g = 5;
         this.pointLight.color.b = 42;
 
+        this.light = scene.lights.addLight(this.x, this.y, 500, 0, 0.4);
+        this.light.color.r = 4;
+        this.light.color.g = 2;
+        this.light.color.b = 4;
+
 
         let shape1 = new Phaser.Geom.Circle(0, 0, 200);
 
@@ -115,9 +120,11 @@ class CheckPoints extends Phaser.Physics.Arcade.Sprite
             this.pointLight.color.r = 20;
             this.pointLight.color.g = 20;
             this.pointLight.color.b = 70;
-            this.pointLight.radius = 50;
-            this.pointLight.intensity = 0.07;
-            this.pointLight.attenuation = 0.8;
+
+            this.light.color.r = 1;
+            this.light.color.g = 5;
+            this.light.color.b = 3;
+
         }
     }
 

@@ -7,6 +7,7 @@ class GamePad extends Phaser.GameObjects.Container{
         scene.add.existing(this);
 
         this.size=size;
+        this.scene = scene;
         let w=this.size;
         let dragW=this.size/2;
         let pad2=scene.add.container();
@@ -29,8 +30,11 @@ class GamePad extends Phaser.GameObjects.Container{
 
         scene.input.keyboard.on('keydown', function(kevent){
             switch (kevent.key){
-                case "ArrowRight":
-                    Tableau.current.player.directionX=1;
+                case " ":
+                    Tableau.current.cameras.main.zoomTo(0.3, 700);
+                    setTimeout(function(){
+                        Tableau.current.cameras.main.zoomTo(0.7, 700);
+                    }, 3000);
                     break;
 
                 case "ArrowLeft":

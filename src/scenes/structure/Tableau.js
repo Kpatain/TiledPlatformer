@@ -147,12 +147,28 @@ class Tableau extends Phaser.Scene{
 
         setTimeout(function()
         {
+            ici.player.setMaxVelocity(1000,1000)
             ici.player.setVelocityY(-10000);
             ici.player.directionY = 500;
 
             ici.player.body.setAllowGravity(false);
 
-        }, 800);
+            //Tableau.current.cameras.main.pan(ici.player.x, ici.player.y - 4000, 2000, 'Power2');
+            Tableau.current.cameras.main.zoomTo(0.5, 300);
+
+            setTimeout(function()
+            {
+                ici.player.setMaxVelocity(800,800);
+                Tableau.current.cameras.main.zoomTo(0.7, 700);
+            }, 600);
+
+            setTimeout(function()
+            {
+
+                ici.player.setMaxVelocity(700,700);
+            }, 3000);
+
+        }, 900);
 
         // console.log(this.player.x);
     }
@@ -192,7 +208,7 @@ class Tableau extends Phaser.Scene{
                 ici.player.pointLight.intensity = 0;
 
                 console.log("3");
-            }, 3000);
+            }, 2000);
             this.boolReset3 = 0;
         }
 
@@ -201,7 +217,7 @@ class Tableau extends Phaser.Scene{
                 localStorage.setItem('cP', null);
                 document.location.reload();
                 console.log("4");
-            }, 6100);
+            }, 5100);
             this.boolReset4 = 0;
         }
 

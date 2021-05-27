@@ -376,7 +376,7 @@ class TableauTiled extends Tableau{
         this.emmiterFeu.setDeathZone({ type: 'onLeave', source: Tableau.current.rectRender() });
         this.emmiterSpace.setDeathZone({ type: 'onLeave', source: Tableau.current.rectRender() });
         this.cristalList.forEach(cristal=>{
-            cristal.emmiterCristal.setDeathZone({ type: 'onLeave', source: Tableau.current.rectRender() });
+            //cristal.emmiterCristal.setDeathZone({ type: 'onLeave', source: Tableau.current.rectRender() });
         });
 
     }

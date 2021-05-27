@@ -22,11 +22,6 @@ class Fin extends ObjetPhysique {
         this.body.allowGravity = false;
         this.setDisplaySize(2000, 3000);
 
-        this.lightCristal = scene.lights.addLight(this.x, this.y-50, 1000, 0, 0.5);
-        this.lightCristal.color.r = 10;
-        this.lightCristal.color.g = 10;
-        this.lightCristal.color.b = 10;
-
         // let particleCristal = scene.add.particles('pxlwg');
         // this.emmiterCristal = particleCristal.createEmitter({
         //     x: this.x-20,

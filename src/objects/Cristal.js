@@ -40,11 +40,10 @@ class Cristal extends ObjetPhysique {
             gravityY: -2000,
             rotate: { min:0,  max:360 },
             radial: true,
-            scale: {start : 0.5, end: 0.1},
-            speed: 50,
+            scale: {start : 0.3, end: 0.05},
+            speed: 10,
             angle : {min:270-90, max:270+90},
             alpha : {start : 1, end: 0.1},
-            blendMode : Phaser.BlendModes.ADD,
         });
 
         scene.starsFxContainer.add(particleCristal);
