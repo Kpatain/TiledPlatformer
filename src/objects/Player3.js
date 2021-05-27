@@ -2,7 +2,7 @@ class Player3 extends Phaser.Physics.Arcade.Sprite
 {
     constructor(scene, x, y)
     {
-        super(scene, x, y, "traj")
+        super(scene, x, y, "pxltc")
         scene.add.existing(this)
         scene.physics.add.existing(this)
 
@@ -16,8 +16,8 @@ class Player3 extends Phaser.Physics.Arcade.Sprite
         this.setFriction(1,1);
 
         this.setBodySize(this.body.width+10,this.body.height+10);
-        this.displayWidth = 25;
-        this.displayHeight = 25;
+        this.displayWidth = 26;
+        this.displayHeight = 39;
 
         //this.setSize(32, 32);
         this.body.setCircle(20,20);
@@ -157,7 +157,7 @@ class Player3 extends Phaser.Physics.Arcade.Sprite
 
 
         //console.log(this.body.velocity.x * this.body.velocity.y);
-        if (this.body.velocity.x * this.body.velocity.y > 10){
+        if (this.body.velocity.x * this.body.velocity.y > 5){
             Tableau.current.player.emmiter.on = true;
             console.log("on");
         }
@@ -218,7 +218,7 @@ class Player3 extends Phaser.Physics.Arcade.Sprite
         if (this.boolAnta){
             Tableau.current.Blackhole.emit(MyEvents.ANTA);
             this.boolAnta = false;
-            Tableau.current.minimap.visible = true;
+            //Tableau.current.minimap.visible = true;
         }
 
         if(this.partbool) {
@@ -230,7 +230,7 @@ class Player3 extends Phaser.Physics.Arcade.Sprite
     orient()
     {
         this.angleVel = Phaser.Math.Angle.Between(0, 1, this.body.velocity.x,this.body.velocity.y);
-        this.setRotation(this.angleVel);
+        this.setRotation(this.angleVel+Math.PI/2);
     }
 
 }

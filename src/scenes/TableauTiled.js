@@ -24,6 +24,7 @@ class TableauTiled extends Tableau{
         this.load.image('cristal', 'assets/cristal.png');
         this.load.image('pxlwg', 'assets/pixelwhitegreen.png');
         this.load.image('fin', 'assets/fin.png');
+        this.load.image('pxltc', 'assets/pixelteco.png');
         this.load.audio('music', 'assets/sounds/MUSIC.wav');
 
     }
@@ -37,14 +38,14 @@ class TableauTiled extends Tableau{
         this.cameras.main.setZoom(0.7);
 
 
-        //MINIMAP
-        this.minimap = this.cameras.add(50, 20, 150, 200).setZoom(0.2).setName('mini').fadeIn(1000,0,0,0);;
-        this.minimap.setBackgroundColor(0x162614);
-        this.minimap.scrollX = 1600;
-        this.minimap.scrollY = 300;
-        this.minimap.startFollow(this.player, true, 1, 1, 0, -300);
-        this.minimap.ignore(this.sky);
-        this.minimap.visible = false;
+        // //MINIMAP
+        // this.minimap = this.cameras.add(50, 20, 150, 200).setZoom(0.2).setName('mini').fadeIn(1000,0,0,0);;
+        // this.minimap.setBackgroundColor(0x162614);
+        // this.minimap.scrollX = 1600;
+        // this.minimap.scrollY = 300;
+        // this.minimap.startFollow(this.player, true, 1, 1, 0, -300);
+        // this.minimap.ignore(this.sky);
+        // this.minimap.visible = false;
 
         //LIGHT
         this.lights.enable().setAmbientColor(0x202b22);
@@ -276,8 +277,8 @@ class TableauTiled extends Tableau{
         this.starsFxContainer.add(particleSpace);
         this.starsFxContainer.add(particleFeu);
 
-        this.minimap.ignore(this.starsFxContainer);
-        this.minimap.ignore(this.starsFxContainer2);
+        // this.minimap.ignore(this.starsFxContainer);
+        // this.minimap.ignore(this.starsFxContainer2);
 
         //----------débug---------------------
 
