@@ -2,7 +2,7 @@ class Player3 extends Phaser.Physics.Arcade.Sprite
 {
     constructor(scene, x, y)
     {
-        super(scene, x, y, "beam")
+        super(scene, x, y, "traj")
         scene.add.existing(this)
         scene.physics.add.existing(this)
 
@@ -16,8 +16,8 @@ class Player3 extends Phaser.Physics.Arcade.Sprite
         this.setFriction(1,1);
 
         this.setBodySize(this.body.width+10,this.body.height+10);
-        this.displayWidth = 32;
-        this.displayHeight = 24;
+        this.displayWidth = 25;
+        this.displayHeight = 25;
 
         //this.setSize(32, 32);
         this.body.setCircle(20,20);
@@ -72,7 +72,7 @@ class Player3 extends Phaser.Physics.Arcade.Sprite
         this.particles = scene.add.particles('traj');
 
         this.emmiter = this.particles.createEmitter({
-            frequency: 1,
+            frequency: 50,
             lifespan: 500,
             quantity: 1,
             gravityX: 0,
@@ -80,9 +80,9 @@ class Player3 extends Phaser.Physics.Arcade.Sprite
             x: { min: 0, max: 360 },
             y: { min: 0, max: 360 },
             radial: true,
-            scale: { start: 0.5, end: 0.1 },
-            alpha: { start: 1, end: 0 },
-            speed: 100,
+            scale: { start: 0.8, end: 0.1 },
+            alpha: { start: 0.8, end: 0 },
+            speed: 0,
             angle: { min: 0, max: 360 },
         });
 
