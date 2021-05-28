@@ -115,26 +115,28 @@ class GamePad extends Phaser.GameObjects.Container{
         let btnLEFT = scene.add.circle(-50, 0, w/3, 0xffffff, 0.3).setInteractive();
         // let btnB = scene.add.circle(0,0,w/2,0xffffff,0.3).setInteractive();
 
-        this.add(btnLEFT);
-
-
-
-        btnLEFT.x = -w*5;
-
-        btnLEFT.y = w/2;
-
-        btnLEFT.on('pointerdown',function()
+        if(this.scene.sys.game.device.os.desktop !== true && this.scene.sys.game.device.os.linux !== true && this.scene.sys.game.device.os.macOS !== true)
         {
-            Tableau.current.cameras.main.zoomTo(0.3, 700);
-            setTimeout(function(){
+            this.add(btnLEFT);
+
+            btnLEFT.x = -w*5;
+
+            btnLEFT.y = w/2;
+
+            btnLEFT.on('pointerdown',function()
+            {
+                Tableau.current.cameras.main.zoomTo(0.3, 700);
+                setTimeout(function(){
+                    Tableau.current.cameras.main.zoomTo(0.7, 700);
+                }, 5000);
+            });
+
+            btnLEFT.on('pointerup',function()
+            {
                 Tableau.current.cameras.main.zoomTo(0.7, 700);
-            }, 5000);
-        });
+            });
+        }
 
-        btnLEFT.on('pointerup',function()
-        {
-            Tableau.current.cameras.main.zoomTo(0.7, 700);
-        });
 
     }
 
