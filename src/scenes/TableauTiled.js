@@ -25,6 +25,7 @@ class TableauTiled extends Tableau{
         this.load.image('pxlwg', 'assets/pixelwhitegreen.png');
         this.load.image('fin', 'assets/fin.png');
         this.load.image('pxltc', 'assets/pixelteco.png');
+
         this.load.audio('music', 'assets/sounds/MUSIC.wav');
 
     }

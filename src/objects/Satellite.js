@@ -57,20 +57,23 @@ class Satellite extends ObjetEnnemiSpike{
     start(){
         this.scene.tweens.add({
             targets: this,
+            startDelay:500,
             x: {
+
                 from: this.minX,
                 to:this.maxX,
-                duration: 500,
-                ease: 'Sine.easeInOut',
+                duration: 1000,
+                ease: 'Circ.easeInOut',
                 yoyo: -1,
                 repeat:-1,
                 flipX:true,
             },
             y: {
+
                 from: this.minY,
                 to:this.maxY,
-                duration: 500,
-                ease: 'Sine.easeInOut',
+                duration: 1000,
+                ease: 'Circ.easeInOut',
                 yoyo: -1,
                 repeat:-1
             }
