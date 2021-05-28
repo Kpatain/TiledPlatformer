@@ -126,7 +126,6 @@ class Player3 extends Phaser.Physics.Arcade.Sprite
 
         let velo = Math.abs(this.body.velocity.x) + Math.abs(this.body.velocity.y);
 
-        console.log(velo);
         if (velo > 500 && this.emiOn){
             Tableau.current.player.emmiter.on = true;
             this.emmiter.startFollow(this);

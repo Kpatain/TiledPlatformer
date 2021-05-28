@@ -160,6 +160,12 @@ class GamePad extends Phaser.GameObjects.Container{
         this.forceX = this.circleDrag.x;
         this.forceY = this.circleDrag.y;
 
+        let pointMouse = new Phaser.Geom.Circle(0, 0, 2);
+        Tableau.current.input.on('pointermove', function (pointer) {
+            pointMouse.x = pointer.x;
+            pointMouse.y = pointer.y;
+        });
+
         //si le pad bouge et le joueur est par terre
         if
         (
@@ -173,10 +179,10 @@ class GamePad extends Phaser.GameObjects.Container{
             this.oldforceY = this.forceY;
             this.randomCond = true;
 
-            if(this.circleDrag.x + this.circleDrag.y > this.size/1.5){
+            if(Math.abs(this.circleDrag.x-this.circleBase.x) + Math.abs(this.circleDrag.y-this.circleBase.y) > this.size/1.5){
                 this.circleDrag.setInteractive(false);
-                this.circleDrag.x = (this.size/1.5) / Phaser.Math.Distance.BetweenPoints(this.circleBase, ui.mousePointer) *  ui.mousePointer.y;
-                this.circleDrag.y = (this.size/1.5) / Phaser.Math.Distance.BetweenPoints(this.circleBase, ui.mousePointer) *  ui.mousePointer.x;
+                this.circleDrag.x = (this.size/1.5) / Phaser.Math.Distance.BetweenPoints(this.circleBase, pointMouse) *  pointMouse.y;
+                this.circleDrag.y = (this.size/1.5) / Phaser.Math.Distance.BetweenPoints(this.circleBase, pointMouse) *  pointMouse.x;
 
             }
             else{
