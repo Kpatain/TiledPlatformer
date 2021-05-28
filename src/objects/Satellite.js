@@ -20,21 +20,17 @@ class Satellite extends ObjetEnnemiSpike{
 
         this.b = 0; //j'en ai marre
 
-        // X
-        this.originalX=x;
-        this.minX=x-20;
-        this.maxX=x+20;
-
         // Y
         this.originalY=y;
-        this.minY=y-20;
-        this.maxY=y+20;
+        this.minY=y-40;
+        this.maxY=y+40;
 
         // on applique les propriété du début de l'animation
-        this.x=this.minX;
         this.y=this.minY;
         this.alpha=0;
         let me=this;
+
+        this.rotate = Math.random()*4-2;
 
         //on fait apparaitre notre objet avec un petit delay, puis on lance l'animation
         //ceci a pour effet de décaler les animations pour ce même objet
@@ -58,26 +54,17 @@ class Satellite extends ObjetEnnemiSpike{
         this.scene.tweens.add({
             targets: this,
 
-            x: {
-                delay:1500,
-                from: this.minX,
-                to:this.maxX,
-                duration: 1000,
-                ease: 'Circ.easeInOut',
-                yoyo: -1,
-                repeat:-1,
-                flipX:true,
-            },
             y: {
 
                 from: this.minY,
                 to:this.maxY,
-                duration: 1000,
-                ease: 'Circ.easeInOut',
+                duration: 2000,
+                ease: 'Sine.easeInOut',
                 yoyo: -1,
                 repeat:-1
             }
         });
+
     }
 
 

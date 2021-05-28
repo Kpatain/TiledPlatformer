@@ -144,34 +144,9 @@ class Tableau extends Phaser.Scene{
         let ici = this;
         ici.player.x = cristal.x - 20;
         ici.player.setVelocityX(0);
+        ici.player.body.setAllowGravity(false);
+        cristal.emit(MyEvents.CRI);
 
-        setTimeout(function()
-        {
-            Tableau.current.cameras.main.flash(1000,  198, 255, 243 );
-            ici.player.setMaxVelocity(1000,1000)
-            ici.player.setVelocityY(-10000);
-            ici.player.directionY = 500;
-
-            ici.player.body.setAllowGravity(false);
-
-            //Tableau.current.cameras.main.pan(ici.player.x, ici.player.y - 4000, 2000, 'Power2');
-            Tableau.current.cameras.main.zoomTo(0.5, 300);
-
-            setTimeout(function()
-            {
-                ici.player.setMaxVelocity(800,800);
-                Tableau.current.cameras.main.zoomTo(0.7, 700);
-            }, 600);
-
-            setTimeout(function()
-            {
-
-                ici.player.setMaxVelocity(700,700);
-            }, 3000);
-
-        }, 900);
-
-        // console.log(this.player.x);
     }
 
     hitFin()
@@ -181,34 +156,23 @@ class Tableau extends Phaser.Scene{
         this.player.setGravityY(-4000);
         this.player.setDisplaySize(this.player.displayWidth*0.992,this.player.displayHeight*0.992);
 
-        setTimeout(function()
-        {
-            ici.tweens.add({
-                targets: ici.player,
-                alpha: 0,
-                duration: 1000,
-                ease: 'Power2'
-            }, ici);
-            console.log("1");
-        }, 2000);
 
         if (this.boolReset2) {
             setTimeout(function () {
-                let light = ici.player.pointLight;
                 ici.player.emmiter.off = true;
-                light.intensity = light.intensity + Phaser.Math.FloatBetween(-0.08, 0.08);
-                light.intensity = Phaser.Math.Clamp(light.intensity, 0.2, 0.4);
-                console.log("2");
             }, 3000);
             this.boolReset2 = 0;
         }
 
         if (this.boolReset3) {
             setTimeout(function () {
-                Tableau.current.cameras.main.fadeOut(20, 255, 255, 255);
                 ici.player.pointLight.intensity = 0;
-
-                console.log("3");
+                ici.tweens.add({
+                    targets: ici.player,
+                    alpha: 0,
+                    duration: 1000,
+                    ease: 'Power2'
+                }, ici);
             }, 2000);
             this.boolReset3 = 0;
         }
@@ -216,8 +180,15 @@ class Tableau extends Phaser.Scene{
         if (this.boolReset4) {
             setTimeout(function () {
                 localStorage.setItem('cP', null);
-                document.location.reload();
-                console.log("4");
+                ici.player.setDisplaySize(26,39);
+                ici.tweens.add({
+                    targets: ici.player,
+                    alpha: 100,
+                    duration: 10,
+                    ease: 'Power2'
+                }, ici);
+                ici.scene.restart();
+
             }, 5100);
             this.boolReset4 = 0;
         }

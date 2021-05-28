@@ -7,6 +7,7 @@ class Ui extends Phaser.Scene{
     preload(){
         this.load.image('ui/full-screen-icon', 'assets/ui/full-screen.png');
         this.load.image('zoomout', 'assets/zoomout.png');
+        this.load.image('joystick', 'assets/joystick.png');
     }
     create (){
         // console.log("create Ui")

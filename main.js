@@ -6,6 +6,7 @@ window.MyEvents = {
     POP : "pop",
     ANTA : "anta",
     FIN : "fin",
+    CRI : "cri"
 }
 
 

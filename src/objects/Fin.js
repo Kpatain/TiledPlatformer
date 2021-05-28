@@ -17,6 +17,8 @@ class Fin extends ObjetPhysique {
             scene
         );
 
+        this.visible = false;
+
 
 
         this.body.allowGravity = false;

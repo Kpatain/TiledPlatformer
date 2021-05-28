@@ -8,6 +8,14 @@ class Player3 extends Phaser.Physics.Arcade.Sprite
 
         // console.log("C'est le player 3");
         this.visible = true;
+        this.setAlpha(0);
+
+        scene.tweens.add({
+            targets: this,
+            alpha: 1,
+            duration: 9000,
+            ease: 'Power2'
+        }, scene);
 
         this.setCollideWorldBounds(true);
         this.setBounce(0.3);
@@ -19,19 +27,13 @@ class Player3 extends Phaser.Physics.Arcade.Sprite
         this.displayWidth = 26;
         this.displayHeight = 39;
 
+
         //this.setSize(32, 32);
         this.body.setCircle(20,20);
         this.setOffset(-this.body.radius/2, -this.body.radius/2-3);
 
         //MOVE
-        this.forceX = 0;
-        this.forceY = 0;
-        this.oldforceX = 1;
-        this.oldforceY = 1;
-        this.randomCond = 0;
         this.randomCond2 = 0;
-        this.oldX = 0;
-        this.oldY = 1;
 
         //VARIABLE GET VEL
         this.oldCoor = [0,0];
@@ -46,7 +48,7 @@ class Player3 extends Phaser.Physics.Arcade.Sprite
         this.light.color.g = 1.5;
         this.light.color.b = 1.5;
 
-        this.pointLight = scene.add.pointlight(this.x, this.y, (0, 0, 0), 60, 0.1, 0.1).setDepth(20);
+        this.pointLight = scene.add.pointlight(this.x, this.y, (0, 0, 0), 60, 0.1, 0.1);
         this.pointLight.color.r = 255;
         this.pointLight.color.g = 255;
         this.pointLight.color.b = 255;
@@ -68,25 +70,29 @@ class Player3 extends Phaser.Physics.Arcade.Sprite
         scene.starsFxContainer2.x = 0;
         scene.starsFxContainer2.y = 0;
 
+        this.emiOn = true;
+        this.emiOff = false;
+
 
         this.particles = scene.add.particles('traj');
 
         this.emmiter = this.particles.createEmitter({
             frequency: 50,
-            lifespan: 500,
+            lifespan: 1000,
             quantity: 1,
             gravityX: 0,
-            gravityY: 500,
+            gravityY: 0,
             x: { min: 0, max: 360 },
             y: { min: 0, max: 360 },
             radial: true,
-            scale: { start: 0.8, end: 0.1 },
+            scale: { start: 0.7, end: 0.1 },
             alpha: { start: 0.8, end: 0 },
             speed: 0,
             angle: { min: 0, max: 360 },
         });
 
         scene.starsFxContainer.add(this.particles);
+        scene.starsFxContainer.add(this.pointLight);
 
     }
 
@@ -103,46 +109,9 @@ class Player3 extends Phaser.Physics.Arcade.Sprite
     /**
      * NOUVELLE METHODE SLINGSHOT
      */
-    move(delta)
+    move()
     {
-        this.forceX = ui.pad.circleDrag.x;
-        this.forceY = ui.pad.circleDrag.y;
 
-        //si le pad bouge et le joueur est par terre
-        if
-        (
-            ( ui.pad.circleDrag.x + ui.pad.circleDrag.y !== 0 && this.body.deltaY() > 0
-            && this.body.onFloor() )|| (this.canJump && ui.pad.circleDrag.x + ui.pad.circleDrag.y !== 0)
-        )
-        {
-            //console.log("le pad bouge")
-
-            this.oldforceX = this.forceX;
-            this.oldforceY = this.forceY;
-            this.randomCond = true;
-
-        }
-        else
-        {
-
-            if((Math.abs(this.forceX - this.oldforceX) === Math.abs(this.oldforceX)
-                && Math.abs(this.forceY - this.oldforceY) === Math.abs(this.oldforceY)
-                && this.randomCond && this.body.deltaY() > 0 && this.body.onFloor())
-            ||(Math.abs(this.forceX - this.oldforceX) === Math.abs(this.oldforceX)
-                    && Math.abs(this.forceY - this.oldforceY) === Math.abs(this.oldforceY)
-                    && this.randomCond && this.canJump ))
-            {
-                this.randomCond = false;
-                let factor = (30*delta - 40);
-                console.log(factor);
-                let speedX = -this.oldforceX*factor;
-                let speedY = -this.oldforceY*factor;
-                this.setVelocityX(speedX);
-                this.setVelocityY(speedY);
-
-            }
-
-        }
 
         if(Math.abs(this.body.velocity.x) < 1 && this.body.velocity.x !==0)
         {
@@ -155,14 +124,20 @@ class Player3 extends Phaser.Physics.Arcade.Sprite
 
         this.orient();
 
+        let velo = Math.abs(this.body.velocity.x) + Math.abs(this.body.velocity.y);
 
-        //console.log(this.body.velocity.x * this.body.velocity.y);
-        if (this.body.velocity.x * this.body.velocity.y > 5){
+        console.log(velo);
+        if (velo > 500 && this.emiOn){
             Tableau.current.player.emmiter.on = true;
-            console.log("on");
+            this.emmiter.startFollow(this);
+            this.emiOn = false;
+            this.emiOff = true;
         }
-        else {
+        else if (velo <= 500 && this.emiOff) {
             Tableau.current.player.emmiter.on = false;
+            this.emmiter.stopFollow(this);
+            this.emiOff = false;
+            this.emiOn = true;
         }
 
     }
@@ -223,7 +198,7 @@ class Player3 extends Phaser.Physics.Arcade.Sprite
 
         if(this.partbool) {
             this.partbool = 0;
-            this.emmiter.startFollow(this);
+            //this.emmiter.startFollow(this);
         }
     }
 

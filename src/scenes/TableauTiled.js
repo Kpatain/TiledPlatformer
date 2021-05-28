@@ -137,6 +137,7 @@ class TableauTiled extends Tableau{
         // CHEQUE POINT
 
         this.cPlist = [];
+        this.cPContainer = this.add.container();
 
         this.checkPointsObjects = this.map.getObjectLayer('checkPoint')['objects'];
         this.checkPointsObjects.forEach(checkPointsObject => {
@@ -151,20 +152,20 @@ class TableauTiled extends Tableau{
 
 
             let playerPos = cP.loadPos();
-
             if(playerPos)
             {
                 ici.player.setPosition(playerPos.x, playerPos.y);
             }
 
-
             this.cPlist.push(cP);
+            this.cPContainer.add(cP);
 
         })
 
 
         //LES SATELLITES
         this.satList = [];
+        this.satContainer = this.add.container();
 
         this.satObjects = this.map.getObjectLayer('sat')['objects'];
         this.satObjects.forEach(satObject => {
@@ -173,15 +174,15 @@ class TableauTiled extends Tableau{
                 satObject.x,
                 satObject.y,
                 'sate',
-                Math.random(0, 360)*360
+                Math.random()*360
             );
-
             this.satList.push(sat);
-
+            this.satContainer.add(sat);
         })
 
         //LES ASTEROIDES
         this.caillouList = [];
+        this.caillouContainer = this.add.container();
 
         this.caillouObjects = this.map.getObjectLayer('caillou')['objects'];
         this.caillouObjects.forEach(caillouObject => {
@@ -190,10 +191,11 @@ class TableauTiled extends Tableau{
                 caillouObject.x,
                 caillouObject.y,
                 'caillou',
-                Math.random(0, 360)*360
+                Math.random()*360
             );
 
             this.caillouList.push(Aste);
+            this.caillouContainer.add(Aste);
 
         })
 
@@ -201,7 +203,7 @@ class TableauTiled extends Tableau{
         this.Blackhole = new Trou(
             this,
             50000,
-            this.player.y + 1100,
+            this.player.y + 1300,
             "trou"
         );
 
@@ -302,21 +304,9 @@ class TableauTiled extends Tableau{
         this.Blackhole.setDepth(prof--);
         this.starsFxContainer2.setDepth(prof--);
         this.devant.setDepth(prof--);
-
-        for (var i=0; i < this.cPlist.length; i++)
-        {
-            this.cPlist[i].setDepth(prof);
-        }
-        prof = prof--;
-        for (var i=0; i < this.caillouList.length; i++)
-        {
-            this.caillouList[i].setDepth(prof);
-        }
-        prof = prof--;
-        for (var i=0; i < this.satList.length; i++)
-        {
-            this.satList[i].setDepth(prof);
-        }
+        this.cPContainer.setDepth(prof--);
+        this.caillouContainer.setDepth(prof--);
+        this.satContainer.setDepth(prof--);
         this.cristalContainer.setDepth(prof--);
         this.starsFxContainer.setDepth(prof--);
         this.player.setDepth(prof--);
@@ -325,37 +315,28 @@ class TableauTiled extends Tableau{
         this.sky.setDepth(0);
 
 
-        this.previousPosition = 0;
 
     }
 
 
     update(time,delta){
         super.update();
-        this.player.move(delta);
+
+        ui.pad.gamepad(delta);
+        this.player.move();
         this.Blackhole.moveAnta();
 
         //CHECKPOINT
-        for (var i=0; i < this.cPlist.length; i++)
-        {
-            this.cPlist[i].checkAttract(delta);
-            this.cPlist[i].emitter0.setDeathZone({ type: 'onLeave', source: Tableau.current.rectRender() });
-        }
+        this.cPlist.forEach(cP=>{
+            cP.checkAttract(delta);
+            cP.emitter0.setDeathZone({ type: 'onLeave', source: Tableau.current.rectRender() });
+        });
 
-        //OPTI
-        /*
-        let actualPosition=JSON.stringify(this.cameras.main.worldView);
-        if(
-            !this.previousPosition
-            || this.previousPosition !== actualPosition
-        ){
-            this.previousPosition=actualPosition;
-            for (let i=0; i < this.cPlist.length; i++) {
-                console.log("boucle update TableauTiled");
-                this.optimizeDisplay(this.cPlist[i].gravityParticle, this.cPlist[i].starsFxContainer);
-            }
-        }
-           */
+        //SATE
+        this.satList.forEach(sat=>{
+            sat.angle += sat.rotate;
+        });
+
 
         //LIGHT FOLLOW
         this.player.light.x = this.player.x;
@@ -368,7 +349,7 @@ class TableauTiled extends Tableau{
         this.variaLight(this.lightFire);
         this.cristalList.forEach(cristal=>{
             this.variaLight(cristal.lightCristal);
-            });
+        });
 
 
 
@@ -382,17 +363,7 @@ class TableauTiled extends Tableau{
 
 
 
-
-
-
-
     }
-
-
-
-
-
-
 
 
 }

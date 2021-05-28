@@ -12,8 +12,8 @@ class GamePad extends Phaser.GameObjects.Container{
         let dragW=this.size/2;
         let pad2=scene.add.container();
 
-        this.circleBase=scene.add.circle(0,0,this.size/2,0xffffff,0.1)
-        this.circleDrag=scene.add.circle(0,0,dragW/2,0xffffff,0.3)
+        this.circleBase=scene.add.circle(0,0,this.size/1.5,0xffffff,0.1);
+        this.circleDrag=scene.add.sprite(this.x, this.y, 'joystick').setDisplaySize(70,70).setAlpha(0.6);
         this.add(pad2);
         pad2.add(this.circleBase);
         pad2.add(this.circleDrag);
@@ -21,6 +21,15 @@ class GamePad extends Phaser.GameObjects.Container{
         pad2.y=w/2;
         this.xDrag = w;
         this.yDrag = w;
+
+        //MOVE
+        this.forceX = 0;
+        this.forceY = 0;
+        this.oldforceX = 1;
+        this.oldforceY = 1;
+        this.randomCond = 0;
+
+
 
         this.circleDrag.setInteractive();
         scene.input.setDraggable(this.circleDrag, true);
@@ -143,6 +152,59 @@ class GamePad extends Phaser.GameObjects.Container{
             });
         }
 
+
+    }
+
+    gamepad(delta){
+        let player = Tableau.current.player;
+        this.forceX = this.circleDrag.x;
+        this.forceY = this.circleDrag.y;
+
+        //si le pad bouge et le joueur est par terre
+        if
+        (
+            ( this.circleDrag.x + this.circleDrag.y !== 0 && player.body.deltaY() > 0
+                && player.body.onFloor() )|| (player.canJump && this.circleDrag.x + this.circleDrag.y !== 0)
+        )
+        {
+            //console.log("le pad bouge")
+
+            this.oldforceX = this.forceX;
+            this.oldforceY = this.forceY;
+            this.randomCond = true;
+
+            if(this.circleDrag.x + this.circleDrag.y > this.size/1.5){
+                this.circleDrag.setInteractive(false);
+                this.circleDrag.x = (this.size/1.5) / Phaser.Math.Distance.BetweenPoints(this.circleBase, ui.mousePointer) *  ui.mousePointer.y;
+                this.circleDrag.y = (this.size/1.5) / Phaser.Math.Distance.BetweenPoints(this.circleBase, ui.mousePointer) *  ui.mousePointer.x;
+
+            }
+            else{
+                this.circleDrag.setInteractive();
+            }
+
+
+        }
+        else
+        {
+
+            if((Math.abs(this.forceX - this.oldforceX) === Math.abs(this.oldforceX)
+                && Math.abs(this.forceY - this.oldforceY) === Math.abs(this.oldforceY)
+                && this.randomCond && player.body.deltaY() > 0 && player.body.onFloor())
+                ||(Math.abs(this.forceX - this.oldforceX) === Math.abs(this.oldforceX)
+                    && Math.abs(this.forceY - this.oldforceY) === Math.abs(this.oldforceY)
+                    && this.randomCond && player.canJump ))
+            {
+                this.randomCond = false;
+                let factor = (30*delta - 40);
+                let speedX = -this.oldforceX*factor;
+                let speedY = -this.oldforceY*factor;
+                player.setVelocityX(speedX);
+                player.setVelocityY(speedY);
+
+            }
+
+        }
     }
 
 

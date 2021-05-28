@@ -49,5 +49,33 @@ class Cristal extends ObjetPhysique {
 
         scene.starsFxContainer.add(particleCristal);
 
+
+        this.once(MyEvents.CRI, function(){
+            let ici = Tableau.current;
+            ici.Blackhole.y = Tableau.current.player.y + 400;
+            setTimeout(function()
+            {
+                ici.cameras.main.flash(1000,  198, 255, 243 );
+                ici.player.setMaxVelocity(1000,1000)
+                ici.player.setVelocityY(-10000);
+                ici.player.directionY = 500;
+
+                Tableau.current.cameras.main.zoomTo(0.5, 300);
+
+                setTimeout(function()
+                {
+                    ici.player.setMaxVelocity(800,800);
+                    Tableau.current.cameras.main.zoomTo(0.7, 700);
+                }, 600);
+
+                setTimeout(function()
+                {
+
+                    ici.player.setMaxVelocity(700,700);
+                }, 3000);
+            }, 900);
+
+        });
+
     }
 }
