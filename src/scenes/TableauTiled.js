@@ -201,7 +201,7 @@ class TableauTiled extends Tableau{
         this.Blackhole = new Trou(
             this,
             50000,
-            this.player.y + 1000,
+            this.player.y + 1100,
             "trou"
         );
 

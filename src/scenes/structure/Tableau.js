@@ -147,6 +147,7 @@ class Tableau extends Phaser.Scene{
 
         setTimeout(function()
         {
+            Tableau.current.cameras.main.flash(1000,  198, 255, 243 );
             ici.player.setMaxVelocity(1000,1000)
             ici.player.setVelocityY(-10000);
             ici.player.directionY = 500;
