@@ -22,13 +22,13 @@ class Satellite extends ObjetEnnemiSpike{
 
         // X
         this.originalX=x;
-        this.minX=x-50;
-        this.maxX=x+50;
+        this.minX=x-20;
+        this.maxX=x+20;
 
         // Y
         this.originalY=y;
-        this.minY=y-50;
-        this.maxY=y+50;
+        this.minY=y-20;
+        this.maxY=y+20;
 
         // on applique les propriété du début de l'animation
         this.x=this.minX;
@@ -40,8 +40,8 @@ class Satellite extends ObjetEnnemiSpike{
         //ceci a pour effet de décaler les animations pour ce même objet
         scene.tweens.add({
             targets:this,
-            duration:200,
-            delay:Math.random()*1000,
+            duration:1000,
+            delay:Math.random()*2000,
             alpha:{
                 startDelay:Math.random()*5000,
                 from:0,
@@ -57,9 +57,9 @@ class Satellite extends ObjetEnnemiSpike{
     start(){
         this.scene.tweens.add({
             targets: this,
-            startDelay:500,
-            x: {
 
+            x: {
+                delay:1500,
                 from: this.minX,
                 to:this.maxX,
                 duration: 1000,

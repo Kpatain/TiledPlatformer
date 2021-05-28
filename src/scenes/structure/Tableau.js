@@ -243,6 +243,8 @@ class Tableau extends Phaser.Scene{
         return this.rectCam;
     }
 
+
+
     /**
      * Quand on touche un monstre
      * si on le touche par en haut on le tue, sinon c'est lui qui nous tue

@@ -85,7 +85,7 @@ class Ui extends Phaser.Scene{
         }, this);
         btFs.setOrigin(1,1)
         btFs.setDisplaySize(48,48)
-        btFs.x=this.sys.canvas.width;;
+        btFs.x=this.sys.canvas.width;
         btFs.y=this.sys.canvas.height - this.sys.canvas.height*0.88;
 
     }

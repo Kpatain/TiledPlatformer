@@ -201,7 +201,7 @@ class TableauTiled extends Tableau{
         this.Blackhole = new Trou(
             this,
             50000,
-            this.player.y + 600,
+            this.player.y + 1000,
             "trou"
         );
 
@@ -376,9 +376,15 @@ class TableauTiled extends Tableau{
         this.Blackhole.emitter.setDeathZone({ type: 'onLeave', source: Tableau.current.rectRender() });
         this.emmiterFeu.setDeathZone({ type: 'onLeave', source: Tableau.current.rectRender() });
         this.emmiterSpace.setDeathZone({ type: 'onLeave', source: Tableau.current.rectRender() });
-        this.cristalList.forEach(cristal=>{
+        //this.cristalList.forEach(cristal=>{
             //cristal.emmiterCristal.setDeathZone({ type: 'onLeave', source: Tableau.current.rectRender() });
-        });
+        //});
+
+
+
+
+
+
 
     }
 

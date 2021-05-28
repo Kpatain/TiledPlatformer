@@ -17,6 +17,7 @@ class Trou extends ObjetEnnemiSpike {
         this.body.setCircle(2000, -450, 1700);
         this.setDisplaySize(4000, 2000);
         //this.setBodySize(this.body.width - 400, this.body.height - 400);
+        this.factor = 1;
 
         this.inMov = false;
         this.once(MyEvents.ANTA, function(){
@@ -45,8 +46,8 @@ class Trou extends ObjetEnnemiSpike {
 
     moveAnta(){
         this.x = Tableau.current.player.x;
-        let temp = this.y + (Tableau.current.player.y - this.y);
-        let factor = 1;
+        let temp = this.y - Tableau.current.player.y;
+
 
         // if (this.y - 270 > Tableau.current.player.y) {
         //     this.y = Tableau.current.player.y + 270;
@@ -54,14 +55,16 @@ class Trou extends ObjetEnnemiSpike {
 
         if (this.inMov)
         {
-            this.y = this.y - factor;
+            this.y = this.y - this.factor;
         }
 
         this.circleEmit.x = this.x - 800;
         this.circleEmit.y = this.y - 300;
         this.shake()
-        factor = factor * 1.001;
+        this.factor = 2 - 1/temp;
         //this.setOffset(Tableau.current.cameras.main.x, Tableau.current.cameras.main.y+200);
+
+
     }
 
     shake() {
