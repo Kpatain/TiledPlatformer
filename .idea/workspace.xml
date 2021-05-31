@@ -139,7 +139,7 @@
       <workItem from="1622030891554" duration="13257000" />
       <workItem from="1622099522846" duration="14009000" />
       <workItem from="1622185676173" duration="27639000" />
-      <workItem from="1622444878899" duration="12738000" />
+      <workItem from="1622444878899" duration="16018000" />
     </task>
     <servers />
   </component>
@@ -163,7 +163,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/scenes/TableauTiled.js</url>
-          <line>353</line>
+          <line>361</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>

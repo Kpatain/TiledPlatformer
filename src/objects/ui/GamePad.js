@@ -123,7 +123,7 @@ class GamePad extends Phaser.GameObjects.Container{
 
 
 
-        if(this.scene.sys.game.device.os.desktop !== true && this.scene.sys.game.device.os.linux !== true && this.scene.sys.game.device.os.macOS !== true)
+        if(!this.scene.sys.game.device.os.desktop)
         {
 
             let btnLEFT = scene.add.sprite(this.x, this.y, 'zoomout').setDisplaySize(70,70).setInteractive();

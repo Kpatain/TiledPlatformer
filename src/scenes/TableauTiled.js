@@ -234,9 +234,9 @@ class TableauTiled extends Tableau{
 
         this.lightObj.forEach(lightObj => {
             let point = this.lights.addLight(lightObj.x, lightObj.y, 200, (255, 255, 255), 0);
-            point.color.r = 0.25;
+            point.color.r = 0.3;
             point.color.g = 0.3;
-            point.color.b = 0.25;
+            point.color.b = 0.3;
 
             this.lightList.push(point);
         });
@@ -258,6 +258,14 @@ class TableauTiled extends Tableau{
                 "pxlgr",
                 triggerObj.properties[0].value
             )
+
+            this.physics.add.overlap(
+                this.player,
+                trigger,
+                function(){
+                    trigger.turnOn(trigger.light);
+                }
+            );
         });
 
         //DES PARTICULES VOLANTES

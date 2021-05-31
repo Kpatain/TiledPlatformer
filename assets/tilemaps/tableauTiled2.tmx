@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="70" height="250" tilewidth="64" tileheight="64" infinite="0" nextlayerid="18" nextobjectid="206">
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="70" height="250" tilewidth="64" tileheight="64" infinite="0" nextlayerid="18" nextobjectid="210">
  <editorsettings>
   <export target="tableauTiled2.json" format="json"/>
  </editorsettings>
@@ -1000,12 +1000,18 @@
   <object id="148" x="1677.33" y="15874.7">
    <point/>
   </object>
+  <object id="206" x="2177" y="15713">
+   <point/>
+  </object>
+  <object id="208" x="2560" y="15614">
+   <point/>
+  </object>
  </objectgroup>
  <objectgroup id="16" name="trigger">
   <properties>
    <property name="sdf" value="0"/>
   </properties>
-  <object id="146" x="259.5" y="15876">
+  <object id="146" x="242.5" y="15881">
    <properties>
     <property name="fd" value="0"/>
    </properties>
@@ -1014,6 +1020,18 @@
   <object id="147" x="1449.33" y="15739">
    <properties>
     <property name="sdsds" type="int" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="207" x="1924" y="15559">
+   <properties>
+    <property name="sdsds" type="int" value="2"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="209" x="2291" y="15445">
+   <properties>
+    <property name="sdsds" type="int" value="3"/>
    </properties>
    <point/>
   </object>

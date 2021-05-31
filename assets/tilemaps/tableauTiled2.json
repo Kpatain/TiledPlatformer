@@ -848,6 +848,30 @@
                  "width":0,
                  "x":1677.33,
                  "y":15874.7
+                }, 
+                {
+                 "height":0,
+                 "id":206,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":2177,
+                 "y":15713
+                }, 
+                {
+                 "height":0,
+                 "id":208,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":2560,
+                 "y":15614
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -875,8 +899,8 @@
                  "type":"",
                  "visible":true,
                  "width":0,
-                 "x":259.5,
-                 "y":15876
+                 "x":242.5,
+                 "y":15881
                 }, 
                 {
                  "height":0,
@@ -895,6 +919,42 @@
                  "width":0,
                  "x":1449.33,
                  "y":15739
+                }, 
+                {
+                 "height":0,
+                 "id":207,
+                 "name":"",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"sdsds",
+                         "type":"int",
+                         "value":2
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":1924,
+                 "y":15559
+                }, 
+                {
+                 "height":0,
+                 "id":209,
+                 "name":"",
+                 "point":true,
+                 "properties":[
+                        {
+                         "name":"sdsds",
+                         "type":"int",
+                         "value":3
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":0,
+                 "x":2291,
+                 "y":15445
                 }],
          "opacity":1,
          "properties":[
@@ -1753,7 +1813,7 @@
          "y":0
         }],
  "nextlayerid":18,
- "nextobjectid":206,
+ "nextobjectid":210,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.4.2",

@@ -18,7 +18,7 @@ class Cristal extends ObjetPhysique {
 
         this.body.allowGravity = false;
         this.setDisplaySize(220, 329);
-        this.setSize(200,70);
+        this.setSize(90,200);
 
         this.lightCristal = scene.lights.addLight(this.x, this.y-50, 500, 0, 0.5);
         this.lightCristal.color.r = 2;
