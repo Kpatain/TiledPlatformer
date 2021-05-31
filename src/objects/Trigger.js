@@ -10,10 +10,11 @@ class Trigger extends ObjetPhysique {
      */
     constructor(scene, x, y, image, light) {
         super(scene, x, y, image);
+        let ici = this;
         scene.physics.add.overlap(
             scene.player,
             this,
-            scene.turnOn,
+            ici.turnOn(light),
             null,
             scene
         );
@@ -25,4 +26,14 @@ class Trigger extends ObjetPhysique {
 
     }
 
+    turnOn(light){
+        console.log("function");
+        if (this.on !== true) {
+            console.log("turnon");
+            let lamp = Tableau.current.lightList[light];
+            console.log("allume");
+            lamp.setIntensity(2);
+            this.on = true;
+        }
+    }
 }

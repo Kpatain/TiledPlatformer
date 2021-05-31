@@ -233,11 +233,10 @@ class TableauTiled extends Tableau{
         this.lightObj = this.map.getObjectLayer("light")['objects'];
 
         this.lightObj.forEach(lightObj => {
-            let point = this.lights.addLight(lightObj.x, lightObj.y, 200, (255, 255, 255), 2);
+            let point = this.lights.addLight(lightObj.x, lightObj.y, 200, (255, 255, 255), 0);
             point.color.r = 0.25;
             point.color.g = 0.3;
             point.color.b = 0.25;
-            point.visible= false;
 
             this.lightList.push(point);
         });
