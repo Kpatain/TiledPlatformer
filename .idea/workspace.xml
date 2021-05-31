@@ -19,7 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dd5a153c-ac13-4bff-add4-ca49dca9723d" name="Default Changelist" comment="" />
+    <list default="true" id="dd5a153c-ac13-4bff-add4-ca49dca9723d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tilemaps/tableauTiled2.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/tilemaps/tableauTiled2.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled2.tmx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/Trigger.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/Trigger.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/TableauTiled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/TableauTiled.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scenes/structure/Tableau.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/structure/Tableau.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -140,6 +147,7 @@
       <workItem from="1622099522846" duration="14009000" />
       <workItem from="1622185676173" duration="27639000" />
       <workItem from="1622444878899" duration="12738000" />
+      <workItem from="1622465867896" duration="3127000" />
     </task>
     <servers />
   </component>
@@ -163,8 +171,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/scenes/TableauTiled.js</url>
-          <line>353</line>
-          <properties lambdaOrdinal="-1" />
+          <line>351</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

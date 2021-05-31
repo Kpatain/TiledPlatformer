@@ -55,6 +55,7 @@ class Tableau extends Phaser.Scene{
         this.boolReset2 = 1;
         this.boolReset3 = 1;
         this.boolReset4 = 1;
+        this.lightlist = 0;
 
     }
 
@@ -150,6 +151,13 @@ class Tableau extends Phaser.Scene{
 
     }
 
+    turnOn(light){
+        console.log("turnon");
+        let lamp = Tableau.current.lightList;
+        lamp[this.lightlist].visible= true;
+        this.lightlist++;
+    }
+
     hitFin()
     {
         let ici = this;
@@ -196,6 +204,8 @@ class Tableau extends Phaser.Scene{
 
 
     }
+
+
 
 
     rectRender()
