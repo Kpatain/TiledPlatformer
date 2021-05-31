@@ -60,6 +60,7 @@ class Tableau extends Phaser.Scene{
 
     update(time, delta){
         super.update();
+
     }
 
     /**

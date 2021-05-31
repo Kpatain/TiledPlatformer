@@ -10,15 +10,15 @@ class GamePad extends Phaser.GameObjects.Container{
         this.scene = scene;
         let w=this.size;
         let dragW=this.size/2;
-        let pad2=scene.add.container();
+        this.pad2=scene.add.container();
 
         this.circleBase=scene.add.circle(0,0,this.size/1.5,0xffffff,0.1);
         this.circleDrag=scene.add.sprite(this.x, this.y, 'joystick').setDisplaySize(70,70).setAlpha(0.6);
-        this.add(pad2);
-        pad2.add(this.circleBase);
-        pad2.add(this.circleDrag);
-        pad2.x=w/2;
-        pad2.y=w/2;
+        this.add(this.pad2);
+        this.pad2.add(this.circleBase);
+        this.pad2.add(this.circleDrag);
+        this.pad2.x=w/2;
+        this.pad2.y=w/2;
         this.xDrag = w;
         this.yDrag = w;
 
@@ -160,11 +160,10 @@ class GamePad extends Phaser.GameObjects.Container{
         this.forceX = this.circleDrag.x;
         this.forceY = this.circleDrag.y;
 
-        let pointMouse = new Phaser.Geom.Circle(0, 0, 2);
-        Tableau.current.input.on('pointermove', function (pointer) {
-            pointMouse.x = pointer.x;
-            pointMouse.y = pointer.y;
-        });
+        // Tableau.current.input.on('pointermove', function (pointer) {
+        //     this.pointMouse.x = pointer.x;
+        //     this.pointMouse.y = pointer.y;
+        // });
 
         //si le pad bouge et le joueur est par terre
         if
@@ -179,14 +178,21 @@ class GamePad extends Phaser.GameObjects.Container{
             this.oldforceY = this.forceY;
             this.randomCond = true;
 
-            if(Math.abs(this.circleDrag.x-this.circleBase.x) + Math.abs(this.circleDrag.y-this.circleBase.y) > this.size/1.5){
-                this.circleDrag.setInteractive(false);
-                this.circleDrag.x = (this.size/1.5) / Phaser.Math.Distance.BetweenPoints(this.circleBase, pointMouse) *  pointMouse.y;
-                this.circleDrag.y = (this.size/1.5) / Phaser.Math.Distance.BetweenPoints(this.circleBase, pointMouse) *  pointMouse.x;
+            if(Math.abs(Math.pow(this.circleDrag.x-this.circleBase.x, 2) + Math.pow(this.circleDrag.y-this.circleBase.y, 2)) > 3000){
+                this.circleDrag.x = this.size/2 / Phaser.Math.Distance.Between(
+                    ui.pad.x+this.size/2,
+                    ui.pad.y+this.size/2,
+                    this.scene.input.activePointer.worldX,
+                    this.scene.input.activePointer.worldY
+                ) * (this.scene.input.activePointer.worldX-ui.pad.x-this.size/2);
 
-            }
-            else{
-                this.circleDrag.setInteractive();
+                this.circleDrag.y = this.size/2 / Phaser.Math.Distance.Between(
+                    ui.pad.x+this.size/2,
+                    ui.pad.y+this.size/2,
+                    this.scene.input.activePointer.worldX,
+                    this.scene.input.activePointer.worldY
+                ) * (this.scene.input.activePointer.worldY-ui.pad.y-this.size/2);
+
             }
 
 

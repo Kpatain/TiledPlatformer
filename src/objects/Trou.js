@@ -44,7 +44,7 @@ class Trou extends ObjetEnnemiSpike {
         Tableau.current.starsFxContainer2.add(this.gravityParticle);
     }
 
-    moveAnta(){
+    moveAnta(delta){
         this.x = Tableau.current.player.x;
         let temp = this.y - Tableau.current.player.y;
 
@@ -64,11 +64,11 @@ class Trou extends ObjetEnnemiSpike {
 
         if (temp < 400)
         {
-            this.factor = 1;
+            this.factor = delta/18;
         }
         else
         {
-            this.factor = 3;
+            this.factor = delta/6;
         }
 
 

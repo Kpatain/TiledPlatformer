@@ -81,6 +81,10 @@ class CheckPoints extends Phaser.Physics.Arcade.Sprite
 
         //OPTI
         scene.starsFxContainer.add(this.gravityParticle);
+
+        if (this.valuePos < localStorage.getItem('cP')){
+            this.changeSprite();
+        }
     }
 
     savePos()
@@ -112,7 +116,6 @@ class CheckPoints extends Phaser.Physics.Arcade.Sprite
     {
         if(!this.isChange) {
             //this.emitter0.explode();
-            console.log("change cP", localStorage.getItem('cP'));
             this.isChange = 1;
             this.disableBody(true, true);
             this.scene.add.sprite(this.x, this.y, 'plan_verte').setDisplaySize(60,60).setDepth(997);

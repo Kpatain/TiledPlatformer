@@ -37,6 +37,7 @@ class TableauTiled extends Tableau{
 
         this.cameras.main.fadeIn(2000,0,0,0);
         this.cameras.main.setZoom(0.7);
+        this.cameras.main.setRoundPixels(true);
 
 
         // //MINIMAP
@@ -313,9 +314,6 @@ class TableauTiled extends Tableau{
         this.calquesTest.setDepth(prof--);
         this.derriere.setDepth(prof--);
         this.sky.setDepth(0);
-
-
-
     }
 
 
@@ -324,7 +322,7 @@ class TableauTiled extends Tableau{
 
         ui.pad.gamepad(delta);
         this.player.move();
-        this.Blackhole.moveAnta();
+        this.Blackhole.moveAnta(delta);
 
         //CHECKPOINT
         this.cPlist.forEach(cP=>{
@@ -334,9 +332,8 @@ class TableauTiled extends Tableau{
 
         //SATE
         this.satList.forEach(sat=>{
-            sat.angle += sat.rotate;
+            sat.angle += delta/(sat.rotate*18);
         });
-
 
         //LIGHT FOLLOW
         this.player.light.x = this.player.x;
@@ -351,8 +348,6 @@ class TableauTiled extends Tableau{
             this.variaLight(cristal.lightCristal);
         });
 
-
-
         //DEATHZONE OPTI
         this.Blackhole.emitter.setDeathZone({ type: 'onLeave', source: Tableau.current.rectRender() });
         this.emmiterFeu.setDeathZone({ type: 'onLeave', source: Tableau.current.rectRender() });
@@ -360,11 +355,6 @@ class TableauTiled extends Tableau{
         //this.cristalList.forEach(cristal=>{
             //cristal.emmiterCristal.setDeathZone({ type: 'onLeave', source: Tableau.current.rectRender() });
         //});
-
-
-
     }
-
-
 }
 
