@@ -25,7 +25,7 @@ class Trigger extends ObjetPhysique {
             console.log("turnon");
             let lamp = Tableau.current.lightList[light];
             console.log("allume");
-            lamp.setIntensity(4);
+            lamp.point.setIntensity(4);
             this.on = true;
         }
     }

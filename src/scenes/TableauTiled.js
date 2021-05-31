@@ -25,6 +25,7 @@ class TableauTiled extends Tableau{
         this.load.image('pxlwg', 'assets/pixelwhitegreen.png');
         this.load.image('fin', 'assets/fin.png');
         this.load.image('pxltc', 'assets/pixelteco.png');
+        this.load.image('cristaux', 'assets/cristaux.png');
 
         this.load.audio('music', 'assets/sounds/MUSIC.wav');
 
@@ -233,12 +234,13 @@ class TableauTiled extends Tableau{
         this.lightObj = this.map.getObjectLayer("light")['objects'];
 
         this.lightObj.forEach(lightObj => {
-            let point = this.lights.addLight(lightObj.x, lightObj.y, 200, (255, 255, 255), 0);
-            point.color.r = 0.3;
-            point.color.g = 0.3;
-            point.color.b = 0.3;
-
-            this.lightList.push(point);
+            let cristal = new Cristal(
+                this,
+                lightObj.x,
+                lightObj.y,
+                'cristaux'
+            );
+            this.lightList.push(cristal);
         });
 
         //FIN
