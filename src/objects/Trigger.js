@@ -22,25 +22,18 @@ class Trigger extends ObjetPhysique {
         this.body.allowGravity = false;
         this.setDisplaySize(100, 100);
         this.visible = false;
-
-        this.bool = true;
+        this.on = false;
 
     }
 
-
     turnOn(light){
-        console.log("turnon");
-        let lamp = Tableau.current.lightList[light];
-        if(this.bool){
-            lamp.setIntensity(0.2);
-            lamp.setIntensity(lamp.intensity + Phaser.Math.FloatBetween(-0.07, 0.1));
-            lamp.intensity = Phaser.Math.Clamp(lamp.intensity, 0.2, 0.1);
-        }
-
-        setTimeout(function () {
+        console.log("function");
+        if (this.on !== true) {
+            console.log("turnon");
+            let lamp = Tableau.current.lightList[light];
             console.log("allume");
             lamp.setIntensity(2);
-            this.bool = false;
-        }, 1000);
+            this.on = true;
+        }
     }
 }
