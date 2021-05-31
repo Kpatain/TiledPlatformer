@@ -26,6 +26,7 @@ class TableauTiled extends Tableau{
         this.load.image('fin', 'assets/fin.png');
         this.load.image('pxltc', 'assets/pixelteco.png');
         this.load.image('cristaux', 'assets/cristaux.png');
+        this.load.image('cristaux2', 'assets/cristauxpetit.png');
 
         this.load.audio('music', 'assets/sounds/MUSIC.wav');
 
@@ -228,19 +229,34 @@ class TableauTiled extends Tableau{
 
         });
 
-        //LES LIGHTS
+        //LES CRISTAUX
 
         this.lightList = [];
+        this.lightCont = this.add.container();
         this.lightObj = this.map.getObjectLayer("light")['objects'];
 
-        this.lightObj.forEach(lightObj => {
-            let cristal = new Cristal(
+        this.lightObj.forEach(cristalObj => {
+            let cristal = new Cristaux(
                 this,
-                lightObj.x,
-                lightObj.y,
+                cristalObj.x,
+                cristalObj.y,
                 'cristaux'
             );
+            if (cristalObj.properties[0].value === 1){
+                console.log("on change");
+                cristal.setTexture("cristaux2");
+                cristal.point.setIntensity(1);
+            }
+            else if (cristalObj.properties[0].value === 2){
+                cristal.point.setIntensity(2);
+                cristal.setAlpha(1);
+            }
+            else{
+                cristal.setAlpha(0.2);
+            }
+
             this.lightList.push(cristal);
+            this.lightCont.add(cristal);
         });
 
         //FIN
@@ -315,6 +331,7 @@ class TableauTiled extends Tableau{
         this.Blackhole.setDepth(prof--);
         this.starsFxContainer2.setDepth(prof--);
         this.devant.setDepth(prof--);
+        this.lightCont.setDepth(prof--);
         this.cPContainer.setDepth(prof--);
         this.caillouContainer.setDepth(prof--);
         this.satContainer.setDepth(prof--);

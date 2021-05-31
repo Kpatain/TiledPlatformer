@@ -20,12 +20,10 @@ class Trigger extends ObjetPhysique {
     }
 
     turnOn(light){
-        console.log("function");
         if (this.on !== true) {
-            console.log("turnon");
             let lamp = Tableau.current.lightList[light];
-            console.log("allume");
-            lamp.point.setIntensity(4);
+            lamp.point.setIntensity(2);
+            lamp.setAlpha(1);
             this.on = true;
         }
     }
