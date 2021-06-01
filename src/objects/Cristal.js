@@ -62,6 +62,12 @@ class Cristal extends ObjetPhysique {
 
                 Tableau.current.cameras.main.zoomTo(0.5, 300);
 
+                ici.loch = ici.sound.add('loch');
+                if(!ici.loch.isPlaying) {
+                    ici.loch.play();
+                    ici.loch.volume = 1;
+                }
+
                 setTimeout(function()
                 {
                     ici.player.setMaxVelocity(800,800);

@@ -29,6 +29,8 @@ class TableauTiled extends Tableau{
         this.load.image('cristaux2', 'assets/cristauxpetit.png');
 
         this.load.audio('music', 'assets/sounds/MUSIC.wav');
+        this.load.audio('loch', 'assets/sounds/lauch.mp3');
+        this.load.audio('anta', 'assets/sounds/anta.mp3');
         this.load.audio('1', 'assets/sounds/note/1.wav');
         this.load.audio('2', 'assets/sounds/note/2.wav');
         this.load.audio('3', 'assets/sounds/note/3.wav');

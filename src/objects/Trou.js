@@ -42,6 +42,8 @@ class Trou extends ObjetEnnemiSpike {
 
         let ici = this;
         Tableau.current.starsFxContainer2.add(this.gravityParticle);
+
+        this.anta = this.scene.sound.add('anta');
     }
 
     moveAnta(delta){
@@ -72,7 +74,24 @@ class Trou extends ObjetEnnemiSpike {
         }
 
 
+        if(!this.anta.isPlaying) {
+            this.anta.play();
+            this.anta.loop = true;
+            this.anta.volume = 0;
+        }
 
+        if (typeof this.anta != "undefined" && temp < 300) {
+            this.anta.setMute(false);
+            this.anta.volume = Math.max(0,((temp - 300) / (-300)) * 1);
+            //console.log(Math.max(0,((temp - 300) / (-300)) * 2));
+        }
+        else{
+            this.anta.volume = 0;
+            if (typeof this.anta != "undefined") {
+                this.anta.setMute(true);
+                console.log("mute");
+            }
+        }
     }
 
     shake() {
