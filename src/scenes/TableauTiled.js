@@ -29,7 +29,32 @@ class TableauTiled extends Tableau{
         this.load.image('cristaux2', 'assets/cristauxpetit.png');
 
         this.load.audio('music', 'assets/sounds/MUSIC.wav');
-
+        this.load.audio('1', 'assets/sounds/note/1.wav');
+        this.load.audio('2', 'assets/sounds/note/2.wav');
+        this.load.audio('3', 'assets/sounds/note/3.wav');
+        this.load.audio('4', 'assets/sounds/note/4.wav');
+        this.load.audio('5', 'assets/sounds/note/5.wav');
+        this.load.audio('6', 'assets/sounds/note/6.wav');
+        this.load.audio('7', 'assets/sounds/note/7.wav');
+        this.load.audio('8', 'assets/sounds/note/8.wav');
+        this.load.audio('9', 'assets/sounds/note/9.wav');
+        this.load.audio('10', 'assets/sounds/note/10.wav');
+        this.load.audio('11', 'assets/sounds/note/11.wav');
+        this.load.audio('12', 'assets/sounds/note/12.wav');
+        this.load.audio('13', 'assets/sounds/note/13.wav');
+        this.load.audio('14', 'assets/sounds/note/14.wav');
+        this.load.audio('15', 'assets/sounds/note/15.wav');
+        this.load.audio('16', 'assets/sounds/note/16.wav');
+        this.load.audio('17', 'assets/sounds/note/17.wav');
+        this.load.audio('18', 'assets/sounds/note/18.wav');
+        this.load.audio('19', 'assets/sounds/note/19.wav');
+        this.load.audio('20', 'assets/sounds/note/20.wav');
+        this.load.audio('21', 'assets/sounds/note/21.wav');
+        this.load.audio('22', 'assets/sounds/note/22.wav');
+        this.load.audio('23', 'assets/sounds/note/23.wav');
+        this.load.audio('24', 'assets/sounds/note/24.wav');
+        this.load.audio('25', 'assets/sounds/note/25.wav');
+        this.load.audio('26', 'assets/sounds/note/26.wav');
     }
 
     create() {
@@ -63,7 +88,7 @@ class TableauTiled extends Tableau{
         if (this.music.isPlaying === false){
             this.music.play();
             this.music.loop = true;
-            this.music.volume = 0.8;
+            this.music.volume = 0.7;
             console.log("musique");
         }
 
@@ -309,8 +334,35 @@ class TableauTiled extends Tableau{
         this.starsFxContainer.add(particleSpace);
         this.starsFxContainer.add(particleFeu);
 
-        // this.minimap.ignore(this.starsFxContainer);
-        // this.minimap.ignore(this.starsFxContainer2);
+        //SON
+        this.sons = ['1',
+            '2',
+            '3',
+            '4',
+            '5',
+            '6',
+            '7',
+            '8',
+            '9',
+            '10',
+            '11',
+            '12',
+            '13',
+            '14',
+            '15',
+            '16',
+            '17',
+            '18',
+            '19',
+            '20',
+            '21',
+            '22',
+            '23',
+            '24',
+            '25',
+            '26'
+        ];
+
 
         //----------débug---------------------
 

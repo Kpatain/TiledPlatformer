@@ -61,6 +61,9 @@ class Player3 extends Phaser.Physics.Arcade.Sprite
         this._directionY=0;
 
 
+
+
+
         //PARTICLES
         scene.starsFxContainer = scene.add.container();
         scene.starsFxContainer.x = 0;
@@ -180,6 +183,14 @@ class Player3 extends Phaser.Physics.Arcade.Sprite
             this.setAcceleration(0,0);
             this.setVelocity(0,0);
             this.setGravity(0,-2000);
+            let note = Tableau.current.sons[Phaser.Math.Between(0, 25)];
+            console.log(note);
+
+            this.note = this.scene.sound.add(note);
+            if(!this.note.isPlaying) {
+                this.note.play();
+                this.note.volume = 0.6;
+            }
         }
         this.preCanJump = this.canJump;
 
