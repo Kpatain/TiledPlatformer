@@ -26,16 +26,17 @@ class Trou extends ObjetEnnemiSpike {
 
 
         //Particules
-        this.circleEmit = new Phaser.Geom.Rectangle(3000, 7000, 1500, 10);
+        this.circleEmit = new Phaser.Geom.Rectangle(3000, 9000, 1500, 10);
 
         this.gravityParticle = scene.add.particles('pxlprpl');
         this.emitter = this.gravityParticle.createEmitter({
-            lifespan: 1000,
+            lifespan: 1500,
             quantity: 20,
             gravityY : -200,
             speedY: 400,
             frequency:1,
-            scale: {start : 0, medium : 0.8, end : 1.3},
+            alpha: 0.8,
+            scale: {start : 0, medium : 0.6, end : 1.1},
             tint : 0xE78FF0 ,
             emitZone: {type: 'random', source: this.circleEmit},
         });
@@ -80,18 +81,35 @@ class Trou extends ObjetEnnemiSpike {
             this.anta.volume = 0;
         }
 
-        if (typeof this.anta != "undefined" && temp < 300) {
-            this.anta.setMute(false);
-            this.anta.volume = Math.max(0,((temp - 300) / (-300)) * 1);
-            //console.log(Math.max(0,((temp - 300) / (-300)) * 2));
+        if (typeof this.anta != "undefined" && temp < 500) {
+            this.anta.volume = Math.max(0,((temp - 500) / (-500)) * 0.4);
+            //console.log(Math.max(0,((temp - 300) / (-300)) * 0.5));
         }
-        else{
-            this.anta.volume = 0;
-            if (typeof this.anta != "undefined") {
-                this.anta.setMute(true);
-                console.log("mute");
-            }
+
+
+        /*
+        if (typeof this.anta != "undefined" && this.temp < 100) {
+            // this.anta.volume = Math.max(0,((this.temp - 500) / (-500)) * 0.4);
+            this.anta.volume = 0.4;
+            console.log("0.4");
         }
+        else if (typeof this.anta != "undefined" && this.temp < 200) {
+            this.anta.volume = 0.3;
+            console.log("0.3");
+        }
+        else if (typeof this.anta != "undefined" && this.temp < 300) {
+            this.anta.volume = 0.2;
+            console.log("0.2");
+        }
+        else if (typeof this.anta != "undefined" && this.temp < 400) {
+            this.anta.volume = 0.1;
+            console.log("0.1");
+        }
+        else if (typeof this.anta != "undefined" && this.temp < 500) {
+            this.anta.volume = 0.03;
+            console.log("0.03");
+        }
+         */
     }
 
     shake() {

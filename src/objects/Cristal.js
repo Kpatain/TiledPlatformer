@@ -52,7 +52,7 @@ class Cristal extends ObjetPhysique {
 
         this.once(MyEvents.CRI, function(){
             let ici = Tableau.current;
-            ici.Blackhole.y = Tableau.current.player.y + 400;
+            //ici.Blackhole.y = Tableau.current.player.y + 400;
             setTimeout(function()
             {
                 ici.cameras.main.flash(1000,  198, 255, 243 );
@@ -65,7 +65,7 @@ class Cristal extends ObjetPhysique {
                 ici.loch = ici.sound.add('loch');
                 if(!ici.loch.isPlaying) {
                     ici.loch.play();
-                    ici.loch.volume = 1;
+                    ici.loch.volume = 0.6;
                 }
 
                 setTimeout(function()

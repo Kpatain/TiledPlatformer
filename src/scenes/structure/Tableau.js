@@ -126,17 +126,17 @@ class Tableau extends Phaser.Scene{
      * @param player
      * @param sat
      */
-    hitSat (player, sat)
-    {
+    hitSat (player, sat) {
         this.physics.pause();
-        this.cameras.main.fadeOut(2000,0,0,0);
+        this.cameras.main.fadeOut(2000, 0, 0, 0);
         this.player.setTint(0xff0000);
         this.sound.play('drip');
         console.log('dead');
         let ici = this;
-        setTimeout(function(){
-            ici.scene.restart()
+        setTimeout(function () {
             Tableau.current.music.stop();
+            Tableau.current.Blackhole.anta.stop();
+            ici.scene.restart()
         }, 2000);
     }
 

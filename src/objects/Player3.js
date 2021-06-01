@@ -188,7 +188,7 @@ class Player3 extends Phaser.Physics.Arcade.Sprite
             this.note = this.scene.sound.add(note);
             if(!this.note.isPlaying) {
                 this.note.play();
-                this.note.volume = 0.1;
+                this.note.volume = 0.06;
                 this.note.detune = 1000;
             }
         }

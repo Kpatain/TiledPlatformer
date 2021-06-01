@@ -90,9 +90,11 @@ class TableauTiled extends Tableau{
         if (this.music.isPlaying === false){
             this.music.play();
             this.music.loop = true;
-            this.music.volume = 0.7;
+            this.music.volume = 0.1;
             console.log("musique");
         }
+
+
 
         //notre map
         this.map = this.make.tilemap({ key: 'map' });

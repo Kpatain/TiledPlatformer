@@ -42,8 +42,8 @@ let config = {
             height: 0
         },
         max: {
-            width: width*1.5,
-            height: height*1.5
+            width: width*2.5,
+            height: height*2.5
         },
         autoCenter:Phaser.Scale.Center.CENTER_BOTH
 
