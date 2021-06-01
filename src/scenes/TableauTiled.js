@@ -13,6 +13,9 @@ class TableauTiled extends Tableau{
         this.load.image('plan_brune', 'assets/plan_brune.png');
         this.load.image('plan_verte', 'assets/plan_verte.png');
         this.load.image('sate', 'assets/sate.png');
+        this.load.image('sate2', 'assets/sate2.png');
+        this.load.image('sate3', 'assets/sate3.png');
+        this.load.image('sate4', 'assets/sate4.png');
         this.load.image('gp', 'assets/greenParticle.png');
         this.load.image('caillou', 'assets/caillou.png');
         this.load.image('pxlgr', 'assets/pixelgreen.png');
@@ -196,16 +199,18 @@ class TableauTiled extends Tableau{
 
 
         //LES SATELLITES
+        this.sateSprite = ['sate','sate2','sate3','sate4']
         this.satList = [];
         this.satContainer = this.add.container();
 
         this.satObjects = this.map.getObjectLayer('sat')['objects'];
         this.satObjects.forEach(satObject => {
+            let sprite = this.sateSprite[Phaser.Math.Between(0, 3)];
             let sat = new Satellite(
                 this,
                 satObject.x,
                 satObject.y,
-                'sate',
+                sprite,
                 Math.random()*360
             );
             this.satList.push(sat);
