@@ -93,7 +93,7 @@ class TableauTiled extends Tableau{
         if (this.music.isPlaying === false){
             this.music.play();
             this.music.loop = true;
-            this.music.volume = 0.1;
+            this.music.volume = 0.3;
             console.log("musique");
         }
 
