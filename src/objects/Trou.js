@@ -122,11 +122,6 @@ class Trou extends ObjetEnnemiSpike {
 
     }
 
-    descend(){
-        this.inMov = false;
-        this.y = this.y + 100;
-    }
-
 
 }
 

@@ -42,7 +42,6 @@ class Tableau extends Phaser.Scene{
          */
         this.player=new Player3(this,0,0);
         this.player.setMaxVelocity(700,700);
-        this.finBH = false;
 
 
         this.blood=this.add.sprite(this.sys.canvas.width/2,this.sys.canvas.height/2,"blood")
@@ -62,11 +61,6 @@ class Tableau extends Phaser.Scene{
 
     update(time, delta){
         super.update();
-        if (this.finBH){
-            Tableau.current.Blackhole.descend();
-        }
-
-
     }
 
     /**
@@ -187,7 +181,6 @@ class Tableau extends Phaser.Scene{
                 Tableau.current.cameras.main.stopFollow(ici.player);
                 Tableau.current.cameras.main.pan(2000, 8000, 3000, 'Power2');
                 Tableau.current.cameras.main.zoomTo(0.05, 700);
-                this.finBH = true;
             }, 2000);
             this.boolReset3 = 0;
         }
