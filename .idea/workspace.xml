@@ -19,10 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dd5a153c-ac13-4bff-add4-ca49dca9723d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/assets/sounds/anta.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sounds/anta.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scenes/TableauTiled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/scenes/TableauTiled.js" afterDir="false" />
-    </list>
+    <list default="true" id="dd5a153c-ac13-4bff-add4-ca49dca9723d" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -144,6 +141,7 @@
       <workItem from="1622185676173" duration="27639000" />
       <workItem from="1622444878899" duration="18674000" />
       <workItem from="1622556262568" duration="6379000" />
+      <workItem from="1622703469653" duration="2761000" />
     </task>
     <servers />
   </component>

@@ -21,10 +21,10 @@ class Cristaux extends ObjetEnnemiSpike{
         this.setOffset(20, 0);
         this.setAngle(Math.random()*360);
 
-        this.point = scene.lights.addLight(this.x, this.y, 170, (255, 255, 255), 0);
-        this.point.color.r = 0.3;
-        this.point.color.g = 0.55;
-        this.point.color.b = 0.5;
+        this.point = scene.lights.addLight(this.x, this.y, 300, (255, 255, 255), 0);
+        this.point.color.r = 0.35;
+        this.point.color.g = 0.65;
+        this.point.color.b = 0.55;
 
     }
 }

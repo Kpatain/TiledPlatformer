@@ -52,6 +52,7 @@ class Tableau extends Phaser.Scene{
         this.oldDist = 0;
         this.canSnap= 1;
 
+        this.boolReset1 = 1;
         this.boolReset2 = 1;
         this.boolReset3 = 1;
         this.boolReset4 = 1;
@@ -167,15 +168,33 @@ class Tableau extends Phaser.Scene{
 
         if (this.boolReset3) {
             setTimeout(function () {
+                ici.player.emmiter.on = false;
                 ici.player.pointLight.intensity = 0;
                 ici.tweens.add({
                     targets: ici.player,
-                    alpha: 0,
                     duration: 1000,
-                    ease: 'Power2'
+                    ease: 'Power2',
+                    alpha:{
+                        from:1,
+                        to:0,
+                    }
                 }, ici);
             }, 2000);
             this.boolReset3 = 0;
+        }
+
+        if (this.boolReset1) {
+            setTimeout(function () {
+                Tableau.current.Blackhole.visible = false;
+                Tableau.current.cameras.main.stopFollow(ici.player);
+                Tableau.current.cameras.main.pan(2000, 8000, 700, 'Power2');
+                Tableau.current.cameras.main.zoomTo(0.05, 700);
+                setTimeout(function () {
+                    ici.cameras.main.fadeOut(1000,0,0,0);
+                }, 2000);
+                this.boolReset1 = 0;
+            }, 5000);
+            this.boolReset1 = 0;
         }
 
         if (this.boolReset4) {
@@ -190,7 +209,7 @@ class Tableau extends Phaser.Scene{
                 }, ici);
                 ici.scene.restart();
 
-            }, 5100);
+            }, 9100);
             this.boolReset4 = 0;
         }
 
