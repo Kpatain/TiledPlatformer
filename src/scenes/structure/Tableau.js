@@ -182,7 +182,7 @@ class Tableau extends Phaser.Scene{
                 }, ici);
                 Tableau.current.cameras.main.stopFollow(ici.player);
                 Tableau.current.cameras.main.pan(2000, 8000, 3000, 'Power2');
-                Tableau.current.cameras.main.zoomTo(0.05, 700);
+                Tableau.current.cameras.main.zoomTo(0.06, 1500);
                 ici.tweens.add({
                     targets: ui._textfin,
                     duration: 1000,

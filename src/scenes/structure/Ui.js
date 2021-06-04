@@ -11,7 +11,7 @@ class Ui extends Phaser.Scene{
     }
     create (){
 
-        this._textfin = this.add.text(this.sys.canvas.width/2, this.sys.canvas.height/5, ' ', {
+        this._textfin = this.add.text(this.sys.canvas.width/2.5, this.sys.canvas.height/5, ' ', {
             font:'24px "Odibee Sans"',
             align: 'center',
             fill: '#E3FFF2',
@@ -77,7 +77,7 @@ class Ui extends Phaser.Scene{
             "\n" +
             "\n" +
             " Merci à l'équipe pédagogique\n" +
-            "et au professeur de l'ETPA.\n" +
+            "et aux professeurs de l'ETPA.\n" +
             " Merci à mes camarades et amis\n" +
             "pour les nombreux conseils et tests.\n" +
             " - Juin 2021 - ");
