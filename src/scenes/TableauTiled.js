@@ -66,7 +66,7 @@ class TableauTiled extends Tableau{
         super.create();
         let ici =this;
         // console.log(myGame);
-
+        ui._textfin.alpha = 0;
         this.cameras.main.fadeIn(2000,0,0,0);
         this.cameras.main.setZoom(0.7);
         this.cameras.main.setRoundPixels(true);

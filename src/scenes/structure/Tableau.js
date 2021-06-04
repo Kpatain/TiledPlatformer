@@ -167,6 +167,8 @@ class Tableau extends Phaser.Scene{
 
         if (this.boolReset3) {
             setTimeout(function () {
+                ici.Blackhole.inMov = false;
+                ici.Blackhole.y = 20000;
                 ici.player.emmiter.on = false;
                 ici.player.pointLight.intensity = 0;
                 ici.tweens.add({
@@ -181,6 +183,16 @@ class Tableau extends Phaser.Scene{
                 Tableau.current.cameras.main.stopFollow(ici.player);
                 Tableau.current.cameras.main.pan(2000, 8000, 3000, 'Power2');
                 Tableau.current.cameras.main.zoomTo(0.05, 700);
+                ici.tweens.add({
+                    targets: ui._textfin,
+                    duration: 1000,
+                    ease: 'Power2',
+                    alpha:{
+                        from:0,
+                        to:1,
+                    }
+                }, ici);
+
             }, 2000);
             this.boolReset3 = 0;
         }
@@ -188,7 +200,17 @@ class Tableau extends Phaser.Scene{
         if (this.boolReset1) {
             setTimeout(function () {
                 ici.cameras.main.fadeOut(1000,0,0,0);
-            }, 7000);
+                ici.tweens.add({
+                    targets: ui._textfin,
+                    duration: 1000,
+                    ease: 'Power2',
+                    alpha:{
+                        from:1,
+                        to:0,
+                    }
+                }, ici);
+            }, 9000);
+
             this.boolReset1 = 0;
         }
 
@@ -204,7 +226,7 @@ class Tableau extends Phaser.Scene{
                 }, ici);
                 ici.scene.restart();
 
-            }, 9100);
+            }, 11100);
             this.boolReset4 = 0;
         }
 

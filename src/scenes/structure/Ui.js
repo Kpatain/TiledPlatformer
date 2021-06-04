@@ -10,47 +10,16 @@ class Ui extends Phaser.Scene{
         this.load.image('joystick', 'assets/joystick.png');
     }
     create (){
-        // console.log("create Ui")
 
-        this.score=0;
-        /**
-         * Le champ texte du score
-         * @type {Phaser.GameObjects.Text}
-         * @private
-         */
-        this._scoreText = this.add.text(16, 16, ' ', {
-            font:'32px "Arial Black"',
-            fill: '#7edfc1'
-        });
+        this._textfin = this.add.text(this.sys.canvas.width/2, this.sys.canvas.height/5, ' ', {
+            font:'24px "Odibee Sans"',
+            align: 'center',
+            fill: '#E3FFF2',
+        }).setAlpha(0);
 
-        /**
-         * Le champ texte avec la clé du tableau
-         * @type {Phaser.GameObjects.Text}
-         * @private
-         */
-        this._tableauText = this.add.text(this.sys.canvas.width-16, 16, ' ', {
-            font:'32px "Arial Black"',
-            align: 'right',
-            fill: '#7edfc1'
-        })
-
-        /**
-         * Le champ texte avec la classe du tableau
-         * @type {Phaser.GameObjects.Text}
-         * @private
-         */
-        this._tableauTextClass = this.add.text(this.sys.canvas.width-64, 16, ' ', {
-            font:'24px "Arial Black"',
-            align: 'right',
-            fill: '#34993D',
-        }).setAlpha(0.5)
-
-        this._tableauText.originX=1;
-        this._tableauTextClass.originX=1;
-
-        this._tableauTextClass.setInteractive();
-        this._tableauTextClass.on('pointerdown', function () {
-            localStorage.setItem('cP', (parseInt(localStorage.getItem('cP'))) - 1);
+        this._textfin.setInteractive();
+        this._textfin.on('pointerdown', function () {
+            window.open("https://github.com/RedDarkS/Platformer-organisation/blob/main/team.md",'_blank');
         })
 
         //met l'ui au dessus du tableau
@@ -100,20 +69,17 @@ class Ui extends Phaser.Scene{
      */
 
     update(){
-        if(Tableau.current){
-            if (localStorage.getItem('cP') >= 0)
-            {
-                //console.log("1");
-                this._tableauTextClass.setText("Planètes : " + (parseInt(localStorage.getItem('cP')) + 1).toString());
-            }
-            else
-            {
-                //console.log("0");
-                this._tableauTextClass.setText("Planètes : 0");
-            }
-        }
-
-
-
+        this._textfin.setText(
+            " Merci d'avoir joué à HEY BEAM! \n" +
+            " Vous venez de finir le premier niveau.\n" +
+            " Envie de continuer ? \n" +
+            " Cliquez ici !  \n" +
+            "\n" +
+            "\n" +
+            " Merci à l'équipe pédagogique\n" +
+            "et au professeur de l'ETPA.\n" +
+            " Merci à mes camarades et amis\n" +
+            "pour les nombreux conseils et tests.\n" +
+            " - Juin 2021 - ");
     }
 }
