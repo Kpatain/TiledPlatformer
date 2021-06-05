@@ -1300,7 +1300,7 @@
     <property name="numb" type="int" value="40"/>
    </properties>
   </object>
-  <object id="195" gid="1073741827" x="3520" y="7488" width="64" height="64" rotation="90">
+  <object id="195" gid="1073741827" x="3584" y="7360" width="64" height="64" rotation="90">
    <properties>
     <property name="numb" type="int" value="41"/>
    </properties>
