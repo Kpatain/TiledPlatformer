@@ -21,8 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="dd5a153c-ac13-4bff-add4-ca49dca9723d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tilemaps/tableauTiled2.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled2.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/tilemaps/tableauTiled2.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/tilemaps/tableauTiled2.tmx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TiledPlatformer.zip" beforeDir="false" afterPath="$PROJECT_DIR$/TiledPlatformer.zip" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +146,7 @@
       <workItem from="1622556262568" duration="6379000" />
       <workItem from="1622703469653" duration="6538000" />
       <workItem from="1622800642058" duration="5458000" />
-      <workItem from="1622880744232" duration="166000" />
+      <workItem from="1622880744232" duration="761000" />
     </task>
     <servers />
   </component>
